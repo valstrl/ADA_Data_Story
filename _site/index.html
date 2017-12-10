@@ -135,7 +135,35 @@
         </div>
     </section>
         <!-- Map Section -->
-    <div id="map"></div>
+    <!--<div id="map"></div>-->
+    <link href="css/map/map.css" rel="stylesheet" type="text/css">
+    <div id="tooltip" class="hidden">
+          <div id="selection">
+          <p><span id="title">Laden...</span></p>
+          <p><span id="value">Lade Nutzerdaten</span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#238b45" />
+              </svg> <span id="range3"></span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#41ab5d" />
+              </svg> <span id="range2"></span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#74c476" />
+              </svg> <span id="range1"></span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#a1d99b" />
+              </svg> <span id="range0"></span></p>
+          </div>
+  </div>
+      <div id="map" style="position: relative;"></div>
 
         <!-- Footer -->
     <footer>
@@ -153,10 +181,22 @@
     <!-- Plugin JavaScript -->
     <script src="/js/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="/js/grayscale.js"></script>
+
+    <!-- D3 -->
+    <script src="/js/d3.js"></script>
+
+    <!-- D3 geomap-->
+    <script src="/js/d3-geo.js"></script>
+
+    <!-- topojson -->
+    <script src="/js/topojson.js"></script>
+
+    <!-- Municipalities map javascript -->
+    <script src="/js/map_municipalities.js"></script>
+
+
+    
     </body>
 </html>
