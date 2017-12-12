@@ -136,13 +136,15 @@
     </section>
         <!-- Map Section -->
     <!--<div id="map"></div>-->
+    <div id="map" style="position: relative; overflow: hidden;" >
     <link href="css/map/map.css" rel="stylesheet" type="text/css">
-    <div id="tooltip" class="hidden">
-          <div id="selection">
-          <p><span id="title">Laden...</span></p>
-          <p><span id="value">Lade Nutzerdaten</span></p>
+
+    <div id="tooltip2" >
+          <div id="selection2">
+          <p><span id="title2" >Laden...</span></p>
+          <p><span id="value2">Lade Nutzerdaten</span></p>
           </div>
-          <div>
+          <!--<div>
               <p><svg width="10px" height="10px">
               <rect width="10" height="10" style="fill:#238b45" />
               </svg> <span id="range3"></span></p>
@@ -161,9 +163,10 @@
               <p><svg width="10px" height="10px">
               <rect width="10" height="10" style="fill:#a1d99b" />
               </svg> <span id="range0"></span></p>
-          </div>
+          </div>-->
   </div>
-      <div id="map" style="position: relative;"></div>
+  <div id="map2"></div>
+      </div>
 
         <!-- Footer -->
     <footer>
@@ -184,8 +187,20 @@
     <!-- Custom Theme JavaScript -->
     <script src="/js/grayscale.js"></script>
 
-    <!-- D3 -->
+    <!-- D3-->
     <script src="/js/d3.js"></script>
+
+    <!-- D3 -->
+    <script src="/js/d3.v3.min.js"></script>
+
+    <!-- D3 scale-->
+    <script src="/js/d3-scale.js"></script>
+
+    <!-- D3 scale chromatic-->
+    <script src="/js/d3-scale-chromatic.js"></script>
+
+    <!-- D3 scale chromatic min
+    <script src="/js/d3-scale-chromatic.min.js"></script>
 
     <!-- D3 geomap-->
     <script src="/js/d3-geo.js"></script>

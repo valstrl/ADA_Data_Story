@@ -1,11 +1,16 @@
-var m_width = $("#map").width(),
-    width = 938,
+ var width = 938,
     height = 500,
+    //m_width = $('#map').width(),
     //kantone, // Alle Kantone der Schweiz
     //bezirke, // Alle Bezirke der Schweiz
     gemeinden, // Alle Gemeinden der Scheiz
     //kanton, // Ausgewählter Kanton
     //bezirk, // Ausgewählter Bezitk
+    colorscale,
+    map_id,
+    m_width ,
+    svg,
+    g,
     dataset;
 
 //highlight when mouseover
@@ -14,9 +19,6 @@ var highlight = function() {
     .classed("highlighted", false);
 }
 
-//colorscale
-var color = d3.scale.quantize()
-.range(["#74c476","#41ab5d","#238b45"]);
 
 //projection
 var projection = d3.geo.conicConformal()
@@ -26,30 +28,11 @@ var projection = d3.geo.conicConformal()
 var path = d3.geo.path()
     .projection(projection);
 
-//SVG for map
-var svg = d3.select("#map").append("svg")
-    .attr("preserveAspectRatio", "xMidYMid")
-    .attr("viewBox", "0 0 " + width + " " + height)
-    .attr("width", m_width)
-    .attr("height", m_width * height / width);
 
-svg.append("rect")
-    .attr("class", "background")
-    .attr("width", width)
-    .attr("height", height)
-    //.on("click", move_up)
-    .on("mouseover", function() {
 
-            d3.select("#title").text("Select a canton");
-            d3.select("#value").text("Click on a canton to zoom on it and see its municipalities");
-
-    });
-
-//SVP group (cantons or municipalities)
-var g = svg.append("g");
-
+//colorscale=d3v4.interpolatePurples;
 //set color for value
-var get_place_color = function(d) {
+var get_place_color = function(d, colorscale) {
     //Get data value
     if (d.munip_votes) {
                             var value = d.munip_votes;
@@ -59,10 +42,10 @@ var get_place_color = function(d) {
                         }
     if (value ) {
             //If value exists…
-            return color(value); // color = color scale
+            return colorscale(value/100); // color = color scale
     } else {
             //If value is undefined…
-            return "#a1d99b";
+            return "#99999F";
     }
 };
 
@@ -85,13 +68,13 @@ var name;
   else if(d.properties.GMDNAME) {
     name = d.properties.GMDNAME;
   }
-  d3.select("#title").text(name);
-  d3.select("#value").text(" Value:" +value );
+  d3.select("#title2").text(name);
+  d3.select("#value2").text(" Value:" +value );
 
 }
 
 //set max and min of value to a color to generate a color domain
-function set_colordomain(d) {
+/*function set_colordomain(d) {
     color.domain([
                     d3.min(d, function(d) {
                         if (d.munip_votes) {
@@ -114,7 +97,7 @@ function set_colordomain(d) {
     d3.select("#range1").text("0 - "+Math.round(color.invertExtent("#74c476")[1]));
     d3.select("#range2").text(Math.round(color.invertExtent("#41ab5d")[1])+" - "+Math.round(color.invertExtent("#41ab5d")[1]));
     d3.select("#range3").text(Math.round(color.invertExtent("#238b45")[1])+" - "+Math.round(color.invertExtent("#238b45")[1]));
-}
+}*/
 
 
 function zoom(xyz) {
@@ -154,8 +137,33 @@ function start_demo() {
 
         	});
 
+  console.log('id');
+  console.log(map_id);
+  //set_colordomain(gemeinden);
 
-  set_colordomain(gemeinden);
+  m_width = $(map_id).width();
+  //SVG for map
+  svg = d3.select(map_id).append("svg")
+      .attr("preserveAspectRatio", "xMidYMid")
+      .attr("viewBox", "0 0 " + width + " " + height)
+      .attr("width", m_width)
+      .attr("height", m_width * height / width);
+
+  svg.append("rect")
+      .attr("class", "background")
+      .attr("width", width)
+      .attr("height", height)
+      //.on("click", move_up)
+      .on("mouseover", function() {
+
+              d3.select("#title2").text("Select a canton");
+              d3.select("#value2").text("Click on a canton to zoom on it and see its municipalities");
+
+      });
+
+  //SVP group (cantons or municipalities)
+  g = svg.append("g");
+
 
   g.append("g")
     .attr("id", "gemeinden")
@@ -166,7 +174,7 @@ function start_demo() {
     .attr("id", function(d) { return d.id; })
     .attr("class", "gemeinde")
     .attr("d", path)
-    .attr("fill", get_place_color)
+    .attr("fill", function(d) {return get_place_color(d,colorscale);})
     //.on("click", kanton_clicked_gemeinden)
   .on("mouseover", update_info)
   .on("mouseout", highlight);
@@ -182,25 +190,30 @@ function start_demo() {
 };
 
 $(window).resize(function() {
-  var w = $("#map").width();
+  var w = $(map_id).width();
   svg.attr("width", w);
   svg.attr("height", w * height / width);
 });
 
-d3.csv("data/votes/SVP_UDC.csv", function(data) {
 
-dataset = data;
-            d3.select("#value").text("Load municipalities");
+function map_labels(topojson_path,data_csv_path, colorscale_function, div_id){
+  d3.csv(data_csv_path, function(data) {
 
-            // Lade Gemeinden
-            d3.json("data/topojson/gemeinden.topo.json", function(error, json) {
-                  gemeinden = topojson.feature(json, json.objects.gemeinden).features;
+  dataset = data;
+              d3.select("#value2").text("Load municipalities");
 
-                  d3.select("#title").text("Select a canton");
-                  d3.select("#value").text("Click on a canton to zoom on it and see its municipalities");
-                  //Starte die Demonstration
-                  start_demo();
-              });
+              // Lade Gemeinden
+              d3.json(topojson_path, function(error, json) {
+                    gemeinden = topojson.feature(json, json.objects.gemeinden).features;
 
+                    d3.select("#title2").text("Select a canton");
+                    d3.select("#value2").text("Click on a canton to zoom on it and see its municipalities");
+                    //Starte die Demonstration
+                    colorscale=colorscale_function;
+                    map_id=div_id;
+                    start_demo();
+                });
+})
+}
 
-});
+map_labels("data/topojson/gemeinden.topo.json","data/votes/SVP_UDC.csv", d3v4.interpolatePurples, "#map2");
