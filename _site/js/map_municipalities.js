@@ -102,13 +102,15 @@ var name;
 
 function zoom(xyz) {
 g.selectAll([ "#gemeinden"])
-    .style("stroke-width", 1.0 / xyz[2] + "px");
+      //.style("stroke-width",(d)=>{return '1';});
+      .style("stroke-width", 0.5 / xyz[2] + "px");
 
   g.transition()
     .duration(750)
     .attr("transform", "translate(" + projection.translate() + ")scale(" + xyz[2] + ")translate(-" + xyz[0] + ",-" + xyz[1] + ")")
     .selectAll([ "#gemeinden"])
-    .style("stroke-width", 1.0 / xyz[2] + "px")
+    //.style("stroke-width",(d)=>{return '1';})
+    .style("stroke-width", 0.5 / xyz[2] + "px")
     .selectAll(".gemeinde")
     .attr("d", path.pointRadius(20.0 / xyz[2]));
 }
