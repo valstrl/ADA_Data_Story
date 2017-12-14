@@ -14,6 +14,7 @@
     title_text,
     value_text,
     selectValue,
+    start,
     dataset;
 
 //highlight when mouseover
@@ -31,15 +32,9 @@ var projection = d3.geo.conicConformal()
 var path = d3.geo.path()
     .projection(projection);
 
-
-
-
-
 //colorscale=d3v4.interpolatePurples;
 //set color for value
 var get_place_color = function(d, colorscale) {
-
-
     //Get data value
     if (d.munip_votes) {
                             var value = d.munip_votes;
@@ -89,7 +84,7 @@ var name;
 }
 
 
-function zoom(xyz) {
+function zoom_start(xyz) {
 
 console.log("hello");
 console.log(g);
@@ -100,7 +95,7 @@ g.selectAll([ "#gemeinden"])
 
   g.transition()
     .duration(750)
-    .attr("transform", "translate(" + projection.translate() + ")scale(" + xyz[2] + ")translate(-" + xyz[0] + ",-" + xyz[1] + ")")
+    .attr("transform", "translate(" + projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
     .selectAll([ "#gemeinden"])
     //.style("stroke-width",(d)=>{return '1';})
     .style("stroke-width", 0.5 / xyz[2] + "px")
@@ -141,18 +136,33 @@ function start_demo() {
 
   //set_colordomain(gemeinden);
 
-  /*var zoom = d3.behavior.zoom()
-    //.scale(50)
-    /*.translate([0,0])
-    .scaleExtent([50, 200])
-    .on("zoom", zoomed);*/
+  var zoom = d3.behavior.zoom()
+    //.scale(1)
+    //.translate([0,0])
+    .scaleExtent([1, 10])
+    .on("zoom", zoomed);
 
-/*function zoomed() {
+function zoomed() {
     /*console.log("hello");
     g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-    g.select("gemeinde").style("stroke-width", 1.5 / d3.event.scale + "px");
+    g.select("gemeinde").style("stroke-width", 1.5 / d3.event.scale + "px");*/
+    g.selectAll([ "#gemeinden"])
+          //.style("stroke-width",(d)=>{return '1';});
+          .style("stroke-width", 0.5 / start[2] + "px");
+    console.log("start");
+    console.log(start[0]);
+    console.log(0.95*start[0]);
+    var test_x=0.988*start[0];
+    test_x=String(test_x);
+    var test_y=0.982*start[1];
+    test_y=String(test_y);
+    g.attr("transform", "translate(" + d3.event.translate  + ")" +  "scale(" + start[2]*d3.event.scale +  ")" +"translate(-" + test_x + ",-" + test_y + ")" )
+      .selectAll([ "#gemeinden"])
+      .style("stroke-width", 0.5 / start[2] + "px")
+      .selectAll(".gemeinde")
+      .attr("d", path.pointRadius(20.0 / start[2]));
 
-  }*/
+  }
 
   m_width = $(map_id).width();
   //SVG for map
@@ -161,8 +171,8 @@ function start_demo() {
       .attr("viewBox", "0 0 " + width + " " + height)
       .attr("width", m_width)
       .attr("height", m_width * height / width)
-      .attr("id","map");
-      //.call(zoom);
+      .attr("id","map")
+      .call(zoom);
 
       svg.append("rect")
           .attr("class", "background")
@@ -193,7 +203,7 @@ function start_demo() {
 
       d3.json("data/topojson/start.json", function(error, json) {
       start = get_xyz((json.features)[0]);
-      zoom(start);
+      zoom_start(start);
 
         });
 
