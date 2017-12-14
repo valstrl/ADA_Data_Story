@@ -49,7 +49,12 @@ var get_place_color = function(d, colorscale) {
                         }
     if (value ) {
             //If value exists…
+            if(value == -1){
+              return 'blue';
+            }
+            else{
             return colorscale(value/100); // color = color scale
+          }
 
     } else {
             //If value is undefined…
@@ -127,6 +132,9 @@ function start_demo() {
               /*console.log("selectValue");
               console.log(selectValue);*/
         		d.munip_votes = munip_data[0][selectValue];
+          }
+          else{
+            d.munip_votes = -1;
           }
 
         	});
