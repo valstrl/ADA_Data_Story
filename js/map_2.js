@@ -26,11 +26,19 @@ class Map2 {
       this.path= d3.geo.path()
          .projection(this.projection);
 
+      this.scales = {};
+
+     thisscales.quantize = d3.scale.quantize()
+         .domain([0, .15])
+         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
      $(window).resize(function() {
       var w = $(this.map_id).width();
       svg.attr("width", w);
       svg.attr("height", w * this.height / this.width);
      })
+
+
     }
 
     //highlight when mouseover
@@ -54,6 +62,7 @@ class Map2 {
                  return '#B7E1F3';
                }
                else{
+                attr("class", function(d) { return scales[s](rateById[d.id]);
                return colorscale(value/100); // color = color scale
              }
 
@@ -198,9 +207,21 @@ class Map2 {
       this.selectValue=parties[0];
 
        function onchange() {
-         this.selectValue = d3.select('select').property('value')
-         d3.selectAll(div_id).selectAll(".map").select("svg").remove();
-         //g.selectAll( "#gemeinden").remove();
+         var rateById = {};
+
+         this.selectValue = d3.select('select').property('value');
+
+         var i =0;
+         data.forEach(function(d) { rateById[i] = +d[this.selectValue];  i=i+1;});
+
+         this.scales.jenks9 = d3.scale.threshold()
+          .domain(ss.jenks(data.map(function(d) { return +d[this.selectValue]; }), 9))
+          .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+        console.log("jenks");
+        console.log(this.scales.jenks9);
+
+
+        d3.selectAll(div_id).selectAll(".map").select("svg").remove();
          this.start_demo();
        };
 
