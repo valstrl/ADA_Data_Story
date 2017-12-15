@@ -25,7 +25,7 @@
 
 </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-        <!-- Intro Header -->
+      <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body">
             <div class="container">
@@ -42,7 +42,58 @@
         </div>
     </header>
 
-	
+  <!-- Map Section -->
+<!--<div id="map"></div>-->
+<div id="map_spectral" class="map_container" style="position: relative; overflow: hidden;" >
+<link href="css/map/map.css" rel="stylesheet" type="text/css">
+<div class="tooltip_map" >
+      <div class="selection_map" class="container">
+      <p><span class="title_map" >Laden...</span></p>
+      <p><span class="value_map"></span></p>
+    </div>
+
+</div>
+<div class= "map"></div>
+</div>
+
+      <!-- Map Section -->
+    <!--<div id="map"></div>-->
+    <div id="map_score" clas="map_container" style="position: relative; overflow: hidden;" >
+    <link href="css/map/map.css" rel="stylesheet" type="text/css">
+    <select></select>
+    <div class="tooltip_map" >
+          <div class="selection_map" class="container">
+          <p><span class="title_map" >Laden...</span></p>
+          <p><span class="value_map">Lade Nutzerdaten</span></p>
+        </div>
+
+          <!--<div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#238b45" />
+              </svg> <span id="range3"></span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#41ab5d" />
+              </svg> <span id="range2"></span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#74c476" />
+              </svg> <span id="range1"></span></p>
+          </div>
+          <div>
+              <p><svg width="10px" height="10px">
+              <rect width="10" height="10" style="fill:#a1d99b" />
+              </svg> <span id="range0"></span></p>
+          </div>-->
+  </div>
+  <div class="legend">
+  <svg class="legend_svg"></svg>
+  </div>
+  <div class="map"></div>
+</div>
+
 	<section class="container content-section text-center">
   <div class="post-content">
     <h2 id="abstract">Abstract</h2>
@@ -122,23 +173,7 @@
 
   </div>
 </section>
-	
-    <!-- Map Section -->
-<!--<div id="map"></div>-->
-<div id="map_spectral" class="map_container" style="position: relative; overflow: hidden;" >
-<link href="css/map/map.css" rel="stylesheet" type="text/css">
-<div class="tooltip" >
-      <div id="selection" class="container">
-      <p><span class="title" >Laden...</span></p>
-      <p><span class="value">Lade Nutzerdaten</span></p>
-    </div>
-
-</div>
-<div class= "map"></div>
-</div>
-
-
-    <footer>
+  <footer>
   <div  class="download-section" >
       <div class="container">
           <div class="col-lg-8 col-lg-offset-2">
@@ -201,6 +236,9 @@
 
     <!-- Municipalities map javascript-->
     <script src="/js/map.js"></script>
+
+    <!-- Municipalities map javascript-->
+    <script src="/js/map_2.js"></script>
 
     <!-- Municipalities map javascript
     <script src="/js/map_score.js"></script>

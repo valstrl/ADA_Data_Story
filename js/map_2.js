@@ -1,7 +1,7 @@
 
 
 
-class Map {
+class Map2 {
     constructor() {
        this.width = 938,
        this.height = 500,
@@ -12,6 +12,8 @@ class Map {
        this.svg,
        this.g,
        this.title_text,
+       this.value_text,
+       this.selectValue,
        this.start,
        this.projection,
        this.dataset;
@@ -52,7 +54,7 @@ class Map {
                  return '#B7E1F3';
                }
                else{
-               return colorscale[value]; // color = color scale
+               return colorscale(value/100); // color = color scale
              }
 
        } else {
@@ -82,8 +84,9 @@ class Map {
        }
 
 
-       //d3.selectAll(this.map_id).select(".title").text(name);
-       d3.selectAll(this.map_id).select(".value_map").text(name);
+        d3.selectAll(this.map_id).select(".title_map").text(name);
+
+        d3.selectAll(this.map_id).select(".value_map").text(this.value_text + value + "%");
 
    }
 
@@ -118,13 +121,13 @@ class Map {
     this.gemeinden.forEach(function(d) {
                   var munip_data = this.dataset.filter( function(data) {
 
-                      return data.Name == d.properties.GMDNAME;
+                      return data.commune == d.properties.GMDNAME;
                   });
 
               if(munip_data[0] != undefined){
                 /*console.log("selectValue");
                 console.log(selectValue);*/
-              d.munip_votes = munip_data[0].Label;
+              d.munip_votes =  munip_data[0][this.selectValue];
             }
             else{
               d.munip_votes = -1;
@@ -147,8 +150,9 @@ class Map {
         .attr("width", this.width)
         .attr("height", this.height)
         .on("mouseover", function() {
-                d3.selectAll(this.map_id).select(".title_map").text(this.title_text);
-                d3.selectAll(this.map_id).select(".value_map").text("");
+                d3.selectAll(this.map_id).select(".title_map").text(this.title_text + this.selectValue);
+                d3.selectAll(this.map_id).select(".value_map").text("Mouseover a municipality to see its exact score");
+
         }.bind(this));
 
     //SVP group (cantons or municipalities)
@@ -177,9 +181,29 @@ class Map {
 };
 
 
-  map_labels(topojson_path,data_csv_path, colorscale_array, div_id, title_){
+  map_scores(topojson_path,data_csv_path, colorscale, div_id, title_, value_){
+
    //d3.csv(data_csv_path, function(data) {
      d3.csv(data_csv_path, function(data){
+       var parties = ["BDP/PBD","CSP/PCS","CVP/PDC","EVP/PEV","FDP/PLR (PRD)","GLP/PVL","PdA/PST","SP/PS","SVP/UDC","EDU/UDF","GPS/PES","Lega","MCR","SD/DS","Sol.","Ãœbrige/Autres"];
+
+       var select = d3.selectAll(div_id).select('select')
+                   .on('change',onchange.bind(this));
+
+       var options = select
+         .selectAll('option')
+         .data(parties).enter()
+         .append('option')
+           .text(function (d) { return d; });
+      this.selectValue=parties[0];
+
+       function onchange() {
+         this.selectValue = d3.select('select').property('value')
+         d3.selectAll(div_id).selectAll(".map").select("svg").remove();
+         //g.selectAll( "#gemeinden").remove();
+         this.start_demo();
+       };
+
          this.dataset = data;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
 
@@ -187,18 +211,21 @@ class Map {
                d3.json(topojson_path, function(error, json) {
                      this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;
                      this.title_text=title_;
+                     this.value_text=value_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
+                     d3.select(div_id).select(".value_map").text(this.value_text);
                      console.log(d3.select(div_id).select(".title_map"));
                      //Starte die Demonstration
-                     this.colorscale=colorscale_array;
+                     this.colorscale=colorscale;
                      this.map_id=div_id;
                      this.start_demo();
                  }.bind(this))
+
 
       }.bind(this))
  }
 
 }
 
-var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering");
+var mapScore= new Map2();
+mapScore.map_scores("data/topojson/gemeinden.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","Results of National Council for ","Score: ");

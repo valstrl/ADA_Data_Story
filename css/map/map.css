@@ -28,7 +28,7 @@ pre.prettyprint {
   	margin-bottom: 0;
   	padding: 9.5px;
 }
-.tooltip {
+.tooltip_map {
     position: absolute;
     width: 120px;
     height: auto;
@@ -61,7 +61,7 @@ pre.prettyprint {
 
 }
 
-.tooltip p {
+.tooltip_map p {
     margin: 0;
     font-family: sans-serif;
     font-size: 12px;
@@ -72,14 +72,14 @@ pre.prettyprint {
 .highlighted {
 	fill: rgb(155,140,140);
 }
-.title {
+.title_map {
 	font-size: 16px;
 }
-.selection {
+.selection-map {
 	min-height:48px;
 	margin-bottom: 5px;
 	/*border-bottom: 1px solid #ccc;*/
 }
-.value {
+.value_map {
 	font-size: 10pt;
 }
