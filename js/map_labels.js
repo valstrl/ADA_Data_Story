@@ -271,5 +271,4 @@ function map_labels(topojson_path,data_csv_path, colorscale_array, div_id, title
 }
 
 
-
 map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering ");
