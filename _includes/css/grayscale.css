@@ -9,7 +9,7 @@ body {
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    background-color: {{ site.color.primary-dark }};
+    background-color: #373737 /*{{ site.color.primary-dark }}*/;
 }
 
 html {
@@ -137,7 +137,7 @@ a:focus {
     height: auto;
     padding: 100px 0;
     text-align: center;
-    color: #fff;
+    color: #F4F4F4;
     background: url(/img/intro-bg.jpg) no-repeat bottom center scroll;
     background-color: {{ site.color.primary-dark }};
     -webkit-background-size: cover;
@@ -166,7 +166,7 @@ a:focus {
     }
 
     .intro .intro-body .brand-heading {
-        font-size: 100px;
+        font-size: 70px;
     }
 
     .intro .intro-body .intro-text {
@@ -179,10 +179,10 @@ a:focus {
     height: 70px;
     margin-top: 15px;
     padding: 7px 16px;
-    border: 2px solid #fff;
+    border: 2px solid #F4F4F4;
     border-radius: 35px;
     font-size: 40px;
-    color: #fff;
+    color: #F4F4F4 ;
     background: 0 0;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
@@ -192,7 +192,7 @@ a:focus {
 .btn-circle:hover,
 .btn-circle:focus {
     outline: 0;
-    color: #fff;
+    color: #F4F4F4;
     background: rgba(255,255,255,.1);
 }
 
@@ -255,7 +255,7 @@ a:focus {
 .download-section {
     width: 100%;
     padding: 50px 0;
-    color: #fff;
+    color: #F4F4F4;
     background: url(/img/downloads-bg.jpg) no-repeat center center scroll;
     background-color: {{ site.color.primary-dark }};
     -webkit-background-size: cover;
@@ -264,7 +264,7 @@ a:focus {
     -o-background-size: cover;
 }
 
-#map {
+.map_container {
     width: 100%;
     height: 200px;
     margin-top: 100px;
@@ -279,7 +279,7 @@ a:focus {
         padding: 100px 0;
     }
 
-    #map {
+    .map_container {
         height: auto;
         margin-top: 0;
     }
