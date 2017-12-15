@@ -174,8 +174,6 @@ function start_demo() {
    .on("zoom", zoomed);
 
 function zoomed() {
-  console.log("hello from zoomed");
-
    /*console.log("hello");
    g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
    g.select("gemeinde").style("stroke-width", 1.5 / d3.event.scale + "px");*/
