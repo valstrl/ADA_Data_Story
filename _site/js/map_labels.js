@@ -174,6 +174,8 @@ function start_demo() {
    .on("zoom", zoomed);
 
 function zoomed() {
+  console.log("hello from zoomed");
+
    /*console.log("hello");
    g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
    g.select("gemeinde").style("stroke-width", 1.5 / d3.event.scale + "px");*/
@@ -269,7 +271,6 @@ function map_labels(topojson_path,data_csv_path, colorscale_array, div_id, title
 
 })
 }
-
 
 
 map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering ");
