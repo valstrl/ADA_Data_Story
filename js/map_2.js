@@ -14,6 +14,8 @@ class Map2 {
        this.title_text,
        this.value_text,
        this.selectValue,
+       this.color_bins,
+       this.bins
        this.start,
        this.projection,
        this.dataset;
@@ -26,16 +28,16 @@ class Map2 {
       this.path= d3.geo.path()
          .projection(this.projection);
 
-      this.scales = {};
+      this.jenks9 = {};
 
-     thisscales.quantize = d3.scale.quantize()
+     /*this.scales.quantize = d3.scale.quantize()
          .domain([0, .15])
-         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));*/
 
      $(window).resize(function() {
       var w = $(this.map_id).width();
-      svg.attr("width", w);
-      svg.attr("height", w * this.height / this.width);
+      this.svg.attr("width", w);
+      this.svg.attr("height", w * this.height / this.width);
      })
 
 
@@ -62,8 +64,13 @@ class Map2 {
                  return '#B7E1F3';
                }
                else{
-                attr("class", function(d) { return scales[s](rateById[d.id]);
-               return colorscale(value/100); // color = color scale
+                 /*console.log("get place color");
+                 console.log(this);
+                 console.log(this.jenks9);*/
+
+               //return colorscale(value/100); // color = color scale
+
+               return this.jenks9(value/100);
              }
 
        } else {
@@ -181,6 +188,7 @@ class Map2 {
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
+    this.addLegend();
 
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
@@ -189,11 +197,62 @@ class Map2 {
 
 };
 
+addLegend(){
+
+  //Draw the rectangle and fill with gradient
+
+  d3.selectAll(this.map_id).select(".legend_svg").append("g")
+    .attr("class", "legend_rect")
+    //.style("position", "relative")
+    .style("z-index", "10")
+    .selectAll("rect")
+    .data(this.bins)
+    .enter()
+    .append("rect")
+    .attr("class", "bins")
+    .attr("x",function(d){return d*100 + "%";})
+    .style("height", "50%")
+    .style("width", function(d,i){
+      var w = this.bins[i + 1]-this.bins[i];
+      console.log(w*100);
+      return w*100 + "%";}.bind(this))
+    .style("fill",function(d,i) {
+      return this.color_bins[i];}.bind(this))
+
+  d3.selectAll(this.map_id).select(".legend_svg").select("g")
+    .append("rect")
+    .attr("class", "bins")
+    .attr("x", this.bins[this.bins.length-1]*100 + "%")
+    .style("height", "50%")
+    .style("width", function(d){
+      var w = 1-this.bins[this.bins.length-1];
+      console.log(w*100);
+      return w*100 + "%";}.bind(this))
+    .style("fill",function(d) {
+      return this.color_bins[this.bins.length-1];}.bind(this))
+
+  }
+
+  JenksBins(data){
+
+    var jenks_range=[...Array(10).keys()];
+    this.color_bins=jenks_range.map(function(d){ return this.colorscale(d/10);}.bind(this));
+    this.bins=ss.jenks(data.map(function(d) { return +d[this.selectValue]/100; }.bind(this)), 9);
+    this.bins[this.bins.length-1]=this.bins[this.bins.length-1] + 0.0001;
+
+    this.jenks9 = d3.scale.threshold()
+     .domain(this.bins)
+     .range(this.color_bins);
+  }
+
 
   map_scores(topojson_path,data_csv_path, colorscale, div_id, title_, value_){
 
+    this.colorscale=colorscale;
+    this.map_id=div_id;
    //d3.csv(data_csv_path, function(data) {
      d3.csv(data_csv_path, function(data){
+       console.log("hello");
        var parties = ["BDP/PBD","CSP/PCS","CVP/PDC","EVP/PEV","FDP/PLR (PRD)","GLP/PVL","PdA/PST","SP/PS","SVP/UDC","EDU/UDF","GPS/PES","Lega","MCR","SD/DS","Sol.","Ãœbrige/Autres"];
 
        var select = d3.selectAll(div_id).select('select')
@@ -204,25 +263,19 @@ class Map2 {
          .data(parties).enter()
          .append('option')
            .text(function (d) { return d; });
+
       this.selectValue=parties[0];
+      this.JenksBins(data);
 
        function onchange() {
-         var rateById = {};
-
-         this.selectValue = d3.select('select').property('value');
-
-         var i =0;
-         data.forEach(function(d) { rateById[i] = +d[this.selectValue];  i=i+1;});
-
-         this.scales.jenks9 = d3.scale.threshold()
-          .domain(ss.jenks(data.map(function(d) { return +d[this.selectValue]; }), 9))
-          .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
-        console.log("jenks");
-        console.log(this.scales.jenks9);
-
+        this.selectValue = d3.selectAll(div_id).select('select').property('value');;
+        this.JenksBins(data);
 
         d3.selectAll(div_id).selectAll(".map").select("svg").remove();
-         this.start_demo();
+        d3.selectAll(div_id).selectAll(".legend").select("g").remove();
+
+        this.start_demo();
+
        };
 
          this.dataset = data;
@@ -235,10 +288,9 @@ class Map2 {
                      this.value_text=value_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text(this.value_text);
-                     console.log(d3.select(div_id).select(".title_map"));
                      //Starte die Demonstration
-                     this.colorscale=colorscale;
-                     this.map_id=div_id;
+                     //this.colorscale=colorscale;
+                     //this.map_id=div_id;
                      this.start_demo();
                  }.bind(this))
 
