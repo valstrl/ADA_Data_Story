@@ -84,6 +84,10 @@ class Map {
 
        //d3.selectAll(this.map_id).select(".title").text(name);
        d3.selectAll(this.map_id).select(".value_map").text(name);
+       console.log("map");
+       console.log(d3.selectAll(this.map_id));
+       console.log(d3.selectAll(this.map_id).select(".value_map"));
+
 
    }
 
@@ -122,8 +126,6 @@ class Map {
                   });
 
               if(munip_data[0] != undefined){
-                /*console.log("selectValue");
-                console.log(selectValue);*/
               d.munip_votes = munip_data[0].Label;
             }
             else{
@@ -188,7 +190,6 @@ class Map {
                      this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
-                     console.log(d3.select(div_id).select(".title_map"));
                      //Starte die Demonstration
                      this.colorscale=colorscale_array;
                      this.map_id=div_id;

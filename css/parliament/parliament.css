@@ -1,0 +1,24 @@
+
+
+/* Swiss parliament colors */
+svg .seat.BDP\/PBD { fill: #FFFF00 }/*done*/
+svg .seat.CSP\/PCS{ fill: #E2563B }/*done*/
+svg .seat.CVP\/PDC { fill: #FE9A2E }/*done*/
+svg .seat.EVP\/PEV { fill: #FFD735 }/*done*/
+svg .seat.FDP\/PLR\/\(PRD\){ fill: #0174DF } /*done*/
+svg .seat.GLP\/PVL { fill: #9AFE2E }/*done*/
+svg .seat.PdA\/PST { fill: #40E0D0 }
+svg .seat.SP\/PS { fill: #FA1360 }/*done*/
+/* French parliament colors */
+svg .seat.SVP\/UDC{ fill: #088A4B; } /*done*/
+svg .seat.EDU\/UDF { fill: #32CD32; }
+svg .seat.GPS\/PES { fill: #01DF01; }/*done*/
+svg .seat.Lega { fill: #0B3861; }/*done*/
+svg .seat.MCR{ fill: #4C6099; }
+svg .seat.Sol\.{ fill: #4C6080; }
+svg .seat.\\u00dcbrige\/Autres{ fill: #CCCCCC; }
+svg .seat.SD\/DS{ fill: #FA1360; }/*done*/
+
+/* common */
+svg .seat.vacant { fill: #FFFFFF }
+svg .seat.no-party { fill: #909090; }

@@ -64,9 +64,7 @@ class Map2 {
                  return '#B7E1F3';
                }
                else{
-                 /*console.log("get place color");
-                 console.log(this);
-                 console.log(this.jenks9);*/
+
 
                //return colorscale(value/100); // color = color scale
 
@@ -141,8 +139,6 @@ class Map2 {
                   });
 
               if(munip_data[0] != undefined){
-                /*console.log("selectValue");
-                console.log(selectValue);*/
               d.munip_votes =  munip_data[0][this.selectValue];
             }
             else{
