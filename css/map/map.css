@@ -30,7 +30,7 @@ pre.prettyprint {
 }
 .tooltip_map {
     position: absolute;
-    width: 120px;
+    width: 450px;
     height: auto;
     padding: 10px;
     pointer-events: none;
@@ -40,7 +40,7 @@ pre.prettyprint {
     position: absolute;
     top: 90%;
     left:15%;
-    width: 900px;
+    width: 940px;
     height: 40px;
     /*padding: 20px;
     pointer-events: none;*/
@@ -55,7 +55,7 @@ pre.prettyprint {
 }
 
 .legend_rect{
-    width: 100%;
+    width: 900px;
     height: 50%;
 
 

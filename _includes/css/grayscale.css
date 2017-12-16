@@ -8,7 +8,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #fff;
+    color: #F4F4F4;
     background-color: #373737 /*{{ site.color.primary-dark }}*/;
 }
 

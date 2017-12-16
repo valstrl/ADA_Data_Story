@@ -200,7 +200,6 @@ class Map2 {
 addLegend(){
 
   //Draw the rectangle and fill with gradient
-
   d3.selectAll(this.map_id).select(".legend_svg").append("g")
     .attr("class", "legend_rect")
     //.style("position", "relative")
@@ -210,26 +209,53 @@ addLegend(){
     .enter()
     .append("rect")
     .attr("class", "bins")
-    .attr("x",function(d){return d*100 + "%";})
+    .attr("x",function(d){return d*900 + "px";})
     .style("height", "50%")
     .style("width", function(d,i){
       var w = this.bins[i + 1]-this.bins[i];
-      console.log(w*100);
-      return w*100 + "%";}.bind(this))
+      return w*900 + "px";}.bind(this))
     .style("fill",function(d,i) {
       return this.color_bins[i];}.bind(this))
 
   d3.selectAll(this.map_id).select(".legend_svg").select("g")
     .append("rect")
     .attr("class", "bins")
-    .attr("x", this.bins[this.bins.length-1]*100 + "%")
+    .attr("x", this.bins[this.bins.length-1]*900 + "px")
     .style("height", "50%")
     .style("width", function(d){
       var w = 1-this.bins[this.bins.length-1];
-      console.log(w*100);
-      return w*100 + "%";}.bind(this))
+      return w*900 + "px";}.bind(this))
     .style("fill",function(d) {
       return this.color_bins[this.bins.length-1];}.bind(this))
+
+    //Set scale for x-axis
+    var xScale = d3.scale.linear()
+    	 .range([0, 900])
+    	 .domain([0,100] );
+
+    //Define x-axis
+    var xAxis = d3.svg.axis()
+    	  .orient("bottom")
+    	  .ticks(10)
+    	  .tickFormat(function(d) { return d + "%"; })
+    	  .scale(xScale);
+
+    //Set up X axis
+    d3.selectAll(this.map_id).select(".legend_svg").append("g")
+    	.attr("class", "axis")
+    	.attr("transform", "translate(0," + (20) + ")")
+    	.call(xAxis);
+
+    d3.selectAll(this.map_id).select(".legend_svg").select(".axis").select("path").remove();
+
+    d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll("text")
+    .style("fill","#F4F4F4")
+    .style("text-anchor","start");
+
+    d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll(".tick").select("line")
+    .attr("stroke-width", "1px")
+    .attr("stroke","#F4F4F4");
+
 
   }
 
@@ -252,7 +278,7 @@ addLegend(){
     this.map_id=div_id;
    //d3.csv(data_csv_path, function(data) {
      d3.csv(data_csv_path, function(data){
-       console.log("hello");
+
        var parties = ["BDP/PBD","CSP/PCS","CVP/PDC","EVP/PEV","FDP/PLR (PRD)","GLP/PVL","PdA/PST","SP/PS","SVP/UDC","EDU/UDF","GPS/PES","Lega","MCR","SD/DS","Sol.","Ãœbrige/Autres"];
 
        var select = d3.selectAll(div_id).select('select')
@@ -272,7 +298,7 @@ addLegend(){
         this.JenksBins(data);
 
         d3.selectAll(div_id).selectAll(".map").select("svg").remove();
-        d3.selectAll(div_id).selectAll(".legend").select("g").remove();
+        d3.selectAll(div_id).selectAll(".legend").selectAll("g").remove();
 
         this.start_demo();
 
@@ -301,4 +327,4 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","Results of National Council for ","Score: ");
+mapScore.map_scores("data/topojson/gemeinden.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","Results of the 2015 National Council Election for ","Score: ");
