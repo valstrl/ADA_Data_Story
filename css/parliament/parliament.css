@@ -11,13 +11,13 @@ svg .seat.PdA\/PST { fill: #40E0D0 }
 svg .seat.SP\/PS { fill: #FA1360 }/*done*/
 /* French parliament colors */
 svg .seat.SVP\/UDC{ fill: #088A4B; } /*done*/
-svg .seat.EDU\/UDF { fill: #32CD32; }
+svg .seat.EDU\/UDF { fill: #002395; }
 svg .seat.GPS\/PES { fill: #01DF01; }/*done*/
 svg .seat.Lega { fill: #0B3861; }/*done*/
 svg .seat.MCR{ fill: #4C6099; }
 svg .seat.Sol\.{ fill: #4C6080; }
 svg .seat.\\u00dcbrige\/Autres{ fill: #CCCCCC; }
-svg .seat.SD\/DS{ fill: #FA1360; }/*done*/
+svg .seat.SD\/DS{ fill: #FF0000; }/*done*/
 
 /* common */
 svg .seat.vacant { fill: #FFFFFF }

@@ -93,21 +93,30 @@ d3.parliament = function() {
                 var partyIndex = 0;
                 var seatIndex = 0;
                 seats.forEach(function(s) {
-                    /* get current party and go to the next one if it has all its seats filled */
+                    //For each seat
+                    //get the party number of seats:
                     var party = d[partyIndex];
-                    var nSeatsInParty = typeof party.seats === 'number' ? party.seats : party.seats.length;
-                    if (seatIndex >= nSeatsInParty) {
+                    var nSeatsInParty =party.seats; //typeof party.seats === 'number' ? party.seats : party.seats.length;
+
+                    //if reached, add no more seats seatIndex = 0 ...nbSeats-1
+                    while (seatIndex == nSeatsInParty) {
+                        // change party
                         partyIndex++;
+                        //restarts seats index
                         seatIndex = 0;
+                        //put new data in the seat
                         party = d[partyIndex];
+                        nSeatsInParty =party.seats;
+
                     }
 
                     /* set party data */
                     s.party = party;
                     s.data = typeof party.seats === 'number' ? null : party.seats[seatIndex];
-
                     seatIndex++;
+
                 });
+
             })();
 
 
