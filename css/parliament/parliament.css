@@ -8,6 +8,9 @@
   transform: translate(-50%, 0%);
 }
 
+.d3-parliament{
+  margin-top: 60px;
+}
 /* Swiss parliament colors */
 svg .seat.BDP\/PBD { fill: #FFFF00 }/*done*/
 svg .seat.CSP\/PCS{ fill: #E2563B }/*done*/

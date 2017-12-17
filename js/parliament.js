@@ -95,7 +95,7 @@ class Parliament{
         .data(data)
         .enter().append("text")
         .attr("class", "textLegend")
-        .attr("fill", "#F4F4F4")
+        .attr("fill", "#373737")
         .attr("x", function(o,i) {
 
 

@@ -248,12 +248,12 @@ addLegend(){
     d3.selectAll(this.map_id).select(".legend_svg").select(".axis").select("path").remove();
 
     d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll("text")
-    .style("fill","#F4F4F4")
+    .style("fill","#373737")
     .style("text-anchor","start");
 
     d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll(".tick").select("line")
     .attr("stroke-width", "1px")
-    .attr("stroke","#F4F4F4");
+    .attr("stroke","#373737");
 
 
   }
@@ -326,4 +326,4 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","2015 National Council Election","Score: ");
+mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 National Council Election","Score: ");

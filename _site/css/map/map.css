@@ -1,6 +1,7 @@
 .map {
-  	background-color: #373737;
-  	border: 1px solid #373737;
+  	background-color: #F4F4F4;
+  	border: 1px solid  #F4F4F4 ;
+    margin-top: 30px;
 
 }
 
@@ -37,6 +38,7 @@ pre.prettyprint {
     pointer-events: none;
     top:5%;
     transform: translate(0%, 5%);
+    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .legend{
@@ -45,6 +47,7 @@ pre.prettyprint {
     left:15%;
     width: 940px;
     height: 40px;
+    margin-top: 30px;
     /*padding: 20px;
     pointer-events: none;*/
 }
@@ -70,13 +73,14 @@ pre.prettyprint {
 
     font-size: 12px;
     line-height: 20px;
-    color: #F4F4F4;
+    color: #373737;
 
 }
 .highlighted {
 	fill: rgb(155,140,140);
 }
 .title_map {
+  font-family: 'Abril Fatface', cursive;
 	/*font-size: 16px;
   font-family: sans-serif;
   text-transform: uppercase;*/
