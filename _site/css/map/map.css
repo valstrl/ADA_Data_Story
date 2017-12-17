@@ -1,6 +1,7 @@
 .map {
   	background-color: #373737;
   	border: 1px solid #373737;
+
 }
 
 
@@ -34,6 +35,8 @@ pre.prettyprint {
     height: auto;
     padding: 10px;
     pointer-events: none;
+    top:5%;
+    transform: translate(0%, 5%);
 }
 
 .legend{
@@ -63,23 +66,30 @@ pre.prettyprint {
 
 .tooltip_map p {
     margin: 0;
-    font-family: sans-serif;
+    font-family: serif;
+
     font-size: 12px;
     line-height: 20px;
     color: #F4F4F4;
-    font-family: serif;
+
 }
 .highlighted {
 	fill: rgb(155,140,140);
 }
 .title_map {
-	font-size: 16px;
+	/*font-size: 16px;
+  font-family: sans-serif;
+  text-transform: uppercase;*/
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
 }
 .selection-map {
 	min-height:48px;
 	margin-bottom: 5px;
-	/*border-bottom: 1px solid #ccc;*/
+	border-bottom: 1px solid #ccc;
 }
 .value_map {
-	font-size: 10pt;
+	font-size: 15pt;
 }

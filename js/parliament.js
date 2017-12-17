@@ -1,9 +1,9 @@
 class Parliament{
 
-  constructor(parliament_json_path,div_id,title){
+  constructor(parliament_json_path,div_id){
     this.id=div_id;
     this.json_path=parliament_json_path;
-    this.title_parliament=title;
+
 
     this.parliament = d3.parliament().width(800).height(550).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
@@ -17,20 +17,12 @@ class Parliament{
 
   setData(d) {
       console.log("setData");
-      d3.selectAll(this.id).append("div")
-      .text(this.title_parliament)
-      .attr("class","title_map")
-      .style("position","relative")
-      .style("left","40%")
-      //.style("margin_right","-50%")
-      //.style("transform","translate(-50%, 0)");
-
       d3.selectAll(this.id).append("svg")
       .datum(d).call(this.parliament)
       .style("position","relative")
       .style("left","50%")
       .style("margin_right","-50%")
-      .style("transform","translate(-50%, 5%)");
+      .style("transform","translate(-50%, 10%)");
 
       this.draw_legend(d);
 

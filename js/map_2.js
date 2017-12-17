@@ -98,9 +98,12 @@ class Map2 {
        }
 
 
-        d3.selectAll(this.map_id).select(".title_map").text(name);
-
-        d3.selectAll(this.map_id).select(".value_map").text(this.value_text + value + "%");
+        //d3.selectAll(this.map_id).select(".title_map").text(name);
+        if(value != -1){
+          d3.selectAll(this.map_id).select(".value_map").text( name + ": "+ this.selectValue + " score = " + value + "%");
+      }else{
+        d3.selectAll(this.map_id).select(".value_map").text( name );
+      }
 
    }
 
@@ -162,7 +165,7 @@ class Map2 {
         .attr("width", this.width)
         .attr("height", this.height)
         .on("mouseover", function() {
-                d3.selectAll(this.map_id).select(".title_map").text(this.title_text + this.selectValue);
+                d3.selectAll(this.map_id).select(".title_map").text(this.title_text );
                 d3.selectAll(this.map_id).select(".value_map").text("Mouseover a municipality to see its exact score");
 
         }.bind(this));
@@ -323,4 +326,4 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","Results of the 2015 National Council Election for ","Score: ");
+mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","2015 National Council Election","Score: ");
