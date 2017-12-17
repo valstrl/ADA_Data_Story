@@ -323,4 +323,4 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","Results of the 2015 National Council Election for ","Score: ");
+mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolatePurples, "#map_score","Results of the 2015 National Council Election for ","Score: ");
