@@ -146,7 +146,7 @@ a:focus {
     text-align: center;
     color: #373737;
     background-color: '#F4F4F4';
-    background: url(/img/intro-bg.jpg) no-repeat bottom center scroll;
+    background: url(/ADA_Data_Story/img/intro-bg.jpg) no-repeat bottom center scroll;
     /*background-color: {{ site.color.primary-dark }};*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
