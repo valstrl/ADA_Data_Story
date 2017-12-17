@@ -141,9 +141,6 @@ class Parliament{
             var nn = o.seats;
             return o.id + " (" + nn + ")";
         })
-        //.attr("font-weight", "bold")
-        //.attr("font-size", "14px")
-        //.attr("dominant-baseline", "central");
 }
 
 
