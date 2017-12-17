@@ -100,9 +100,11 @@ class Map2 {
 
         //d3.selectAll(this.map_id).select(".title_map").text(name);
         if(value != -1){
-          d3.selectAll(this.map_id).select(".value_map").text( name + ": "+ this.selectValue + " score = " + value + "%");
+          d3.selectAll(this.map_id).select(".value_map").text( name + ": ");
+          d3.selectAll(this.map_id).select(".value2_map").text(this.selectValue + " score = " + value + "%");
       }else{
         d3.selectAll(this.map_id).select(".value_map").text( name );
+        d3.selectAll(this.map_id).select(".value2_map").text("");
       }
 
    }
@@ -167,6 +169,7 @@ class Map2 {
         .on("mouseover", function() {
                 d3.selectAll(this.map_id).select(".title_map").text(this.title_text );
                 d3.selectAll(this.map_id).select(".value_map").text("Mouseover a municipality to see its exact score");
+                d3.selectAll(this.map_id).select(".value2_map").text("");
 
         }.bind(this));
 
@@ -313,6 +316,7 @@ addLegend(){
                      this.value_text=value_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text(this.value_text);
+                     d3.select(div_id).select(".value2_map").text("");
                      //Starte die Demonstration
                      //this.colorscale=colorscale;
                      //this.map_id=div_id;
@@ -326,4 +330,4 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 National Council Election","Score: ");
+mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 National Council Election", "Mouseover a municipality to see its exact score");

@@ -150,7 +150,7 @@ class Map {
         .attr("height", this.height)
         .on("mouseover", function() {
                 d3.selectAll(this.map_id).select(".title_map").text(this.title_text);
-                d3.selectAll(this.map_id).select(".value_map").text("");
+                d3.selectAll(this.map_id).select(".value_map").text("Mouseover a municipality to see its name");
         }.bind(this));
 
     //SVP group (cantons or municipalities)
@@ -190,6 +190,7 @@ class Map {
                      this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
+                     d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
                      //Starte die Demonstration
                      this.colorscale=colorscale_array;
                      this.map_id=div_id;
