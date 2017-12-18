@@ -170,11 +170,52 @@ class Map {
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
+    this.addLegend();
+
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
      this.zoom_start(this.start);
     }.bind(this));
 };
+
+addLegend(){
+
+  var new_object =this.dataset.map(function(d){
+    return {name: d.Canton_name, index: d.Label};
+  });
+  new_object= _.uniqBy(new_object, "name");
+
+
+var colors_range = [];
+new_object.forEach(function(d){
+  colors_range.push(this.colorscale(d.index/25));
+}.bind(this))
+
+
+var cantons_names =[];
+new_object.forEach(function(d){
+  cantons_names.push(d.name);
+}.bind(this))
+
+
+var ordinal = d3.scale.ordinal()
+.domain(cantons_names) //cantons names
+.range(colors_range);
+
+this.svg.append("g")
+.attr("class", "legendOrdinal")
+.attr("transform", "translate(20,100)");
+
+var legendOrdinal = d3.legend.color()
+.shape("path", d3.svg.symbol().type("triangle-up").size(50)())
+.shapePadding(5)
+.scale(ordinal);
+
+this.svg.select(".legendOrdinal")
+.call(legendOrdinal);
+
+};
+
 map_resize(){
   $(window).resize(function() {
    var w = d3.selectAll(this.map_id).select(".map").style("width");
@@ -214,9 +255,9 @@ map_resize(){
 
 }
 
-var mapLabel = new Map();
+/*var mapLabel = new Map();
 mapLabel.map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8);
-mapLabel.map_resize();
+mapLabel.map_resize();*/
 
 var mapAlgo1 = new Map();
 mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26);
