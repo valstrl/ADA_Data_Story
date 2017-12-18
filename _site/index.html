@@ -61,6 +61,20 @@
 
   <!-- Map Section -->
 <!--<div id="map"></div>-->
+<div id="map_spectral" class="map_container" style="position: relative; overflow: hidden;" >
+<link href="css/map/map.css" rel="stylesheet" type="text/css">
+<h2 class="title_map" >Laden...</h2>
+<div class="tooltip_map" style="margin-top : 50px;" >
+      <div class="selection_map" class="container">
+      <p><span class="value_map"></span></p>
+    </div>
+
+</div>
+<div class= "map"></div>
+</div>
+
+  <!-- Map Section -->
+<!--<div id="map"></div>-->
 <div id="map_algo1" class="map_container" style="position: relative; overflow: hidden;" >
 <link href="css/map/map.css" rel="stylesheet" type="text/css">
 <h2 class="title_map" >Laden...</h2>
@@ -75,7 +89,7 @@
 
   <!-- Map Section -->
 <!--<div id="map"></div>-->
-<div id="map_spectral" class="map_container" style="position: relative; overflow: hidden;" >
+<div id="map_algo2" class="map_container" style="position: relative; overflow: hidden;" >
 <link href="css/map/map.css" rel="stylesheet" type="text/css">
 <h2 class="title_map" >Laden...</h2>
 <div class="tooltip_map" style="margin-top : 50px;" >
@@ -85,6 +99,25 @@
 
 </div>
 <div class= "map"></div>
+</div>
+
+  <!-- Map Section -->
+<!--<div id="map"></div>-->
+<div id="map_party" clas="map_container col-lg-8 col-lg-offset-2" style="position: relative; overflow: hidden;" >
+<link href="css/map/map.css" rel="stylesheet" type="text/css">
+<h2 class="title_map" >Laden...</h2>
+<p style="font-size: 12pt; margin-bottom: 0; margin-top : 50px; margin-left: 10px;">Select a party:</p>
+<select style="margin-left: 10px; position: relative; z-index: 2"></select>
+<div class="tooltip_map" style="margin-top : 50px; ">
+      <div class="selection_map" class="container">
+      <p><span class="value_map">Lade Nutzerdaten</span></p>
+      <p><span class="value2_map"></span></p>
+    </div>
+</div>
+<div class="legend">
+<svg class="legend_svg"></svg>
+</div>
+<div class="map" style="position: relative; z-index: 1; margin-top: -30px;"></div>
 </div>
 
       <!-- Map Section -->
@@ -106,19 +139,76 @@
   <div class="map" style="position: relative; z-index: 1; margin-top: -30px;"></div>
 </div>
 
-  <div id="parliament1" class= "parliament-container" style="position: relative;">
-<h2 class="title_parliament" >2015 National Council Composition</h2>
+  
+<section>
+
+<div id="parlianment1" style=" width: 100%; height: 600px">
+<div id="parliament_states" class= "parliament-container" style="float: right; width: 50%;">
+<h3 class="title_parliament" style="position: relative; float: right; width: 100%;" >2015 Council of States</h3>
 <link href="css/parliament/parliament.css" rel="stylesheet" type="text/css">
-
 </div>
+<div id="parliament_national" class= "parliament-container" style=" float: left; width: 50%;">
+<h3 class="title_parliament" style="position: relative; float: left; width: 100%;" >2015 National Council </h3>
+<link href="css/parliament/parliament.css" rel="stylesheet" type="text/css">
+</div>
+</section>
 
-	<section class="container content-section text-center">
+  <div id="container" style="width 75%;">
+	<canvas id="canvas16">
+	</canvas>
+</div>
+  <section class="container content-section text-center">
   <div class="post-content">
-<p>A voting system is a method by which voters choose between several alternatives and their opinions are aggregated, ultimately choosing a winner. Democratic countries, in principle, aim to have a representative outcome, to make sure the decision-making is roughly representative of the public’s beliefs. However, most of these democracies use a district based voting system, i.e., voters are divided into geographically based districts. Each district elects a fixed number of representatives who then take part in the decision-making on the behalf of their constituents. While on a practical level this has made democracy achievable on a large scale, this also tends to favor large political parties. Indeed, unless a smaller party convinces all its voters to move to the same constituency, it will be barred from taking part in the public debate. Worse, district voting allows for gerrymandering, the process by which large parties can secure easy victories but redrawing the borders of constituencies in order to favor their own candidates.</p>
+	<p>A voting system is a method by which voters choose between several alternatives and their opinions are aggregated, ultimately choosing a winner. Democratic countries, in principle, aim to have a representative outcome, to make sure the decision-making is roughly representative of the public’s beliefs. However, most of these democracies use a district based voting system, i.e., voters are divided into geographically based districts. Each district elects a fixed number of representatives who then take part in the decision-making on the behalf of their constituents. While on a practical level this has made democracy achievable on a large scale, this also tends to favor large political parties. Indeed, unless a smaller party convinces all its voters to move to the same constituency, it will be barred from taking part in the public debate. Worse, district voting allows for gerrymandering, the process by which large parties can secure easy victories but redrawing the borders of constituencies in order to favor their own candidates.</p>
 
-<p>In this article we aim to study the political geography of Switzerland through the election results of 2015. Specifically, we would like to know if the current voting districts are representative of the public’s opinion and if the current partition can be improved.</p>
+	<p>In this article we aim to study the political geography of Switzerland through the election results of 2015. Specifically, we would like to know if the current voting districts are representative of the public’s opinion and if the current partition can be improved.</p>
 
-<p>In Switzerland, the political districts are known as Cantons. During a federal election, the voters of each Canton elect their representatives proportionally based on the number of seats attributed to each Canton. The cantonal borders in Switzerland have mostly stayed fixed since the 19th century, and in some cases, even the Middle-Ages, before Switzerland became a democracy. Therefore, these borders sometimes do not take into account the evolutions of the Swiss society that occured in the last 150 years. Furthermore, since the number of seats the parlement is limited, some parties will never get enough votes to be representated, therefore part of the Swiss population is de facto excluded from parlementary debates.</p>
+	<p>In Switzerland, the political districts are known as Cantons. During a federal election, the voters of each Canton elect their representatives proportionally based on the number of seats attributed to each Canton. Each Canton gets a number of representatives proportional to its population, except for the least populated Cantons which have a single representative. Seats for the National Council are attributed according to the Hagenbach-Bischoff system [link].</p>
+
+	<p>The cantonal borders in Switzerland have mostly stayed fixed since the 19th century, and in some cases, even the Middle-Ages, before Switzerland became a democracy. Therefore, these borders sometimes do not take into account the changes in Swiss society that occurred in the last 150 years. Furthermore, since the number of seats the parliament is limited, some parties will never get enough votes to be represented, and therefore part of the Swiss population is de facto excluded from parliamentary debates.</p>
+
+	<p>The 2015 election was marked by the rise of the conservative and liberal right at the expense of the Green parties. With a relatively high participation score of 48,5%, we can assume that this election is a accurate representation of Swiss public opinion.</p>
+
+	<p>A brief summary of the main political parties that contended in the 2015 National Council election: </p>
+	
+     <ul style="text-align:left; font-size:14pt">
+        <li>Conservative Democratic Party of Switzerland (BDP/PBD): A medium sized center-right party founded in 2007 by moderate members who split off from the Swiss People's Party.</li>
+        <li>Christian Social Party (CSP/PCS): A small catholic left-wing party.</li>
+        <li>Christian Democratic People's Party of Switzerland (CVP/PDC): A center-right christian party. The fourth largest party in Switzerland, it currently has one member on the federal council. The party is popular in conservative catholic cantons.</li>
+		<li>Evangelical People's Party of Switzerland (EVP/PEV): A small protestant center party.</li>
+		<li>The Liberals (FDP/PLR/PRD): A liberal right party. The third largest party in Switzerland, the party has two members on the federal council</li>
+		<li>Green Liberal Party of Switzerland (GLP/PVL): A medium-sized center-right party. It seeks to combine  economic liberalism with environmental sustainability. It was founded in 2007 by liberal members who split off from the Green party of Switzerland.</li>
+		<li>Swiss Party of Labour (PdA/PST): A small far-left communist party, mostly present in Jura region.</li>
+		<li>Social Democratic Party of Switzerland (SP/PS): A center-left socialist party. The second largest party in Switzerland, it currently has two members on the federal council and is mostly present in cities and industrial areas.</li>
+		<li>Swiss People's Party (SVP/UDC): A conservative right-wing party. The largest party in Switzerland, it currently has two members on the federal council. Traditionnally a rural party, it has recently gained popularity among nationalist anti-european voters.</li>
+		<li>Federal Democratic Union of Switzerland  (EDU/UDF): A small far-right party.</li>
+		<li>Green Party of Switzerland (GPS/PES): A medium sized left-wing party. The fifth largest party and supports left-wing and environmentalist policies.</li>
+		<li>Ticino League (Lega): A small far-right regionalist party. The party wants more autonomy for the canton of Ticino</li>
+		<li>Romandy Citizens' Movement (MCR): A small populist right-wing party. Mostly present in Geneva's canton, it wants more autonomy for the Romandy region.</li>
+		<li>Swiss Democrats (SD/DS): A small far-right party.</li>
+		<li>Solidarity (Sol.): A small far-left party. It is only present in Vaud and Geneva.</li>
+		<li>Übrige/Autre: Other small parties or independant candidates.</li>
+    </ul>
+	
+	<p>SHOW MAP</p>
+
+	<p>In order to get a better grasp of the Swiss political climate, we can extract a political heat map from these results via a spectral clustering algorithm. For each municipality, the ‘political score’ is computed based on the electoral scores of each party. These municipalities are then projected based on their score on a distance map and subsequently clustered into different categories.</p>
+
+	<p>SHOW MAP</p>
+
+	<p>Surprisingly, using only 8 different categories, we can accurately represent the political climate of Switzerland without any prior geographical information : The westernmost Cantons such as Geneva, Vaud and Neuchâtel all have a similar political opinion, namely they are more progressive than the rest of Switzerland. On the other hand, for many protestant Swiss-German Cantons such as Zürich, Aargau, Thurgau, etc…, there is a strong political divide between the progressive city centers and the conservative countryside. In contrast, the catholic cantons such as Jura, Fribourg, Ticino, Glaris, etc… are already quite politically uniform. Finally, the case of the Grisons Canton is unique to Switzerland as it is highly heterogeneous. This can partially be explained by the fact that the different valleys that comprise the Grisons have lived separately for most of history.</p>
+
+	<p>In order to reach our solution iteratively we used a genetic algorithm [link]. Starting from the initial canton partition, we introduce over the course of many generations changes along the cantonal borders (i.e. mutations). Over each generation, only the borders which result in an increase in representativeness are kept. This process is repeated until the representativeness cannot be increased any further.</p>
+
+	<p>A few caveats need to be mentioned regarding the results of the genetic algorithm. The Swiss do not directly vote for parties, but instead for candidates who are then affiliated to a political party. Furthermore, parties can sometimes agree to transfer their votes between each other in order to bar their common opponent from winning. Finally, the elections for the the council of states are regulated on the cantonal level and therefore differ from canton to canton. For the sake of simplicity, we have decided to omit these factors.</p>
+
+	<p>SHOW MAP</p>
+
+	<p>However, the power to redraw borders can also cause great harm to the fabric of Swiss democracy –&gt; gerrymandering</p>
+
+	<p>SHOW MAP</p>
+
+	<p>Conclusion : the current borders do not reflect the opinions of Swiss citizens. In order to improve representativeness, we propose this optimal solution instead.</p>
   </div>
 </section>
   <footer>
@@ -186,6 +276,9 @@
     <script src="/ADA_Data_Story/js/map_2.js"></script>
 
     <!-- Municipalities map javascript-->
+    <script src="/ADA_Data_Story/js/map_3.js"></script>
+
+    <!-- Municipalities map javascript-->
     <script src="/ADA_Data_Story/js/simple_statistics.js"></script>
 
     <!-- Municipalities map javascript-->
@@ -193,6 +286,15 @@
 
     <!-- Municipalities map javascript-->
     <script src="/ADA_Data_Story/js/parliament.js"></script>
+
+	<!-- Chart js for Barplot javascript-->
+    <script src="/ADA_Data_Story/js/Chart.js"></script>
+
+    <!-- Municipalities map javascript-->
+    <script src="/ADA_Data_Story/js/lodash.js"></script>
+
+    <!-- Municipalities map javascript-->
+    <script src="/ADA_Data_Story/js/d3-legend.js"></script>
 
     </body>
 </html>

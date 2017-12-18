@@ -1,23 +1,25 @@
 
 
 
-class Map {
+class Map3 {
     constructor() {
        this.width = 938,
        this.height = 500,
        this.gemeinden,
-       this.kantone,
        this.colorscale,
-       this.max_labels,
        this.map_id,
        this.m_width ,
        this.svg,
        this.g,
        this.title_text,
+       this.value_text,
+       this.selectValue,
+       this.color_bins,
+       this.bins
        this.start,
        this.projection,
-       this.dataset,
-       this.add_legend;
+       this.dataset_names,
+       this.dataset;
 
        //projection
       this.projection = d3.geo.conicConformal()
@@ -26,6 +28,13 @@ class Map {
       //path
       this.path= d3.geo.path()
          .projection(this.projection);
+
+      this.jenks9 = {};
+
+     /*this.scales.quantize = d3.scale.quantize()
+         .domain([0, .15])
+         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));*/
+
     }
 
     //highlight when mouseover
@@ -35,7 +44,7 @@ class Map {
     }
 
     //set color for value
-    get_place_color(d, colorscale,max) {
+    get_place_color(d, colorscale) {
        //Get data value
        if (d.munip_votes) {
                                var value = d.munip_votes;
@@ -49,18 +58,11 @@ class Map {
                  return '#B7E1F3';
                }
                else{
-                 if(max <= 15)
-                 {
-                  //return colorscale[value];
-                  return colorscale[value];
-                 }else{
-                  return colorscale(value/max);;
-                 }
+                 return this.colorscale(value/26);
              }
 
        } else {
                //If value is undefined…
-
                return "#99999F";
        }
     };
@@ -84,10 +86,8 @@ class Map {
        else if(d.properties.GMDNAME) {
          name = d.properties.GMDNAME;
        }
-
-
-       //d3.selectAll(this.map_id).select(".title").text(name);
-       d3.selectAll(this.map_id).select(".value_map").text(name);
+      //d3.selectAll(this.map_id).select(".title_map").text(name);
+      d3.selectAll(this.map_id).select(".value_map").text( name );
 
 
    }
@@ -127,7 +127,7 @@ class Map {
                   });
 
               if(munip_data[0] != undefined){
-              d.munip_votes = munip_data[0].Label;
+              d.munip_votes =  munip_data[0][this.selectValue];
             }
             else{
               d.munip_votes = -1;
@@ -150,8 +150,10 @@ class Map {
         .attr("width", this.width)
         .attr("height", this.height)
         .on("mouseover", function() {
-                d3.selectAll(this.map_id).select(".title_map").text(this.title_text);
+                d3.selectAll(this.map_id).select(".title_map").text(this.title_text );
                 d3.selectAll(this.map_id).select(".value_map").text("Mouseover a municipality to see its name");
+
+
         }.bind(this));
 
     //SVP group (cantons or municipalities)
@@ -166,56 +168,31 @@ class Map {
     .attr("id", function(d) { return d.id; })
     .attr("class", "gemeinde")
     .attr("d", this.path)
-    .attr("fill", function(d) {return this.get_place_color(d,this.colorscale, this.max_labels);}.bind(this))
+    .attr("fill", function(d) {return this.get_place_color(d,this.colorscale);}.bind(this))
     .style("stroke-width", 0.001 + "px")
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
-<<<<<<< HEAD
-    console.log("this.g");
-    console.log(this.g);
-    this.g.append("path")
-    .datum(topojson.mesh(this.gemeinden, this.gemeinden, function(a, b) { return a.properties.KTNR !== b.properties.KTNR; }.bind(this)))
-    .attr("class", "kanton-boundary")
-    .attr("d", this.path)
-    .attr("stroke-width", "2px");
-
-    con
-=======
-    if(this.add_legend==true){
     this.addLegend();
-    this.svg.select(".legendOrdinal")
-    .style("")
-    }
->>>>>>> master
 
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
      this.zoom_start(this.start);
     }.bind(this));
+
 };
 
-<<<<<<< HEAD
-=======
 addLegend(){
 
-  var new_object =this.dataset.map(function(d){
-    return {name: d.Canton_name, index: d.Label};
-  });
-  new_object= _.uniqBy(new_object, "name");
+  var colors_range =this.dataset.map(function(d){
+    return  this.colorscale(d[this.selectValue]/25);
+  }.bind(this));
+  colors_range= _.uniq(colors_range);
 
-
-var colors_range = [];
-new_object.forEach(function(d){
-  colors_range.push(this.colorscale(d.index/25));
-}.bind(this))
-
-
-var cantons_names =[];
-new_object.forEach(function(d){
-  cantons_names.push(d.name);
-}.bind(this))
-
+  var cantons_names =this.dataset_names.map(function(d){
+    return  d[this.selectValue];
+  }.bind(this));
+  cantons_names= _.uniqBy(cantons_names);
 
 var ordinal = d3.scale.ordinal()
 .domain(cantons_names) //cantons names
@@ -223,7 +200,7 @@ var ordinal = d3.scale.ordinal()
 
 this.svg.append("g")
 .attr("class", "legendOrdinal")
-.attr("transform", "translate(20,100)");
+.attr("transform", "translate(20,50)");
 
 var legendOrdinal = d3.legend.color()
 .shape("path", d3.svg.symbol().type("triangle-up").size(50)())
@@ -234,7 +211,6 @@ this.svg.select(".legendOrdinal")
 .call(legendOrdinal);
 
 };
->>>>>>> master
 
 map_resize(){
   $(window).resize(function() {
@@ -244,56 +220,56 @@ map_resize(){
    d3.selectAll(this.map_id).select(".legend").select("svg").attr("width", w);
    d3.selectAll(this.map_id).select(".legend").select("svg").attr("height", w * this.height / this.width);
 
- }.bind(this))
+  }.bind(this))
 }
 
+  map_gerrymendering(topojson_path,data_csv_path,names_csv_path, colorscale, div_id, title_, value_){
 
-  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_,kantone_topojson_path, max, add_legend_){
-   //d3.csv(data_csv_path, function(data) {
-      this.add_legend=add_legend_;
+    this.colorscale=colorscale;
+    this.map_id=div_id;
+
      d3.csv(data_csv_path, function(data){
+       d3.csv(names_csv_path, function(data_names){
+
+       var parties = ["BDP/PBD" ,"CSP/PCS","CVP/PDC","EVP/PEV","FDP/PLR (PRD)","GLP/PVL","PdA/PST","SP/PS","SVP/UDC","EDU/UDF","GPS/PES","Lega","MCR","SD/DS","Sol."];
+
+       var select = d3.selectAll(div_id).select('select')
+                   .on('change',onchange.bind(this));
+
+       var options = select
+         .selectAll('option')
+         .data(parties).enter()
+         .append('option')
+           .text(function (d) { return d; });
+
+
+      this.selectValue=parties[0];
+       function onchange() {
+        this.selectValue = d3.selectAll(div_id).select('select').property('value');;
+        d3.selectAll(div_id).selectAll(".map").select("svg").remove();
+        this.start_demo();
+
+       };
+
          this.dataset = data;
+         this.dataset_names = data_names;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
 
                // Lade Gemeinden
-               d3.json(gemeinden_topojson_path, function(error, gemeinden_json) {
-                 d3.json(kantone_topojson_path, function(error, kantone_json) {
-                     this.gemeinden = topojson.feature(gemeinden_json, gemeinden_json.objects.gemeinden).features;
-                     this.kantone = topojson.feature(kantone_json, kantone_json.objects.kantone).features;
+               d3.json(topojson_path, function(error, json) {
+                     this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;
                      this.title_text=title_;
+                     this.value_text=value_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
-                     d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
-                     //Starte die Demonstration
-                     this.colorscale=colorscale_array;
-                     this.max_labels=max;
-                     this.map_id=div_id;
+                     d3.select(div_id).select(".value_map").text(this.value_text);
                      this.start_demo();
-                   }.bind(this))
                  }.bind(this))
-
       }.bind(this))
+    }.bind(this))
  }
 
 }
 
-<<<<<<< HEAD
-/*var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8);
-mapLabel.map_resize();*/
-=======
-var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8, false);
-mapLabel.map_resize();
->>>>>>> master
-
-var mapAlgo1 = new Map();
-mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26,true);
-mapAlgo1.map_resize();
-
-var mapAlgo2 = new Map();
-mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained", "data/topojson/kantone.topo.json",26, true);
-mapAlgo2.map_resize();
-
-var mapOrig= new Map();
-mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons", "data/topojson/kantone.topo.json",26,true);
-mapOrig.map_resize();
+var mapParty= new Map3();
+mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv","data/party_optimized/full_gerry_names.csv", d3v4.interpolateSpectral, "#map_party","Gerrymanderring: Divide and Conquer !", "Mouseover a municipality to see its name");
+mapParty.map_resize();

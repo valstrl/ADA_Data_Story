@@ -5,7 +5,7 @@ class Parliament{
     this.json_path=parliament_json_path;
 
 
-    this.parliament = d3.parliament().width(800).height(550).innerRadiusCoef(0.4);
+    this.parliament = d3.parliament().width(600).height(450).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
     this.parliament.exit.toCenter(true).bigToSmall(true);
 
@@ -95,10 +95,12 @@ class Parliament{
         .data(data)
         .enter().append("text")
         .attr("class", "textLegend")
+        .text(function (o, i) {
+            var nn = o.seats;
+            return o.id + " (" + nn + ")";
+        })
         .attr("fill", "#373737")
         .attr("x", function(o,i) {
-
-
                 var j;
                   if(i==4 || i==8 || i==12){
                     j=0
@@ -115,7 +117,6 @@ class Parliament{
                   var incr = (width-start)/(4);
                   return incr * (j) + start + dx_text;
         })
-
         .attr("y", function(o,i) {
 
           if(i <= 3){
@@ -127,16 +128,14 @@ class Parliament{
         }else{
           return height_legend-4*3*radius ;
         }
-        })
+      });
 
-        .text(function (o, i) {
-            var nn = o.seats;
-            return o.id + " (" + nn + ")";
-        })
 }
 
 
 }
 
-var parliament1= new Parliament("data/votes/parliament_2015.json","#parliament1", "2015 National Council Composition");
-parliament1.parliamentSchema();
+var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national", "2015 National Council Composition");
+parliament_national.parliamentSchema();
+var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states", "2015 Council of States Composition");
+parliament_states.parliamentSchema();

@@ -16,7 +16,8 @@ class Map {
        this.title_text,
        this.start,
        this.projection,
-       this.dataset;
+       this.dataset,
+       this.add_legend;
 
        //projection
       this.projection = d3.geo.conicConformal()
@@ -170,6 +171,7 @@ class Map {
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
+<<<<<<< HEAD
     console.log("this.g");
     console.log(this.g);
     this.g.append("path")
@@ -179,6 +181,13 @@ class Map {
     .attr("stroke-width", "2px");
 
     con
+=======
+    if(this.add_legend==true){
+    this.addLegend();
+    this.svg.select(".legendOrdinal")
+    .style("")
+    }
+>>>>>>> master
 
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
@@ -186,6 +195,46 @@ class Map {
     }.bind(this));
 };
 
+<<<<<<< HEAD
+=======
+addLegend(){
+
+  var new_object =this.dataset.map(function(d){
+    return {name: d.Canton_name, index: d.Label};
+  });
+  new_object= _.uniqBy(new_object, "name");
+
+
+var colors_range = [];
+new_object.forEach(function(d){
+  colors_range.push(this.colorscale(d.index/25));
+}.bind(this))
+
+
+var cantons_names =[];
+new_object.forEach(function(d){
+  cantons_names.push(d.name);
+}.bind(this))
+
+
+var ordinal = d3.scale.ordinal()
+.domain(cantons_names) //cantons names
+.range(colors_range);
+
+this.svg.append("g")
+.attr("class", "legendOrdinal")
+.attr("transform", "translate(20,100)");
+
+var legendOrdinal = d3.legend.color()
+.shape("path", d3.svg.symbol().type("triangle-up").size(50)())
+.shapePadding(5)
+.scale(ordinal);
+
+this.svg.select(".legendOrdinal")
+.call(legendOrdinal);
+
+};
+>>>>>>> master
 
 map_resize(){
   $(window).resize(function() {
@@ -199,8 +248,9 @@ map_resize(){
 }
 
 
-  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_,kantone_topojson_path, max){
+  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_,kantone_topojson_path, max, add_legend_){
    //d3.csv(data_csv_path, function(data) {
+      this.add_legend=add_legend_;
      d3.csv(data_csv_path, function(data){
          this.dataset = data;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
@@ -226,14 +276,24 @@ map_resize(){
 
 }
 
+<<<<<<< HEAD
 /*var mapLabel = new Map();
 mapLabel.map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8);
 mapLabel.map_resize();*/
+=======
+var mapLabel = new Map();
+mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8, false);
+mapLabel.map_resize();
+>>>>>>> master
 
 var mapAlgo1 = new Map();
-mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26);
+mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26,true);
 mapAlgo1.map_resize();
 
+var mapAlgo2 = new Map();
+mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained", "data/topojson/kantone.topo.json",26, true);
+mapAlgo2.map_resize();
+
 var mapOrig= new Map();
-mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons", "data/topojson/kantone.topo.json",26);
+mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons", "data/topojson/kantone.topo.json",26,true);
 mapOrig.map_resize();
