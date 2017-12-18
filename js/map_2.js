@@ -57,11 +57,11 @@ class Map2 {
                  return '#B7E1F3';
                }
                else{
-
-
-               //return colorscale(value/100); // color = color scale
-
-               return this.jenks9(value/100);
+                if( value/100 > this.bins[this.bins.length-1]){
+                  return this.colorscale(1)
+                }else{
+                 return this.jenks9(value/100);
+               }
              }
 
        } else {
@@ -221,7 +221,7 @@ addLegend(){
       var w = this.bins[i + 1]-this.bins[i];
       return w*900 + "px";}.bind(this))
     .style("fill",function(d,i) {
-      return this.color_bins[i];}.bind(this))
+      return this.color_bins[i+1];}.bind(this))
 
   d3.selectAll(this.map_id).select(".legend_svg").select("g")
     .append("rect")
@@ -232,7 +232,7 @@ addLegend(){
       var w = 1-this.bins[this.bins.length-1];
       return w*900 + "px";}.bind(this))
     .style("fill",function(d) {
-      return this.color_bins[this.bins.length-1];}.bind(this))
+      return  this.colorscale(1);}.bind(this))
 
     //Set scale for x-axis
     var xScale = d3.scale.linear()
@@ -261,16 +261,13 @@ addLegend(){
     d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll(".tick").select("line")
     .attr("stroke-width", "1px")
     .attr("stroke","#373737");
-
-
   }
 
   JenksBins(data){
-
     var jenks_range=[...Array(10).keys()];
     this.color_bins=jenks_range.map(function(d){ return this.colorscale(d/10);}.bind(this));
     this.bins=ss.jenks(data.map(function(d) { return +d[this.selectValue]/100; }.bind(this)), 9);
-    this.bins[this.bins.length-1]=this.bins[this.bins.length-1] + 0.0001;
+    this.bins[this.bins.length-1]=this.bins[this.bins.length-1] - 0.0001;
 
     this.jenks9 = d3.scale.threshold()
      .domain(this.bins)
