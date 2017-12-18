@@ -138,5 +138,8 @@ class Parliament{
 
 }
 
-var parliament1= new Parliament("data/votes/parliament_2015.json","#parliament1", "2015 National Council Composition");
+var parliament1= new Parliament("data/votes/parliament_2015_national.json","#parliament1", "2015 National Council Composition");
 parliament1.parliamentSchema();
+
+var parliament2= new Parliament("data/votes/parliament_2015_states.json","#parliament2", "2015 Council of States Composition");
+parliament2.parliamentSchema();
