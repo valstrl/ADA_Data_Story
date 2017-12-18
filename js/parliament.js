@@ -95,10 +95,12 @@ class Parliament{
         .data(data)
         .enter().append("text")
         .attr("class", "textLegend")
+        .text(function (o, i) {
+            var nn = o.seats;
+            return o.id + " (" + nn + ")";
+        })
         .attr("fill", "#373737")
         .attr("x", function(o,i) {
-
-
                 var j;
                   if(i==4 || i==8 || i==12){
                     j=0
@@ -115,7 +117,6 @@ class Parliament{
                   var incr = (width-start)/(4);
                   return incr * (j) + start + dx_text;
         })
-
         .attr("y", function(o,i) {
 
           if(i <= 3){
@@ -127,12 +128,8 @@ class Parliament{
         }else{
           return height_legend-4*3*radius ;
         }
-        })
+      });
 
-        .text(function (o, i) {
-            var nn = o.seats;
-            return o.id + " (" + nn + ")";
-        })
 }
 
 

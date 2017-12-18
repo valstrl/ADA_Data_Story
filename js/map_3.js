@@ -18,6 +18,7 @@ class Map3 {
        this.bins
        this.start,
        this.projection,
+       this.dataset_names,
        this.dataset;
 
        //projection
@@ -172,11 +173,42 @@ class Map3 {
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
+    this.addLegend();
 
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
      this.zoom_start(this.start);
     }.bind(this));
+
+};
+
+addLegend(){
+
+  var colors_range =this.dataset.map(function(d){
+    return  this.colorscale(d[this.selectValue]/25);
+  }.bind(this));
+  colors_range= _.uniq(colors_range);
+
+  var cantons_names =this.dataset_names.map(function(d){
+    return  d[this.selectValue];
+  }.bind(this));
+  cantons_names= _.uniqBy(cantons_names);
+
+var ordinal = d3.scale.ordinal()
+.domain(cantons_names) //cantons names
+.range(colors_range);
+
+this.svg.append("g")
+.attr("class", "legendOrdinal")
+.attr("transform", "translate(20,50)");
+
+var legendOrdinal = d3.legend.color()
+.shape("path", d3.svg.symbol().type("triangle-up").size(50)())
+.shapePadding(5)
+.scale(ordinal);
+
+this.svg.select(".legendOrdinal")
+.call(legendOrdinal);
 
 };
 
@@ -191,12 +223,13 @@ map_resize(){
   }.bind(this))
 }
 
-  map_gerrymendering(topojson_path,data_csv_path, colorscale, div_id, title_, value_){
+  map_gerrymendering(topojson_path,data_csv_path,names_csv_path, colorscale, div_id, title_, value_){
 
     this.colorscale=colorscale;
     this.map_id=div_id;
-   //d3.csv(data_csv_path, function(data) {
+
      d3.csv(data_csv_path, function(data){
+       d3.csv(names_csv_path, function(data_names){
 
        var parties = ["BDP/PBD" ,"CSP/PCS","CVP/PDC","EVP/PEV","FDP/PLR (PRD)","GLP/PVL","PdA/PST","SP/PS","SVP/UDC","EDU/UDF","GPS/PES","Lega","MCR","SD/DS","Sol."];
 
@@ -219,6 +252,7 @@ map_resize(){
        };
 
          this.dataset = data;
+         this.dataset_names = data_names;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
 
                // Lade Gemeinden
@@ -230,13 +264,12 @@ map_resize(){
                      d3.select(div_id).select(".value_map").text(this.value_text);
                      this.start_demo();
                  }.bind(this))
-
-
       }.bind(this))
+    }.bind(this))
  }
 
 }
 
 var mapParty= new Map3();
-mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv", d3v4.interpolateSpectral, "#map_party","Gerrymanderring: Divide and Conquer !", "Mouseover a municipality to see its name");
+mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv","data/party_optimized/full_gerry_names.csv", d3v4.interpolateSpectral, "#map_party","Gerrymanderring: Divide and Conquer !", "Mouseover a municipality to see its name");
 mapParty.map_resize();
