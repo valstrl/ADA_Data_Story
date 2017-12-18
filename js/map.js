@@ -171,7 +171,6 @@ class Map {
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
-<<<<<<< HEAD
     console.log("this.g");
     console.log(this.g);
     this.g.append("path")
@@ -180,14 +179,11 @@ class Map {
     .attr("d", this.path)
     .attr("stroke-width", "2px");
 
-    con
-=======
     if(this.add_legend==true){
     this.addLegend();
     this.svg.select(".legendOrdinal")
     .style("")
     }
->>>>>>> master
 
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
@@ -195,8 +191,6 @@ class Map {
     }.bind(this));
 };
 
-<<<<<<< HEAD
-=======
 addLegend(){
 
   var new_object =this.dataset.map(function(d){
@@ -234,7 +228,6 @@ this.svg.select(".legendOrdinal")
 .call(legendOrdinal);
 
 };
->>>>>>> master
 
 map_resize(){
   $(window).resize(function() {
@@ -276,15 +269,9 @@ map_resize(){
 
 }
 
-<<<<<<< HEAD
-/*var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8);
-mapLabel.map_resize();*/
-=======
 var mapLabel = new Map();
 mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8, false);
 mapLabel.map_resize();
->>>>>>> master
 
 var mapAlgo1 = new Map();
 mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26,true);
