@@ -222,6 +222,10 @@ var mapAlgo1 = new Map();
 mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26);
 mapAlgo1.map_resize();
 
+var mapAlgo2 = new Map();
+mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained", "data/topojson/kantone.topo.json",26);
+mapAlgo2.map_resize();
+
 var mapOrig= new Map();
 mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons", "data/topojson/kantone.topo.json",26);
 mapOrig.map_resize();
