@@ -34,13 +34,6 @@ class Map2 {
          .domain([0, .15])
          .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));*/
 
-     $(window).resize(function() {
-      var w = $(this.map_id).width();
-      this.svg.attr("width", w);
-      this.svg.attr("height", w * this.height / this.width);
-     })
-
-
     }
 
     //highlight when mouseover
@@ -199,6 +192,17 @@ class Map2 {
 
 };
 
+map_resize(){
+  $(window).resize(function() {
+   var w = d3.selectAll(this.map_id).select(".map").style("width");
+   d3.selectAll(this.map_id).select(".map").select("svg").attr("width", w);
+   d3.selectAll(this.map_id).select(".map").select("svg").attr("height", w * this.height / this.width);
+   d3.selectAll(this.map_id).select(".legend").select("svg").attr("width", w);
+   d3.selectAll(this.map_id).select(".legend").select("svg").attr("height", w * this.height / this.width);
+
+  }.bind(this))
+}
+
 addLegend(){
 
   //Draw the rectangle and fill with gradient
@@ -330,4 +334,5 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 National Council Election", "Mouseover a municipality to see its exact score");
+mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 Federal Election", "Mouseover a municipality to see its exact score");
+mapScore.map_resize();
