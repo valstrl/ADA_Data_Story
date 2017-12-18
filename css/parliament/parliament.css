@@ -1,24 +1,26 @@
 
 
-/*.title_parliament {
+.title_parliament {
 	/*font-size: 16px;
   font-family: sans-serif;
   text-transform: uppercase;*/
-  /*position: absolute;
+  position: absolute;
   left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, 0%);
-}*/
+  margin-bottom: 0;
+  margin-top: 30px;
+  transform: translate(-20%, 0%);
+}
+
 
 .d3-parliament{
-  margin-top: 60px;
+  /*margin-top: 60px;*/
 }
 /* Swiss parliament colors */
 svg .seat.BDP\/PBD { fill: #FFFF00 }/*done*/
 svg .seat.CSP\/PCS{ fill: #E2563B }/*done*/
 svg .seat.CVP\/PDC { fill: #FE9A2E }/*done*/
 svg .seat.EVP\/PEV { fill: #FFD735 }/*done*/
-svg .seat.FDP\/PLR\/\(PRD\){ fill: #0174DF } /*done*/
+svg .seat.FDP\/PLR { fill: #0174DF } /*done*/
 svg .seat.GLP\/PVL { fill: #9AFE2E }/*done*/
 svg .seat.PdA\/PST { fill: #40E0D0 }
 svg .seat.SP\/PS { fill: #FA1360 }/*done*/
