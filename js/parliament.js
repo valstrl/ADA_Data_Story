@@ -5,7 +5,7 @@ class Parliament{
     this.json_path=parliament_json_path;
 
 
-    this.parliament = d3.parliament().width(800).height(550).innerRadiusCoef(0.4);
+    this.parliament = d3.parliament().width(600).height(450).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
     this.parliament.exit.toCenter(true).bigToSmall(true);
 
@@ -138,5 +138,7 @@ class Parliament{
 
 }
 
-var parliament1= new Parliament("data/votes/parliament_2015.json","#parliament1", "2015 National Council Composition");
-parliament1.parliamentSchema();
+var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national", "2015 National Council Composition");
+parliament_national.parliamentSchema();
+var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states", "2015 Council of States Composition");
+parliament_states.parliamentSchema();
