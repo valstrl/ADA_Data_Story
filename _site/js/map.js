@@ -170,11 +170,23 @@ class Map {
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
 
+    console.log("this.g");
+    console.log(this.g);
+    this.g.append("path")
+    .datum(topojson.mesh(this.gemeinden, this.gemeinden, function(a, b) { return a.properties.KTNR !== b.properties.KTNR; }.bind(this)))
+    .attr("class", "kanton-boundary")
+    .attr("d", this.path)
+    .attr("stroke-width", "2px");
+
+    con
+
    d3.json("data/topojson/start.json", function(error, json) {
      this.start = this.get_xyz((json.features)[0]);
      this.zoom_start(this.start);
     }.bind(this));
 };
+
+
 map_resize(){
   $(window).resize(function() {
    var w = d3.selectAll(this.map_id).select(".map").style("width");
@@ -214,9 +226,9 @@ map_resize(){
 
 }
 
-var mapLabel = new Map();
+/*var mapLabel = new Map();
 mapLabel.map_labels("data/topojson/gemeinden.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering", "data/topojson/kantone.topo.json",8);
-mapLabel.map_resize();
+mapLabel.map_resize();*/
 
 var mapAlgo1 = new Map();
 mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained", "data/topojson/kantone.topo.json",26);
