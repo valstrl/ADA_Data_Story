@@ -16,11 +16,12 @@
   	pointer-events: all;
 }
 
-#kantone, #bezirke {
-  	stroke: #fff;
-  	 stroke-linejoin: round;
-  	stroke-linecap: round;
+.kantone {
+  	stroke: #373737;
+    fill:none
 }
+
+
 
 .gemeinden {
 	  fill: #238b45;
