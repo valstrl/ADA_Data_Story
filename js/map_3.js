@@ -33,9 +33,6 @@ class Map3 {
 
       this.jenks9 = {};
 
-     /*this.scales.quantize = d3.scale.quantize()
-         .domain([0, .15])
-         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));*/
 
     }
 
@@ -88,7 +85,6 @@ class Map3 {
        else if(d.properties.GMDNAME) {
          name = d.properties.GMDNAME;
        }
-      //d3.selectAll(this.map_id).select(".title_map").text(name);
       d3.selectAll(this.map_id).select(".value_map").text( name );
 
 
@@ -98,28 +94,24 @@ class Map3 {
    zoom_start(xyz) {
 
        this.g.selectAll([ ".gemeinden"])
-            //.style("stroke-width",(d)=>{return '1';});
             .style("stroke-width", 0.5 / xyz[2] + "px");
 
         this.g.transition()
           .duration(750)
           .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
           .selectAll([ ".gemeinden"])
-          //.style("stroke-width",(d)=>{return '1';})
           .style("stroke-width", 0.5 / xyz[2] + "px")
           .selectAll(".gemeinde")
           .attr("d", this.path.pointRadius(20.0 / xyz[2]));
 
         //for kantons
         this.g2.selectAll([ ".kantone"])
-             //.style("stroke-width",(d)=>{return '1';});
              .style("stroke-width", 0.5 / xyz[2] + "px");
 
          this.g2.transition()
            .duration(750)
            .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
            .selectAll([ ".kantone"])
-           //.style("stroke-width",(d)=>{return '1';})
            .style("stroke-width", 0.5 / xyz[2] + "px")
            .selectAll(".kanton")
            .attr("d", this.path.pointRadius(20.0 / xyz[2]));
@@ -295,8 +287,6 @@ map_resize(){
          this.dataset = data;
          this.dataset_names = data_names;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
-
-               // Lade Gemeinden
 
                d3.json(topojson_path, function(error, json) {
                      this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;

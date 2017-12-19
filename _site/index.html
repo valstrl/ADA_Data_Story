@@ -45,7 +45,7 @@
         </div>
     </header>
 
-  
+
   <section class="container content-section text-center">
   <div class="post-content">
 	<p>A voting system is a method by which voters choose between several alternatives and their opinions are aggregated, ultimately choosing a winner. Democratic countries, in principle, aim to have a representative outcome, to make sure the decision-making is roughly representative of the public’s beliefs. However, most of these democracies use a district based voting system, i.e., voters are divided into geographically based districts. Each district elects a fixed number of representatives who then take part in the decision-making on the behalf of their constituents. While on a practical level this has made democracy achievable on a large scale, this also tends to favor large political parties. Indeed, unless a smaller party convinces all its voters to move to the same constituency, it will be barred from taking part in the public debate. Worse, district voting allows for gerrymandering, the process by which large parties can secure easy victories but redrawing the borders of constituencies in order to favor their own candidates.</p>
@@ -71,7 +71,7 @@
 <div class= "map"></div>
 </div>
 
-  
+
   <section class="container content-section text-center">
 	<div class="post-content">
 	  <p>The 2015 election was marked by the rise of the conservative and liberal right at the expense of the Green parties. With a relatively high participation score of 48,5%, we can assume that this election is a accurate representation of Swiss public opinion.</p>
@@ -104,8 +104,8 @@
     <div id="map_score" clas="map_container col-lg-8 col-lg-offset-2" style="position: relative; overflow: hidden;" >
     <link href="css/map/map.css" rel="stylesheet" type="text/css">
     <h3 class="title_map" ></h3>
-    <p style="font-size: 12pt; margin-bottom: 0; margin-top : 50px; margin-left: 10px;">Select a party:</p>
-    <select style="margin-left: 10px; position: relative; z-index: 2"></select>
+    <p style="font-size: 12pt; margin-bottom: 0; margin-top : 50px; margin-left: 30px;">Select a party:</p>
+    <select style="margin-left: 30px; position: relative; z-index: 2"></select>
     <div class="tooltip_map" style="margin-top : 50px; ">
           <div class="selection_map" class="container">
           <p><span class="value_map"></span></p>
@@ -133,7 +133,7 @@
 
 <!--class="title_parliament_2015" style="position: relative; float: right; width: 100%;"-->
 
-  
+
   <section class="container content-section text-center">
 	<div class="post-content">
 			<p>In order to get a better grasp of the Swiss political climate, we can extract a political heat map from these results via a spectral clustering algorithm. For each municipality, the ‘political score’ is computed based on the electoral scores of each party. These municipalities are then projected based on their score on a distance map and subsequently clustered into different categories.</p>
@@ -153,7 +153,19 @@
 <div class= "map"></div>
 </div>
 
-  
+  <section>
+
+<div  style=" width: 100%; height: 600px">
+<h3  class="title_parliament_2015">Swiss Parliament based on assumptions </h3>
+<div id="parliament_states_orig" class= "parliament-container" style="float: right; width: 50%;">
+<link href="css/parliament/parliament.css" rel="stylesheet" type="text/css">
+</div>
+<div id="parliament_national_orig" class= "parliament-container" style=" float: left; width: 50%;">
+<link href="css/parliament/parliament.css" rel="stylesheet" type="text/css">
+</div>
+</section>
+
+
   <section class="container content-section text-center">
 	<div class="post-content">
 		<p>Surprisingly, using only 8 different categories, we can accurately represent the political climate of Switzerland without any prior geographical information : The westernmost Cantons such as Geneva, Vaud and Neuchâtel all have a similar political opinion, namely they are more progressive than the rest of Switzerland. On the other hand, for many protestant Swiss-German Cantons such as Zürich, Aargau, Thurgau, etc…, there is a strong political divide between the progressive city centers and the conservative countryside. In contrast, the catholic cantons such as Jura, Fribourg, Ticino, Glaris, etc… are already quite politically uniform. Finally, the case of the Grisons Canton is unique to Switzerland as it is highly heterogeneous. This can partially be explained by the fact that the different valleys that comprise the Grisons have lived separately for most of history.</p>
@@ -193,7 +205,7 @@
 
 </section>
 
-  
+
   <section class="container content-section text-center">
 	<div class="post-content">
 		<p>The most obvious change than can be observed is that almost all small parties have increased their number of representatives in the parliament.</p>
@@ -230,7 +242,7 @@
 
 </section>
 
-  
+
   <section class="container content-section text-center">
 	<div class="post-content">
 		<p>Even though the  overall representativeness has been somewhat improved, the resulting borders are unfeasable to enforce. Therefore a truly optimal solution cannot be attained without fracturing the different cantons.</p>
@@ -266,7 +278,7 @@
 
 </section>
 
-  
+
   <section class="container content-section text-center">
 	<div class="post-content">
 		<p>Even though the  overall representativeness has been somewhat improved, the resulting borders are unfeasable to enforce. Therefore a truly optimal solution cannot be attained without fracturing the different cantons.</p>
@@ -278,7 +290,7 @@
 	<canvas id="canvas16" style="position: relative; left: 50%; margin-right: -50%; transform: translate(-50%, 0%)"></canvas>
 </div>
 
-  
+
   <!-- Map Section -->
 <!--<div id="map"></div>-->
 <section>
@@ -286,8 +298,8 @@
 <div id="map_party" clas="map_container col-lg-8 col-lg-offset-2" style="position: relative; overflow: hidden;" >
 <link href="css/map/map.css" rel="stylesheet" type="text/css">
 <h3 class="title_map" ></h3>
-<p style="font-size: 12pt; margin-bottom: 0; margin-top : 100px; margin-left: 10px;">Select the conquering party:</p>
-<select style="margin-left: 10px; position: relative; z-index: 2"></select>
+<p style="font-size: 12pt; margin-bottom: 0; margin-top : 100px; margin-left: 30px;">Select the conquering party:</p>
+<select style="margin-left: 30px; position: relative; z-index: 2"></select>
 <div class="tooltip_map" style="margin-top : 100px; ">
       <div class="selection_map" class="container">
       <p><span class="value_map"></span></p>

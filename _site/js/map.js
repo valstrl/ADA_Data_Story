@@ -91,7 +91,6 @@ class Map {
        }
 
 
-       //d3.selectAll(this.map_id).select(".title").text(name);
        d3.selectAll(this.map_id).select(".value_map").text(name);
 
 
@@ -101,28 +100,24 @@ class Map {
    zoom_start(xyz) {
 
        this.g.selectAll([ ".gemeinden"])
-            //.style("stroke-width",(d)=>{return '1';});
             .style("stroke-width", 0.5 / xyz[2] + "px");
 
         this.g.transition()
           .duration(750)
           .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
           .selectAll([ ".gemeinden"])
-          //.style("stroke-width",(d)=>{return '1';})
           .style("stroke-width", 0.5 / xyz[2] + "px")
           .selectAll(".gemeinde")
           .attr("d", this.path.pointRadius(20.0 / xyz[2]));
 
       //for kantons
       this.g2.selectAll([ ".kantone"])
-           //.style("stroke-width",(d)=>{return '1';});
            .style("stroke-width", 0.5 / xyz[2] + "px");
 
        this.g2.transition()
          .duration(750)
          .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
          .selectAll([ ".kantone"])
-         //.style("stroke-width",(d)=>{return '1';})
          .style("stroke-width", 0.5 / xyz[2] + "px")
          .selectAll(".kanton")
          .attr("d", this.path.pointRadius(20.0 / xyz[2]));
@@ -286,7 +281,6 @@ map_resize(){
          this.dataset = data;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
 
-               // Lade Gemeinden
 
                  d3.json(gemeinden_topojson_path, function(error, gemeinden_json) {
                      this.gemeinden = topojson.feature(gemeinden_json, gemeinden_json.objects.gemeinden).features;
@@ -295,7 +289,7 @@ map_resize(){
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
-                     //Starte die Demonstration
+                     
                      this.colorscale=colorscale_array;
                      this.max_labels=max;
                      this.map_id=div_id;

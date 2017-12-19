@@ -1,6 +1,4 @@
 
-
-
 class Map2 {
     constructor() {
        this.width = 938,
@@ -31,11 +29,6 @@ class Map2 {
          .projection(this.projection);
 
       this.jenks9 = {};
-
-     /*this.scales.quantize = d3.scale.quantize()
-         .domain([0, .15])
-         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));*/
-
     }
 
     //highlight when mouseover
@@ -92,8 +85,6 @@ class Map2 {
          name = d.properties.GMDNAME;
        }
 
-
-        //d3.selectAll(this.map_id).select(".title_map").text(name);
         if(value != -1){
           d3.selectAll(this.map_id).select(".value_map").text( name + ": ");
           d3.selectAll(this.map_id).select(".value2_map").text(this.selectValue + " score = " + value + "%");
@@ -108,28 +99,24 @@ class Map2 {
    zoom_start(xyz) {
 
        this.g.selectAll([ ".gemeinden"])
-            //.style("stroke-width",(d)=>{return '1';});
             .style("stroke-width", 0.5 / xyz[2] + "px");
 
         this.g.transition()
           .duration(750)
           .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
           .selectAll([ ".gemeinden"])
-          //.style("stroke-width",(d)=>{return '1';})
           .style("stroke-width", 0.5 / xyz[2] + "px")
           .selectAll(".gemeinde")
           .attr("d", this.path.pointRadius(20.0 / xyz[2]));
 
         //for kantons
         this.g2.selectAll([ ".kantone"])
-             //.style("stroke-width",(d)=>{return '1';});
              .style("stroke-width", 0.5 / xyz[2] + "px");
 
          this.g2.transition()
            .duration(750)
            .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
            .selectAll([ ".kantone"])
-           //.style("stroke-width",(d)=>{return '1';})
            .style("stroke-width", 0.5 / xyz[2] + "px")
            .selectAll(".kanton")
            .attr("d", this.path.pointRadius(20.0 / xyz[2]));
@@ -233,7 +220,6 @@ addLegend(){
   //Draw the rectangle and fill with gradient
   d3.selectAll(this.map_id).select(".legend_svg").append("g")
     .attr("class", "legend_rect")
-    //.style("position", "relative")
     .style("z-index", "10")
     .selectAll("rect")
     .data(this.bins)
@@ -304,7 +290,6 @@ addLegend(){
 
     this.colorscale=colorscale;
     this.map_id=div_id;
-   //d3.csv(data_csv_path, function(data) {
      d3.csv(data_csv_path, function(data){
 
        var parties = ["BDP/PBD","CSP/PCS","CVP/PDC","EVP/PEV","FDP/PLR (PRD)","GLP/PVL","PdA/PST","SP/PS","SVP/UDC","EDU/UDF","GPS/PES","Lega","MCR","SD/DS","Sol.","Ãœbrige/Autres"];
@@ -335,7 +320,6 @@ addLegend(){
          this.dataset = data;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
 
-               // Lade Gemeinden
                d3.json(topojson_path, function(error, json) {
                      this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;
                      this.gemeinden_json=json;
@@ -344,9 +328,6 @@ addLegend(){
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text(this.value_text);
                      d3.select(div_id).select(".value2_map").text("");
-                     //Starte die Demonstration
-                     //this.colorscale=colorscale;
-                     //this.map_id=div_id;
                      this.start_demo();
                  }.bind(this))
 
@@ -357,5 +338,5 @@ addLegend(){
 }
 
 var mapScore= new Map2();
-mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 Federal Election", "Mouseover a municipality to see its exact score");
+mapScore.map_scores("data/topojson/gemeinden_2015.topo.json","data/votes/results_2015.csv", d3v4.interpolateGnBu, "#map_score","2015 Federal Election Results", "Mouseover a municipality to see its exact score");
 mapScore.map_resize();
