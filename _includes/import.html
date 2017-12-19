@@ -43,7 +43,27 @@
 
 	<p>A few caveats need to be mentioned regarding the results of the genetic algorithm. The Swiss do not directly vote for parties, but instead for candidates who are then affiliated to a political party. Furthermore, parties can sometimes agree to transfer their votes between each other in order to bar their common opponent from winning. Finally, the elections for the the council of states are regulated on the cantonal level and therefore differ from canton to canton. For the sake of simplicity, we have decided to omit these factors.</p>
 
+	<p>In addition, we imposed geographical constraints on the shapes and sizes of cantons in order to make them more uniform.</p>
+
 	<p>SHOW MAP</p>
+
+	<p>The most obvious change than can be observed is that almost all small parties have increased their number of representatives in the parliament.</p>
+
+	<p>During our simulation, we have observed that the most sensitive changes were detected along the borders of the smaller cantons and that our algorithm has a tendency to merge them into larger cantons. Intuitively, we would expect the representativeness to improve by increasing the number of cantons, with the extreme case being when each municipality is its own canton. However, our algorithm seems to demonstrate the opposite, by slightly reducing the total number of cantons. We believe that there is more than a single solution to this optimization problem and that there is room for improvement.</p>
+
+	<p>On the following map, we relaxed the geographical constraints imposed above in order to gauge their effect on the final solution.</p>
+
+	<p>SHOW MAP</p>
+
+	<p>Even though the  overall representativeness has been somewhat improved, the resulting borders are unfeasable to enforce. Therefore a truly optimal solution cannot be attained without fracturing the different cantons.</p>
+
+	<p>We also ran our algorithm with a random initialization for the sake of comparison.</p>
+
+	<p>SHOW MAP</p>
+
+	<p>We can see that we obtained a similar parliamentary distribution, thus proving that their are many solutions to our problem. However these borders are even more inconsistent regarding the history and culture of its respective population.</p>
+
+	<p>SHOW BARPLOT</p>
 
 	<p>However, the power to redraw borders can also cause great harm to the fabric of Swiss democracy –&gt; gerrymandering</p>
 

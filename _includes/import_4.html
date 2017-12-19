@@ -1,0 +1,12 @@
+<section class="container content-section text-center">
+	<div class="post-content">
+		<p>Surprisingly, using only 8 different categories, we can accurately represent the political climate of Switzerland without any prior geographical information : The westernmost Cantons such as Geneva, Vaud and Neuchâtel all have a similar political opinion, namely they are more progressive than the rest of Switzerland. On the other hand, for many protestant Swiss-German Cantons such as Zürich, Aargau, Thurgau, etc…, there is a strong political divide between the progressive city centers and the conservative countryside. In contrast, the catholic cantons such as Jura, Fribourg, Ticino, Glaris, etc… are already quite politically uniform. Finally, the case of the Grisons Canton is unique to Switzerland as it is highly heterogeneous. This can partially be explained by the fact that the different valleys that comprise the Grisons have lived separately for most of history.</p>
+
+		<p>In order to reach our solution iteratively we used a genetic algorithm [link]. Starting from the initial canton partition, we introduce over the course of many generations changes along the cantonal borders (i.e. mutations). Over each generation, only the borders which result in an increase in representativeness are kept. This process is repeated until the representativeness cannot be increased any further.</p>
+
+		<p>A few caveats need to be mentioned regarding the results of the genetic algorithm. The Swiss do not directly vote for parties, but instead for candidates who are then affiliated to a political party. Furthermore, parties can sometimes agree to transfer their votes between each other in order to bar their common opponent from winning. Finally, the elections for the the council of states are regulated on the cantonal level and therefore differ from canton to canton. For the sake of simplicity, we have decided to omit these factors.</p>
+		
+		<p>In addition, we imposed geographical constraints on the shapes and sizes of cantons in order to make them more uniform.</p>
+
+	</div>
+</section>
