@@ -1,14 +1,16 @@
 <section class="container content-section text-center">
   <div class="post-content">
-	<p>A voting system is a method by which voters choose between several alternatives and their opinions are aggregated, ultimately choosing a winner. Democratic countries, in principle, aim to have a representative outcome, to make sure the decision-making is roughly representative of the public’s beliefs. However, most of these democracies use a district based voting system, i.e., voters are divided into geographically based districts. Each district elects a fixed number of representatives who then take part in the decision-making on the behalf of their constituents. While on a practical level this has made democracy achievable on a large scale, this also tends to favor large political parties. Indeed, unless a smaller party convinces all its voters to move to the same constituency, it will be barred from taking part in the public debate. Worse, district voting allows for gerrymandering, the process by which large parties can secure easy victories but redrawing the borders of constituencies in order to favor their own candidates.</p>
+	 <p>A voting system is a method by which voters choose between several alternatives and their opinions are aggregated, ultimately choosing a winner. Democratic countries, in principle, aim to have a representative outcome, to make sure the decision-making is roughly representative of the public’s beliefs. However, most of these democracies use a district based voting system, i.e., voters are divided into geographically based districts. Each district elects a fixed or variable number of representatives who then take part in the decision-making on the behalf of their constituents. While on a practical level this has made democracy achievable on a large scale, this also tends to favor large political parties. Indeed, unless a smaller party convinces all its voters to move to the same constituency, it will be barred from taking part in the public debate. Worse, district voting allows for gerrymandering, the process by which large parties can secure easy victories but redrawing the borders of constituencies in order to favor their own candidates.</p>
 
-	<p>In this article we aim to study the political geography of Switzerland through the election results of 2015. Specifically, we would like to know if the current voting districts are representative of the public’s opinion and if the current partition can be improved.</p>
+	 <p>In this article we aim to study the political geography of Switzerland through the election results of 2015. Specifically, we would like to know if the current voting districts are representative of the public’s opinion and if the current partition can be improved.</p>
 
-	<p>In Switzerland, the political districts are known as Cantons. During a federal election, the voters of each Canton elect their representatives proportionally based on the number of seats attributed to each Canton. Each Canton gets a number of representatives proportional to its population, except for the least populated Cantons which have a single representative. Seats for the National Council are attributed according to the Hagenbach-Bischoff system [link].</p>
+	 <h2 id="a-political-portrait-of-switzerland">A political portrait of Switzerland</h2>
 
-	<p>The cantonal borders in Switzerland have mostly stayed fixed since the 19th century, and in some cases, even the Middle-Ages, before Switzerland became a democracy. Therefore, these borders sometimes do not take into account the changes in Swiss society that occurred in the last 150 years. Furthermore, since the number of seats the parliament is limited, some parties will never get enough votes to be represented, and therefore part of the Swiss population is de facto excluded from parliamentary debates.</p>
+	 <p>In Switzerland, the political districts are known as Cantons. During a federal election, the voters of each Canton elect their representatives proportionally based on the number of seats attributed to each Canton. The parliament is constituted by two councils, the National Council and the Council of States. In the National council, 200 seats are proportionally split between cantons based on their populations (one seat is however granted for small cantons), while each canton has 2 seats on the Council of States regardless of their population . Seats on the National Council are attributed according to the Hagenbach-Bischoff system [link] while cantons are free to choose the electoral system by which  their counsellors of States are elected.</p>
 
-	<p>The 2015 election was marked by the rise of the conservative and liberal right at the expense of the Green parties. With a relatively high participation score of 48,5%, we can assume that this election is a accurate representation of Swiss public opinion.</p>
+	 <p>The cantonal borders in Switzerland have mostly stayed fixed since the 19th century, and in some cases, even the Middle-Ages, before Switzerland became a democracy. Therefore, these borders sometimes do not take into account the changes in Swiss society that occurred in the last 150 years. Furthermore, since the number of seats in the parliament is limited, some parties will never get enough votes to be represented, and therefore part of the Swiss population is de facto excluded from parliamentary debates.</p>
+
+	 <p>The 2015 election was marked by the rise of the conservative and liberal right at the expense of the Green parties. With a relatively high participation score of 48,5%, we can assume that this election is a accurate representation of Swiss public opinion.</p>
 
 	<p>A brief summary of the main political parties that contended in the 2015 National Council election: </p>
 	
@@ -32,12 +34,16 @@
     </ul>
 	
 	<p>SHOW MAP</p>
+	
+	<h2 id="a-first-look-at-the-data">A first look at the data</h2>
 
 	<p>In order to get a better grasp of the Swiss political climate, we can extract a political heat map from these results via a spectral clustering algorithm. For each municipality, the ‘political score’ is computed based on the electoral scores of each party. These municipalities are then projected based on their score on a distance map and subsequently clustered into different categories.</p>
 
 	<p>SHOW MAP</p>
 
 	<p>Surprisingly, using only 8 different categories, we can accurately represent the political climate of Switzerland without any prior geographical information : The westernmost Cantons such as Geneva, Vaud and Neuchâtel all have a similar political opinion, namely they are more progressive than the rest of Switzerland. On the other hand, for many protestant Swiss-German Cantons such as Zürich, Aargau, Thurgau, etc…, there is a strong political divide between the progressive city centers and the conservative countryside. In contrast, the catholic cantons such as Jura, Fribourg, Ticino, Glaris, etc… are already quite politically uniform. Finally, the case of the Grisons Canton is unique to Switzerland as it is highly heterogeneous. This can partially be explained by the fact that the different valleys that comprise the Grisons have lived separately for most of history.</p>
+
+	<h2 id="going-stochastic">Going stochastic</h2>
 
 	<p>In order to reach our solution iteratively we used a genetic algorithm [link]. Starting from the initial canton partition, we introduce over the course of many generations changes along the cantonal borders (i.e. mutations). Over each generation, only the borders which result in an increase in representativeness are kept. This process is repeated until the representativeness cannot be increased any further.</p>
 
@@ -64,11 +70,27 @@
 	<p>We can see that we obtained a similar parliamentary distribution, thus proving that their are many solutions to our problem. However these borders are even more inconsistent regarding the history and culture of its respective population.</p>
 
 	<p>SHOW BARPLOT</p>
+	
+	<p>On this plot, we compared the representativeness between different canton distributions. We also plotted the theoretical lower bound of the loss, the average loss obtained with a random canton distribution and the loss based on current parliament. We can see that the current distribution is far better than a random one and therefore relatively fair. There is a significant improvement using the genetic algorithm, namely, slightly increased by removing geographical constraints. With a random initialization, this improvement is even greater, but does not reach the same performance as the previous results. The theoretical minimal loss is however still out of reach.</p>
 
-	<p>However, the power to redraw borders can also cause great harm to the fabric of Swiss democracy –&gt; gerrymandering</p>
+	<h2 id="divide-and-conquer">Divide and conquer</h2>
+
+	<p>However, the power to redraw borders can also cause great harm to the fabric of Swiss democracy. For the sake of curiosity, we thus computed the optimal borders necessary to favor the influence of a single party :</p>
 
 	<p>SHOW MAP</p>
 
-	<p>Conclusion : the current borders do not reflect the opinions of Swiss citizens. In order to improve representativeness, we propose this optimal solution instead.</p>
+	<p>SVP/UDC : 
+	Most of the Swiss-German cantons are already favoring the SVP/UDC in their current configuration. One notable change is the fact that the Bern canton has been boosted in order to absorb left-wing municipalities that will be compensated by Bern’s conservative countryside. Furthermore, the cantons of Central Switzerland have been recombined in order to undermine the influence of the Christian-Democrats.</p>
+
+	<p>FDP/PLR :
+	The FDP/PLR also already benefits from the current configuration of Northern Switzerland. Most notably, Fribourg, Neuchâtel and Jura, cantons where the party is unpopular, are partially integrated into cantons that are more favorable, such as Vaud and Bern. As for Central Switzerland, many of the cantons are bundled into a single “Super Schwyz” in order to separate the unfavorable from the favorable electorates.</p>
+
+	<p>SP/PS :
+	In Northern Switzerland many of the urban areas such as Zürich, Winterthur and St-Gallen have been separated from the countryside in order to avoid getting balanced out. In Western Switzerland, the most notable change is that Wallis has been split in half.</p>
+
+	<p>CVP/PDC :
+	Since its optimal canton distribution is close to the current one, the CVP/PDC seems to already benefit from the current configuration of cantons. However one notable change is the fact that Zürich has been switched from Zürich Canton to Aargau.</p>
+
+	<p>The main trend in all these results seems to be that each party would seek to absorb small towns to cantons in which it is already sure to get a good score in order to mitigate losses in cantons in which they are unpopular. Since there are less seats on the Council of States than the National Council, it is thus the most susceptible to be swayed using gerrymandering tactics.</p>
   </div>
 </section>
