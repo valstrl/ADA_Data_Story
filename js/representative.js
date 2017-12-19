@@ -13,7 +13,7 @@ var barChartData = {
 
                 ]
             }, {
-                label: 'Theorical optimum',
+                label: 'Theoretical optimal distribution',
                 backgroundColor: d3v4.schemeSet3[2],
                 data: [
                   {x:1,y:0.0000275},
@@ -22,7 +22,7 @@ var barChartData = {
 
                 ]
             }, {
-                label: 'Real distribution',
+                label: 'Groundtruth',
                 backgroundColor: d3v4.schemeSet3[3],
                 data: [
                   {x:1,y:0.0031943},
@@ -41,7 +41,7 @@ var barChartData = {
 
                 ]
             },{
-                label: 'Optimized distribution',
+                label: 'Optimized distribution (with constraints)',
                 backgroundColor: d3v4.schemeSet3[5],
                 data: [
                   {x:1,y:0.0004078},
@@ -59,7 +59,7 @@ var barChartData = {
 
                 ]
             },{
-                label: 'Simulation with actual cantons',
+                label: 'Current distribution',
                 backgroundColor: d3v4.schemeSet3[7],
                 data: [
                   {x:1,y:0.0018402},
@@ -94,7 +94,7 @@ var myBarChart = new Chart(ctx, {
                   },
                   scaleLabel: {
                     display: true,
-                    labelString: "L2 Loss between seats proportion and public opinion"
+                    labelString: "Mean square error between proportion of seats and public opinion"
                   }
                 }]
             },
