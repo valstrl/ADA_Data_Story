@@ -273,7 +273,7 @@ map_resize(){
                  d3.json(gemeinden_topojson_path, function(error, gemeinden_json) {
                      this.gemeinden = topojson.feature(gemeinden_json, gemeinden_json.objects.gemeinden).features;
                      this.gemeinden_json=gemeinden_json;
-                     
+
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
@@ -291,17 +291,17 @@ map_resize(){
 }
 
 var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering",8, false);
+mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering",8, false,"");
 mapLabel.map_resize();
 
 var mapAlgo1 = new Map();
-mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true);
+mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true,"New cantons :");
 mapAlgo1.map_resize();
 
 var mapAlgo2 = new Map();
-mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true);
+mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true,"New cantons:");
 mapAlgo2.map_resize();
 
 var mapOrig= new Map();
-mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons",26,true);
+mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons",26,true,"Cantons:");
 mapOrig.map_resize();

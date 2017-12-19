@@ -22,7 +22,7 @@ svg .seat.CVP\/PDC { fill: #FE9A2E }/*done*/
 svg .seat.EVP\/PEV { fill: #FFD735 }/*done*/
 svg .seat.FDP\/PLR { fill: #0174DF } /*done*/
 svg .seat.GLP\/PVL { fill: #9AFE2E }/*done*/
-svg .seat.PdA\/PST { fill: #40E0D0 }
+svg .seat.PdA\/PST { fill: #FF0000}
 svg .seat.SP\/PS { fill: #FA1360 }/*done*/
 /* French parliament colors */
 svg .seat.SVP\/UDC{ fill: #088A4B; } /*done*/
@@ -32,7 +32,7 @@ svg .seat.Lega { fill: #0B3861; }/*done*/
 svg .seat.MCR{ fill: #4C6099; }
 svg .seat.Sol\.{ fill: #800000; }
 svg .seat.\\u00dcbrige\/Autres{ fill: #CCCCCC; }
-svg .seat.SD\/DS{ fill: #FF0000; }/*done*/
+svg .seat.SD\/DS{ fill: #40E0D0 ; }/*done*/
 
 /* common */
 svg .seat.vacant { fill: #FFFFFF }
