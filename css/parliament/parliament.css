@@ -1,9 +1,6 @@
 
 
 .title_parliament {
-	/*font-size: 16px;
-  font-family: sans-serif;
-  text-transform: uppercase;*/
   position: absolute;
   left: 50%;
   margin-right: -50%;
@@ -11,9 +8,6 @@
 }
 
 .title_parliament_2015 {
-	/*font-size: 16px;
-  font-family: sans-serif;
-  text-transform: uppercase;*/
   position: absolute;
   left: 50%;
   margin-right: -50%;
@@ -25,23 +19,22 @@
   margin-top: 30px;
 }
 /* Swiss parliament colors */
-svg .seat.BDP\/PBD { fill: #efef92 }/*done*/
-svg .seat.CSP\/PCS{ fill: #E2563B }/*done*/
-svg .seat.CVP\/PDC { fill: #fdb462 }/*done*/
-svg .seat.EVP\/PEV { fill: #FFD735 }/*done*/
-svg .seat.FDP\/PLR { fill: #80b1d3} /*done*/
-svg .seat.GLP\/PVL { fill: #b3de8e }/*done*/
+svg .seat.BDP\/PBD { fill: #efef92 }
+svg .seat.CSP\/PCS{ fill: #E2563B }
+svg .seat.CVP\/PDC { fill: #fdb462 }
+svg .seat.EVP\/PEV { fill: #FFD735 }
+svg .seat.FDP\/PLR { fill: #80b1d3}
+svg .seat.GLP\/PVL { fill: #b3de8e }
 svg .seat.PdA\/PST { fill: #fccde5}
-svg .seat.SP\/PS { fill: #fb8072 }/*done*/
-/* French parliament colors */
-svg .seat.SVP\/UDC{ fill: #4eb694; } /*done*/
+svg .seat.SP\/PS { fill: #fb8072 }
+svg .seat.SVP\/UDC{ fill: #4eb694; }
 svg .seat.EDU\/UDF { fill: #184aa3; }
-svg .seat.GPS\/PES { fill: #b3de69; }/*done*/
-svg .seat.Lega { fill: #1685e5; }/*done*/
+svg .seat.GPS\/PES { fill: #b3de69; }
+svg .seat.Lega { fill: #1685e5; }
 svg .seat.MCR{ fill: #6e77c1; }
 svg .seat.Sol\.{ fill: #822e2e; }
 svg .seat.\Übrige\/Autres{ fill: #606060; }
-svg .seat.SD\/DS{ fill: #a1eae3 ; }/*done*/
+svg .seat.SD\/DS{ fill: #a1eae3 ; }
 
 /* common */
 svg .seat.vacant { fill: #FFFFFF }
