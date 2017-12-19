@@ -19,6 +19,7 @@ class Map {
        this.projection,
        this.dataset,
        this.gemeinden_json,
+       this.legend_title,
        this.add_legend;
 
        //projection
@@ -48,11 +49,13 @@ class Map {
        if (value ) {
                //If value exists…
                if(value == -1){
+
                  return '#B7E1F3';
                }
                else{
                  if(max <= 15)
                  {
+
                   //return colorscale[value];
                   return colorscale[value];
                  }else{
@@ -202,7 +205,7 @@ class Map {
     if(this.add_legend==true){
     this.addLegend();
     this.svg.select(".legendOrdinal")
-    .style("")
+
     }
 
    d3.json("data/topojson/start.json", function(error, json) {
@@ -212,24 +215,37 @@ class Map {
 };
 
 addLegend(){
+  var colors_range = [];
+  var cantons_names =[];
 
+if(this.dataset[0].Canton_name != undefined){
   var new_object =this.dataset.map(function(d){
     return {name: d.Canton_name, index: d.Label};
   });
   new_object= _.uniqBy(new_object, "name");
 
 
-var colors_range = [];
-new_object.forEach(function(d){
-  colors_range.push(this.colorscale(d.index/25));
-}.bind(this))
+  new_object.forEach(function(d){
+    colors_range.push(this.colorscale(d.index/25));
+  }.bind(this))
+  new_object.forEach(function(d){
+    cantons_names.push(d.name);
+  }.bind(this))
+  console.log("if");
+}
 
-
-var cantons_names =[];
-new_object.forEach(function(d){
-  cantons_names.push(d.name);
-}.bind(this))
-
+else{
+  cantons_names=[""," ","  ","   ","    ","     ","       ","        "]
+  var label_range=[...Array(8).keys()]
+  console.log(label_range);
+  label_range.forEach(function(d){
+    colors_range.push(this.colorscale[d]);
+  }.bind(this))
+  console.log("else");
+}
+console.log(cantons_names);
+console.log(colors_range);
+colors_range
 
 var ordinal = d3.scale.ordinal()
 .domain(cantons_names) //cantons names
@@ -242,7 +258,8 @@ this.svg.append("g")
 var legendOrdinal = d3.legend.color()
 .shape("path", d3.svg.symbol().type("triangle-up").size(50)())
 .shapePadding(5)
-.scale(ordinal);
+.scale(ordinal)
+.title(this.legend_title);
 
 this.svg.select(".legendOrdinal")
 .call(legendOrdinal);
@@ -261,9 +278,10 @@ map_resize(){
 }
 
 
-  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_, max, add_legend_){
+  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_, max, add_legend_, legend_title){
    //d3.csv(data_csv_path, function(data) {
       this.add_legend=add_legend_;
+      this.legend_title=legend_title;
      d3.csv(data_csv_path, function(data){
          this.dataset = data;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
@@ -273,7 +291,7 @@ map_resize(){
                  d3.json(gemeinden_topojson_path, function(error, gemeinden_json) {
                      this.gemeinden = topojson.feature(gemeinden_json, gemeinden_json.objects.gemeinden).features;
                      this.gemeinden_json=gemeinden_json;
-                     
+
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
@@ -290,18 +308,20 @@ map_resize(){
 
 }
 
+ console.log("spectral");
 var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectral_labels.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering",8, false);
+mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spec2.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering",8, true,"8 Political Opinion Clusters");
 mapLabel.map_resize();
 
+console.log("none");
 var mapAlgo1 = new Map();
-mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true);
+mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true,"Most densely populated city of the new cantons:");
 mapAlgo1.map_resize();
 
 var mapAlgo2 = new Map();
-mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true);
+mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true,"Most densely populated city of the new cantons:");
 mapAlgo2.map_resize();
 
 var mapOrig= new Map();
-mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons",26,true);
+mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons",26,true,"Cantons:");
 mapOrig.map_resize();

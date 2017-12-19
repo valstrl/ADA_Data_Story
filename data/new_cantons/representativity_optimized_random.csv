@@ -344,7 +344,7 @@ Bülach,21,Zürich
 Bünzen,18,Aarau
 Bürchen,22,Brig-Glis
 Büren (SO),7,Muttenz
-Büren an der Aare (Urne commune),10,Basel
+Büren an der Aare,10,Basel
 Bürglen (TG),23,Winterthur
 Bürglen (UR),16,Chur
 Büron,19,Kriens
@@ -424,7 +424,7 @@ Chêne-Bourg,8,Genève
 Chêne-Pâquier,4,Lausanne
 Clarmont,8,Genève
 Claro,24,Bellinzona
-Clavaleyres (Urne commune),8,Genève
+Clavaleyres,8,Genève
 Clos du Doubs,16,Chur
 Coeuve,16,Chur
 Coinsins,15,Gland
@@ -511,7 +511,7 @@ Damphreux,16,Chur
 Dardagny,8,Genève
 Davos,1,Davos
 Degersheim,23,Winterthur
-Deisswil bei Münchenbuchsee (Urne commune),14,Bern
+Deisswil bei Münchenbuchsee,14,Bern
 Deitingen,10,Basel
 Delley-Portalban,11,Luzern
 Delémont,16,Chur
@@ -634,7 +634,7 @@ Ermatingen,23,Winterthur
 Ermensee,18,Aarau
 Ernen,22,Brig-Glis
 Erschwil,16,Chur
-Ersigen (Urne commune),10,Basel
+Ersigen,10,Basel
 Erstfeld,16,Chur
 Eschenbach (LU),11,Luzern
 Eschenbach (SG),23,Winterthur
@@ -881,7 +881,7 @@ Heimenhausen,10,Basel
 Heimiswil,14,Bern
 Heitenried,0,Köniz
 Hellikon,7,Muttenz
-Hellsau (Urne commune),10,Basel
+Hellsau,10,Basel
 Hemberg,23,Winterthur
 Hemishofen,23,Winterthur
 Hemmiken,7,Muttenz
@@ -947,7 +947,7 @@ Hägglingen,18,Aarau
 Härkingen,19,Kriens
 Häutligen,0,Köniz
 Hérémence,13,Sion
-Höchstetten (Urne commune),10,Basel
+Höchstetten,10,Basel
 Hölstein,7,Muttenz
 Höri,21,Zürich
 Hünenberg,11,Luzern
@@ -980,7 +980,7 @@ Isorno,3,Lugano
 Isérables,13,Sion
 Itingen,7,Muttenz
 Ittigen,14,Bern
-Jaberg (Urne commune),0,Köniz
+Jaberg,0,Köniz
 Jaun,0,Köniz
 Jegenstorf,14,Bern
 Jenaz,16,Chur
@@ -1022,7 +1022,7 @@ Killwangen,18,Aarau
 Kippel,22,Brig-Glis
 Kirchberg (BE),10,Basel
 Kirchberg (SG),23,Winterthur
-Kirchdorf (BE) (Urne commune),0,Köniz
+Kirchdorf (BE),0,Köniz
 Kirchenthurnen,0,Köniz
 Kirchleerau,19,Kriens
 Kirchlindach,14,Bern
@@ -1255,7 +1255,7 @@ Maur,21,Zürich
 Mauraz,15,Gland
 Medel (Lucmagn),3,Lugano
 Meggen,11,Luzern
-Meienried (Urne commune),9,Biel/Bienne
+Meienried,9,Biel/Bienne
 Meierskappel,11,Luzern
 Meikirch,14,Bern
 Meilen,21,Zürich
@@ -1368,7 +1368,7 @@ Mörel-Filet,22,Brig-Glis
 Mörigen,9,Biel/Bienne
 Möriken-Wildegg,18,Aarau
 Mörschwil,23,Winterthur
-Mötschwil (Urne commune),14,Bern
+Mötschwil,14,Bern
 Mühlau,11,Luzern
 Mühleberg,0,Köniz
 Mühledorf (BE),0,Köniz
@@ -1378,7 +1378,7 @@ Mülligen,25,Baden
 Mümliswil-Ramiswil,10,Basel
 Münchenbuchsee,14,Bern
 Münchenstein,7,Muttenz
-Münchenwiler (Urne commune),8,Genève
+Münchenwiler,8,Genève
 Münchwilen (AG),7,Muttenz
 Münchwilen (TG),23,Winterthur
 Münsingen,0,Köniz
@@ -1416,16 +1416,16 @@ Niederhasli,15,Gland
 Niederhelfenschwil,23,Winterthur
 Niederhünigen,0,Köniz
 Niederlenz,18,Aarau
-Niedermuhlern (Urne commune),0,Köniz
+Niedermuhlern,0,Köniz
 Niederried bei Interlaken,22,Brig-Glis
 Niederrohrdorf,18,Aarau
 Niederwald,22,Brig-Glis
 Niederweningen,25,Baden
 Niederwil (AG),18,Aarau
 Niederönz,10,Basel
-Niederösch (Urne commune),10,Basel
+Niederösch,10,Basel
 Nods,2,La Chaux-de-Fonds
-Noflen (Urne commune),0,Köniz
+Noflen,0,Köniz
 Noréaz,11,Luzern
 Nottwil,19,Kriens
 Novaggio,24,Bellinzona
@@ -1486,7 +1486,7 @@ Oberwil bei Büren,10,Basel
 Oberwil im Simmental,0,Köniz
 Oberwil-Lieli,21,Zürich
 Oberägeri,11,Luzern
-Oberösch (Urne commune),10,Basel
+Oberösch,10,Basel
 Obfelden,21,Zürich
 Ochlenberg,19,Kriens
 Oekingen,10,Basel
@@ -1733,7 +1733,7 @@ Rüte,23,Winterthur
 Rüthi (SG),23,Winterthur
 Rüti (ZH),23,Winterthur
 Rüti bei Büren,10,Basel
-Rüti bei Lyssach (Urne commune),14,Bern
+Rüti bei Lyssach,14,Bern
 Rütschelen,19,Kriens
 Rüttenen,10,Basel
 S-chanf,13,Sion
@@ -2184,7 +2184,7 @@ Wagenhausen,23,Winterthur
 Wahlen,16,Chur
 Walchwil,11,Luzern
 Wald (AR),23,Winterthur
-Wald (BE) (Urne commune),0,Köniz
+Wald (BE),0,Köniz
 Wald (ZH),23,Winterthur
 Waldenburg,7,Muttenz
 Waldkirch,23,Winterthur
@@ -2234,7 +2234,7 @@ Widen,18,Aarau
 Widnau,23,Winterthur
 Wiedlisbach,10,Basel
 Wiesendangen,23,Winterthur
-Wiggiswil (Urne commune),14,Bern
+Wiggiswil,14,Bern
 Wigoltingen,23,Winterthur
 Wikon,19,Kriens
 Wil (SG),23,Winterthur

@@ -225,12 +225,13 @@ var ordinal = d3.scale.ordinal()
 
 this.svg.append("g")
 .attr("class", "legendOrdinal")
-.attr("transform", "translate(20,50)");
+.attr("transform", "translate(20,100)");
 
 var legendOrdinal = d3.legend.color()
 .shape("path", d3.svg.symbol().type("triangle-up").size(50)())
 .shapePadding(5)
-.scale(ordinal);
+.scale(ordinal)
+.title("Most densely populated city of the new cantons:");;
 
 this.svg.select(".legendOrdinal")
 .call(legendOrdinal);
