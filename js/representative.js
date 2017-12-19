@@ -2,7 +2,7 @@ var ctx = document.getElementById("canvas16");
 //console.log(ctx);
 
 var barChartData = {
-            labels: ['National Council', 'Council of States', 'National and Council of States '],
+            labels: ['National Council', 'Council of States', 'Entire Parliament'],
             datasets: [{
                 label: 'Random distribution',
                 backgroundColor: d3v4.schemeSet3[1],
@@ -81,7 +81,7 @@ var myBarChart = new Chart(ctx, {
 
             title:{
                 display:true,
-                text:"The deviation in Parlement representativeness"
+                text:"The deviation in Parliament representativeness"
             },
             scales: {
                 xAxes: [{
