@@ -19,6 +19,7 @@ class Map {
        this.projection,
        this.dataset,
        this.gemeinden_json,
+       this.legend_title,
        this.add_legend;
 
        //projection
@@ -202,7 +203,7 @@ class Map {
     if(this.add_legend==true){
     this.addLegend();
     this.svg.select(".legendOrdinal")
-    .style("")
+
     }
 
    d3.json("data/topojson/start.json", function(error, json) {
@@ -242,7 +243,8 @@ this.svg.append("g")
 var legendOrdinal = d3.legend.color()
 .shape("path", d3.svg.symbol().type("triangle-up").size(50)())
 .shapePadding(5)
-.scale(ordinal);
+.scale(ordinal)
+.title(this.legend_title);
 
 this.svg.select(".legendOrdinal")
 .call(legendOrdinal);
@@ -261,9 +263,10 @@ map_resize(){
 }
 
 
-  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_, max, add_legend_){
+  map_labels(gemeinden_topojson_path,data_csv_path, colorscale_array, div_id, title_, max, add_legend_, legend_title){
    //d3.csv(data_csv_path, function(data) {
       this.add_legend=add_legend_;
+      this.legend_title=legend_title;
      d3.csv(data_csv_path, function(data){
          this.dataset = data;
                d3.selectAll(div_id).select(".value_map").text("Load municipalities");
@@ -295,11 +298,11 @@ mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spectra
 mapLabel.map_resize();
 
 var mapAlgo1 = new Map();
-mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true,"New cantons :");
+mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true,"Most densely populated city of the new cantons:");
 mapAlgo1.map_resize();
 
 var mapAlgo2 = new Map();
-mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true,"New cantons:");
+mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true,"Most densely populated city of the new cantons:");
 mapAlgo2.map_resize();
 
 var mapOrig= new Map();

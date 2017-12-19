@@ -344,7 +344,7 @@ Bülach,1,Zürich
 Bünzen,10,Aargau
 Bürchen,5,Valais
 Büren (SO),3,Solothurn
-Büren an der Aare (Urne commune),17,Bern
+Büren an der Aare,17,Bern
 Bürglen (TG),18,Thurgau
 Bürglen (UR),6,Uri
 Büron,2,Luzern
@@ -424,7 +424,7 @@ Chêne-Bourg,12,Geneva
 Chêne-Pâquier,14,Vaud
 Clarmont,14,Vaud
 Claro,13,Ticino
-Clavaleyres (Urne commune),17,Bern
+Clavaleyres,17,Bern
 Clos du Doubs,24,Jura
 Coeuve,24,Jura
 Coinsins,14,Vaud
@@ -511,7 +511,7 @@ Damphreux,24,Jura
 Dardagny,12,Geneva
 Davos,9,Graubünden
 Degersheim,15,St. Gallen
-Deisswil bei Münchenbuchsee (Urne commune),17,Bern
+Deisswil bei Münchenbuchsee,17,Bern
 Deitingen,3,Solothurn
 Delley-Portalban,25,Fribourg
 Delémont,24,Jura
@@ -634,7 +634,7 @@ Ermatingen,18,Thurgau
 Ermensee,2,Luzern
 Ernen,5,Valais
 Erschwil,3,Solothurn
-Ersigen (Urne commune),17,Bern
+Ersigen,17,Bern
 Erstfeld,6,Uri
 Eschenbach (LU),2,Luzern
 Eschenbach (SG),15,St. Gallen
@@ -881,7 +881,7 @@ Heimenhausen,17,Bern
 Heimiswil,17,Bern
 Heitenried,25,Fribourg
 Hellikon,10,Aargau
-Hellsau (Urne commune),17,Bern
+Hellsau,17,Bern
 Hemberg,15,St. Gallen
 Hemishofen,0,Schaffhausen
 Hemmiken,22,Basel-Landschaft
@@ -947,7 +947,7 @@ Hägglingen,10,Aargau
 Härkingen,3,Solothurn
 Häutligen,17,Bern
 Hérémence,5,Valais
-Höchstetten (Urne commune),17,Bern
+Höchstetten,17,Bern
 Hölstein,22,Basel-Landschaft
 Höri,1,Zürich
 Hünenberg,21,Zug
@@ -980,7 +980,7 @@ Isorno,13,Ticino
 Isérables,5,Valais
 Itingen,22,Basel-Landschaft
 Ittigen,17,Bern
-Jaberg (Urne commune),17,Bern
+Jaberg,17,Bern
 Jaun,25,Fribourg
 Jegenstorf,17,Bern
 Jenaz,9,Graubünden
@@ -1022,7 +1022,7 @@ Killwangen,10,Aargau
 Kippel,5,Valais
 Kirchberg (BE),17,Bern
 Kirchberg (SG),15,St. Gallen
-Kirchdorf (BE) (Urne commune),17,Bern
+Kirchdorf (BE),17,Bern
 Kirchenthurnen,17,Bern
 Kirchleerau,10,Aargau
 Kirchlindach,17,Bern
@@ -1255,7 +1255,7 @@ Maur,1,Zürich
 Mauraz,14,Vaud
 Medel (Lucmagn),9,Graubünden
 Meggen,2,Luzern
-Meienried (Urne commune),17,Bern
+Meienried,17,Bern
 Meierskappel,2,Luzern
 Meikirch,17,Bern
 Meilen,1,Zürich
@@ -1368,7 +1368,7 @@ Mörel-Filet,5,Valais
 Mörigen,17,Bern
 Möriken-Wildegg,10,Aargau
 Mörschwil,15,St. Gallen
-Mötschwil (Urne commune),17,Bern
+Mötschwil,17,Bern
 Mühlau,10,Aargau
 Mühleberg,17,Bern
 Mühledorf (BE),17,Bern
@@ -1378,7 +1378,7 @@ Mülligen,10,Aargau
 Mümliswil-Ramiswil,3,Solothurn
 Münchenbuchsee,17,Bern
 Münchenstein,22,Basel-Landschaft
-Münchenwiler (Urne commune),17,Bern
+Münchenwiler,17,Bern
 Münchwilen (AG),10,Aargau
 Münchwilen (TG),18,Thurgau
 Münsingen,17,Bern
@@ -1416,16 +1416,16 @@ Niederhasli,1,Zürich
 Niederhelfenschwil,15,St. Gallen
 Niederhünigen,17,Bern
 Niederlenz,10,Aargau
-Niedermuhlern (Urne commune),17,Bern
+Niedermuhlern,17,Bern
 Niederried bei Interlaken,17,Bern
 Niederrohrdorf,10,Aargau
 Niederwald,5,Valais
 Niederweningen,1,Zürich
 Niederwil (AG),10,Aargau
 Niederönz,17,Bern
-Niederösch (Urne commune),17,Bern
+Niederösch,17,Bern
 Nods,17,Bern
-Noflen (Urne commune),17,Bern
+Noflen,17,Bern
 Noréaz,25,Fribourg
 Nottwil,2,Luzern
 Novaggio,13,Ticino
@@ -1486,7 +1486,7 @@ Oberwil bei Büren,17,Bern
 Oberwil im Simmental,17,Bern
 Oberwil-Lieli,10,Aargau
 Oberägeri,21,Zug
-Oberösch (Urne commune),17,Bern
+Oberösch,17,Bern
 Obfelden,1,Zürich
 Ochlenberg,17,Bern
 Oekingen,3,Solothurn
@@ -1733,7 +1733,7 @@ Rüte,19,Appenzell Innerrhoden
 Rüthi (SG),15,St. Gallen
 Rüti (ZH),1,Zürich
 Rüti bei Büren,17,Bern
-Rüti bei Lyssach (Urne commune),17,Bern
+Rüti bei Lyssach,17,Bern
 Rütschelen,17,Bern
 Rüttenen,3,Solothurn
 S-chanf,9,Graubünden
@@ -2184,7 +2184,7 @@ Wagenhausen,18,Thurgau
 Wahlen,22,Basel-Landschaft
 Walchwil,21,Zug
 Wald (AR),23,Appenzell Ausserrhoden
-Wald (BE) (Urne commune),17,Bern
+Wald (BE),17,Bern
 Wald (ZH),1,Zürich
 Waldenburg,22,Basel-Landschaft
 Waldkirch,15,St. Gallen
@@ -2234,7 +2234,7 @@ Widen,10,Aargau
 Widnau,15,St. Gallen
 Wiedlisbach,17,Bern
 Wiesendangen,1,Zürich
-Wiggiswil (Urne commune),17,Bern
+Wiggiswil,17,Bern
 Wigoltingen,18,Thurgau
 Wikon,2,Luzern
 Wil (SG),15,St. Gallen

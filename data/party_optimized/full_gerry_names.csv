@@ -344,7 +344,7 @@ Bülach,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Winterthur,Z�
 Bünzen,Aarau,Aarau,Winterthur,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
 Bürchen,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Brig-Glis,Sion,Sion,Sion,Sion,Sion,Sion,Sion
 Büren (SO),Basel,Basel,Allschwil,Basel,Basel,Basel,Basel,Reinach (BL),Basel,Basel,Liestal,Basel,Basel,Basel,Basel
-Büren an der Aare (Urne commune),Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Solothurn,Bern,Solothurn,Bern,Bern,Bern,Bern
+Büren an der Aare,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Solothurn,Bern,Solothurn,Bern,Bern,Bern,Bern
 Bürglen (TG),Wil (SG),Wil (SG),Wil (SG),Frauenfeld,Kreuzlingen,Frauenfeld,Wil (SG),Schaffhausen,Frauenfeld,Frauenfeld,Winterthur,Kreuzlingen,Frauenfeld,Kreuzlingen,Kreuzlingen
 Bürglen (UR),Altdorf (UR),Altdorf (UR),Chur,Altdorf (UR),Lugano,Altdorf (UR),Altdorf (UR),Wädenswil,St. Gallen,Altdorf (UR),Altdorf (UR),Altdorf (UR),Schwyz,Altdorf (UR),Altdorf (UR)
 Büron,Luzern,Luzern,Luzern,Luzern,Aarau,Luzern,Luzern,Emmen,Kriens,Luzern,Emmen,Luzern,Luzern,Aarau,Luzern
@@ -424,7 +424,7 @@ Chêne-Bourg,Genève,Genève,Genève,Genève,Lausanne,Genève,Genève,Genève,La
 Chêne-Pâquier,Fribourg,Lausanne,Lausanne,Lausanne,Montreux,Lausanne,Fribourg,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne
 Clarmont,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Genève,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne
 Claro,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano
-Clavaleyres (Urne commune),Fribourg,Köniz,Fribourg,Fribourg,Bern,Fribourg,Fribourg,Fribourg,Bern,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
+Clavaleyres,Fribourg,Köniz,Fribourg,Fribourg,Bern,Fribourg,Fribourg,Fribourg,Bern,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
 Clos du Doubs,Delémont,Delémont,Delémont,Delémont,Bern,Delémont,Delémont,Porrentruy,Bern,Delémont,La Chaux-de-Fonds,Delémont,Delémont,Delémont,Delémont
 Coeuve,Delémont,Delémont,Delémont,Delémont,La Chaux-de-Fonds,Delémont,Delémont,Porrentruy,Porrentruy,Delémont,La Chaux-de-Fonds,Delémont,Delémont,Delémont,Delémont
 Coinsins,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Genève,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne
@@ -511,7 +511,7 @@ Damphreux,Delémont,Delémont,Delémont,Delémont,La Chaux-de-Fonds,Delémont,De
 Dardagny,Genève,Genève,Genève,Genève,Genève,Genève,Genève,Genève,Lancy,Genève,Genève,Genève,Genève,Genève,Genève
 Davos,Chur,Chur,Chur,Chur,Davos,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur
 Degersheim,St. Gallen,St. Gallen,Gossau (SG),St. Gallen,St. Gallen,St. Gallen,Wil (SG),Schaffhausen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen
-Deisswil bei Münchenbuchsee (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Deisswil bei Münchenbuchsee,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Deitingen,Solothurn,Solothurn,Solothurn,Aarau,Bern,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
 Delley-Portalban,Fribourg,Köniz,Fribourg,Fribourg,Montreux,Fribourg,Fribourg,Fribourg,Lausanne,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
 Delémont,Delémont,Delémont,Delémont,Delémont,Bern,Delémont,Delémont,Solothurn,Bern,Delémont,La Chaux-de-Fonds,Delémont,Delémont,Delémont,Delémont
@@ -634,7 +634,7 @@ Ermatingen,Wil (SG),Wil (SG),Wil (SG),Frauenfeld,Kreuzlingen,Frauenfeld,Wil (SG)
 Ermensee,Luzern,Aarau,Luzern,Luzern,Aarau,Aarau,Luzern,Zürich,Kriens,Aarau,Emmen,Luzern,Luzern,Luzern,Luzern
 Ernen,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Brig-Glis,Sion,Sion,Sion,Sion,Sion,Sion,Sion
 Erschwil,Basel,Solothurn,Allschwil,Basel,Solothurn,Delémont,Solothurn,Solothurn,Basel,Basel,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
-Ersigen (Urne commune),Solothurn,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn
+Ersigen,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn
 Erstfeld,Altdorf (UR),Altdorf (UR),Chur,Altdorf (UR),Schwyz,Altdorf (UR),Altdorf (UR),Wädenswil,St. Gallen,Altdorf (UR),Lugano,Altdorf (UR),Schwyz,Altdorf (UR),Altdorf (UR)
 Eschenbach (LU),Luzern,Luzern,Luzern,Luzern,Luzern,Luzern,Luzern,Emmen,Kriens,Luzern,Emmen,Luzern,Luzern,Luzern,Luzern
 Eschenbach (SG),St. Gallen,St. Gallen,Winterthur,Zürich,Zürich,Zürich,St. Gallen,Winterthur,Luzern,St. Gallen,St. Gallen,St. Gallen,Schwyz,St. Gallen,Rapperswil-Jona
@@ -881,7 +881,7 @@ Heimenhausen,Solothurn,Solothurn,Bern,Aarau,Bern,Bern,Solothurn,Bern,Solothurn,S
 Heimiswil,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Heitenried,Bern,Köniz,Bern,Bern,Bern,Bern,Fribourg,Fribourg,Bern,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
 Hellikon,Basel,Aarau,Zürich,Baden,Aarau,Basel,Basel,Reinach (BL),Basel,Aarau,Liestal,Aarau,Aarau,Aarau,Zug
-Hellsau (Urne commune),Solothurn,Bern,Solothurn,Bern,Solothurn,Solothurn,Bern,Solothurn,Bern,Bern,Bern,Solothurn,Solothurn,Solothurn,Solothurn
+Hellsau,Solothurn,Bern,Solothurn,Bern,Solothurn,Solothurn,Bern,Solothurn,Bern,Bern,Bern,Solothurn,Solothurn,Solothurn,Solothurn
 Hemberg,St. Gallen,St. Gallen,Gossau (SG),St. Gallen,St. Gallen,St. Gallen,St. Gallen,Schaffhausen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen
 Hemishofen,Wil (SG),Wil (SG),Schaffhausen,Frauenfeld,Schaffhausen,Frauenfeld,Schaffhausen,Winterthur,Zürich,Frauenfeld,Winterthur,Kreuzlingen,Frauenfeld,Zürich,Kreuzlingen
 Hemmiken,Basel,Aarau,Zürich,Baden,Aarau,Basel,Basel,Solothurn,Aarau,Aarau,Liestal,Aarau,Aarau,Basel,Basel
@@ -947,7 +947,7 @@ Hägglingen,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,
 Härkingen,Solothurn,Solothurn,Solothurn,Aarau,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
 Häutligen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Hérémence,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Bern,Sion,Sion,Sion,Sion,Sion,Sion,Sion
-Höchstetten (Urne commune),Solothurn,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn,Bern,Bern,Bern,Solothurn,Solothurn,Solothurn,Solothurn
+Höchstetten,Solothurn,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn,Bern,Bern,Bern,Solothurn,Solothurn,Solothurn,Solothurn
 Hölstein,Basel,Basel,Allschwil,Basel,Basel,Basel,Basel,Reinach (BL),Basel,Basel,Liestal,Basel,Basel,Basel,Basel
 Höri,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich
 Hünenberg,Luzern,Aarau,Luzern,Luzern,Luzern,Luzern,Luzern,Emmen,Aarau,Aarau,Emmen,Zürich,Luzern,Luzern,Zürich
@@ -980,7 +980,7 @@ Isorno,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lug
 Isérables,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Brig-Glis,Sion,Sion,Sion,Sion,Sion,Sion,Sion
 Itingen,Basel,Basel,Allschwil,Basel,Basel,Basel,Basel,Reinach (BL),Basel,Basel,Liestal,Basel,Basel,Basel,Basel
 Ittigen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
-Jaberg (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Jaberg,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Jaun,Fribourg,Köniz,Bern,Sion,Sion,Bern,Fribourg,Fribourg,Lausanne,Fribourg,Köniz,Sion,Fribourg,Fribourg,Köniz
 Jegenstorf,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Jenaz,Chur,Chur,Chur,Chur,Davos,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur
@@ -1022,7 +1022,7 @@ Killwangen,Zürich,Aarau,Zürich,Baden,Aarau,Zürich,Aarau,Winterthur,Aarau,Aara
 Kippel,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Brig-Glis,Sion,Sion,Bern,Sion,Sion,Sion,Sion
 Kirchberg (BE),Solothurn,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn
 Kirchberg (SG),Wil (SG),Wil (SG),Gossau (SG),Frauenfeld,Zürich,Frauenfeld,Wil (SG),Winterthur,Frauenfeld,Frauenfeld,Winterthur,St. Gallen,Frauenfeld,St. Gallen,St. Gallen
-Kirchdorf (BE) (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Kirchdorf (BE),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Kirchenthurnen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Kirchleerau,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Kriens,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
 Kirchlindach,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern
@@ -1255,7 +1255,7 @@ Maur,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich,
 Mauraz,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Genève,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne,Lausanne
 Medel (Lucmagn),Chur,Lugano,Lugano,Chur,Lugano,Chur,Lugano,Glarus Süd,St. Gallen,Chur,Lugano,Altdorf (UR),Chur,Altdorf (UR),Chur
 Meggen,Luzern,Luzern,Luzern,Luzern,Küssnacht (SZ),Luzern,Luzern,Bern,Kriens,Luzern,Luzern,Luzern,Luzern,Luzern,Luzern
-Meienried (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern
+Meienried,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern
 Meierskappel,Luzern,Luzern,Zug,Luzern,Luzern,Zürich,Luzern,Zürich,Zürich,Luzern,Luzern,Luzern,Luzern,Luzern,Luzern
 Meikirch,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Meilen,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich
@@ -1368,7 +1368,7 @@ Mörel-Filet,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Brig-Glis,Sion,Sion,Sion,Sion,Si
 Mörigen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Möriken-Wildegg,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
 Mörschwil,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen
-Mötschwil (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern
+Mötschwil,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern
 Mühlau,Luzern,Aarau,Luzern,Luzern,Aarau,Luzern,Luzern,Zürich,Kriens,Aarau,Emmen,Luzern,Luzern,Luzern,Zug
 Mühleberg,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Fribourg,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Mühledorf (BE),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
@@ -1378,7 +1378,7 @@ Mülligen,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aa
 Mümliswil-Ramiswil,Solothurn,Solothurn,Solothurn,Aarau,Bern,Solothurn,Solothurn,Solothurn,Basel,Basel,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
 Münchenbuchsee,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern
 Münchenstein,Basel,Basel,Basel,Basel,Basel,Basel,Basel,Reinach (BL),Basel,Basel,Solothurn,Basel,Basel,Basel,Basel
-Münchenwiler (Urne commune),Fribourg,Köniz,Fribourg,Fribourg,Bern,Fribourg,Fribourg,Fribourg,Bern,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
+Münchenwiler,Fribourg,Köniz,Fribourg,Fribourg,Bern,Fribourg,Fribourg,Fribourg,Bern,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
 Münchwilen (AG),Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Reinach (BL),Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
 Münchwilen (TG),Wil (SG),Wil (SG),Wil (SG),Frauenfeld,Kreuzlingen,Frauenfeld,Wil (SG),Winterthur,Frauenfeld,Frauenfeld,Winterthur,Kreuzlingen,Frauenfeld,St. Gallen,Kreuzlingen
 Münsingen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
@@ -1416,16 +1416,16 @@ Niederhasli,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich,Zürich,Winterthur,Z
 Niederhelfenschwil,Wil (SG),Wil (SG),Wil (SG),St. Gallen,St. Gallen,St. Gallen,Wil (SG),Schaffhausen,St. Gallen,Frauenfeld,St. Gallen,St. Gallen,Frauenfeld,St. Gallen,St. Gallen
 Niederhünigen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Niederlenz,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
-Niedermuhlern (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Niedermuhlern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Niederried bei Interlaken,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Niederrohrdorf,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
 Niederwald,Sion,Sion,Sion,Sion,Sion,Sion,Sion,Brig-Glis,Sion,Sion,Sion,Sion,Sion,Sion,Sion
 Niederweningen,Zürich,Zürich,Zürich,Baden,Zürich,Aarau,Aarau,Winterthur,Aarau,Aarau,Aarau,Aarau,Zürich,Aarau,Zug
 Niederwil (AG),Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Aarau,Zug
 Niederönz,Solothurn,Solothurn,Solothurn,Bern,Bern,Solothurn,Solothurn,Bern,Solothurn,Bern,Bern,Solothurn,Solothurn,Solothurn,Solothurn
-Niederösch (Urne commune),Solothurn,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Solothurn,Solothurn,Solothurn,Bern,Solothurn
+Niederösch,Solothurn,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Solothurn,Solothurn,Solothurn,Bern,Solothurn
 Nods,Delémont,Delémont,La Chaux-de-Fonds,Delémont,Bern,La Chaux-de-Fonds,La Chaux-de-Fonds,Bern,Bern,Delémont,La Chaux-de-Fonds,Delémont,Bern,Delémont,Bern
-Noflen (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Noflen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Noréaz,Fribourg,Köniz,Fribourg,Fribourg,Montreux,Fribourg,Fribourg,Fribourg,Lausanne,Fribourg,Köniz,Fribourg,Fribourg,Fribourg,Köniz
 Nottwil,Luzern,Luzern,Luzern,Luzern,Luzern,Luzern,Luzern,Emmen,Kriens,Luzern,Emmen,Luzern,Luzern,Luzern,Luzern
 Novaggio,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano,Lugano
@@ -1486,7 +1486,7 @@ Oberwil bei Büren,Solothurn,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Solothurn,B
 Oberwil im Simmental,Bern,Köniz,Bern,Bern,Sion,Bern,Fribourg,Brig-Glis,Lausanne,Bern,Bern,Bern,Fribourg,Fribourg,Köniz
 Oberwil-Lieli,Aarau,Zürich,Winterthur,Baden,Aarau,Aarau,Aarau,Winterthur,Aarau,Aarau,Aarau,Zürich,Aarau,Aarau,Zürich
 Oberägeri,Rapperswil-Jona,Schwyz,Winterthur,Zürich,Zürich,Zürich,Schwyz,Winterthur,Zürich,Zürich,Zürich,Schwyz,Schwyz,Schwyz,Rapperswil-Jona
-Oberösch (Urne commune),Solothurn,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn
+Oberösch,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Solothurn
 Obfelden,Luzern,Zürich,Winterthur,Baden,Luzern,Aarau,Zürich,Emmen,Zürich,Aarau,Emmen,Zürich,Luzern,Zürich,Zürich
 Ochlenberg,Bern,Solothurn,Bern,Bern,Luzern,Bern,Bern,Aarau,Bern,Bern,Emmen,Bern,Solothurn,Bern,Bern
 Oekingen,Solothurn,Solothurn,Solothurn,Aarau,Solothurn,Solothurn,Bern,Solothurn,Bern,Bern,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
@@ -1733,7 +1733,7 @@ Rüte,St. Gallen,St. Gallen,Gossau (SG),St. Gallen,St. Gallen,St. Gallen,St. Gal
 Rüthi (SG),St. Gallen,St. Gallen,Gossau (SG),St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen
 Rüti (ZH),Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich,Winterthur,Zürich,Zürich,St. Gallen,Zürich,Zürich,Zürich,Zürich
 Rüti bei Büren,Solothurn,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Bern,Solothurn,Solothurn,Bern,Bern,Solothurn
-Rüti bei Lyssach (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern
+Rüti bei Lyssach,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern
 Rütschelen,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Emmen,Solothurn,Bern,Bern,Bern,Bern,Bern,Bern
 Rüttenen,Solothurn,Solothurn,Solothurn,Aarau,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
 S-chanf,Chur,Chur,Chur,Chur,Davos,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur,Chur
@@ -2184,7 +2184,7 @@ Wagenhausen,Wil (SG),Wil (SG),Winterthur,Frauenfeld,Schaffhausen,Frauenfeld,Scha
 Wahlen,Basel,Basel,Allschwil,Basel,Solothurn,Basel,Basel,Solothurn,Solothurn,Basel,Solothurn,Basel,Solothurn,Basel,Basel
 Walchwil,Luzern,Luzern,Zug,Luzern,Zürich,Zürich,Luzern,Winterthur,Zürich,Luzern,Luzern,Luzern,Luzern,Luzern,Luzern
 Wald (AR),St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,Rorschacherberg,St. Gallen,Widnau,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen
-Wald (BE) (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Fribourg,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Wald (BE),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Fribourg,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Wald (ZH),Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,St. Gallen,Wädenswil,Luzern,Zürich,St. Gallen,Zürich,Zürich,Zürich,Zürich
 Waldenburg,Basel,Basel,Solothurn,Basel,Basel,Solothurn,Basel,Reinach (BL),Porrentruy,Basel,Solothurn,Basel,Basel,Basel,Basel
 Waldkirch,St. Gallen,Wil (SG),Gossau (SG),St. Gallen,St. Gallen,St. Gallen,Wil (SG),Schaffhausen,St. Gallen,St. Gallen,St. Gallen,St. Gallen,Frauenfeld,St. Gallen,St. Gallen
@@ -2234,7 +2234,7 @@ Widen,Aarau,Zürich,Winterthur,Baden,Aarau,Zürich,Aarau,Aarau,Aarau,Aarau,Aarau
 Widnau,St. Gallen,St. Gallen,St. Gallen,St. Gallen,Widnau,St. Gallen,St. Gallen,St. Gallen,St. Gallen,Widnau,St. Gallen,St. Gallen,St. Gallen,St. Gallen,St. Gallen
 Wiedlisbach,Solothurn,Solothurn,Solothurn,Aarau,Bern,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn,Solothurn
 Wiesendangen,Zürich,Zürich,Winterthur,Frauenfeld,Zürich,Frauenfeld,Zürich,Schaffhausen,Zürich,Zürich,Winterthur,Zürich,Zürich,Zürich,Zürich
-Wiggiswil (Urne commune),Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
+Wiggiswil,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern,Bern
 Wigoltingen,Wil (SG),Wil (SG),Wil (SG),Frauenfeld,St. Gallen,Frauenfeld,Wil (SG),Schaffhausen,Frauenfeld,Frauenfeld,Winterthur,Kreuzlingen,Frauenfeld,Kreuzlingen,Kreuzlingen
 Wikon,Aarau,Aarau,Zürich,Baden,Aarau,Aarau,Solothurn,Bern,Aarau,Luzern,Aarau,Solothurn,Aarau,Aarau,Zug
 Wil (SG),Wil (SG),Wil (SG),Wil (SG),Frauenfeld,Zürich,Frauenfeld,Wil (SG),Winterthur,Frauenfeld,Frauenfeld,Winterthur,St. Gallen,Frauenfeld,St. Gallen,St. Gallen

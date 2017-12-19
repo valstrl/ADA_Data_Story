@@ -9,7 +9,7 @@ var barChartData = {
                 data: [
                     {x:1,y:0.0624750},
                     {x:2,y:0.0808920},
-                    {x:3,y:0.1433670},
+                    {x:3,y:0.1433670}
 
                 ]
             }, {
@@ -57,6 +57,15 @@ var barChartData = {
                   {x:3,y:0.0088930},
 
                 ]
+            },{
+                label: 'Simulation with actual cantons',
+                backgroundColor: d3v4.schemeSet3[7],
+                data: [
+                  {x:1,y:0.0031943},
+                  {x:2,y:0.0870080},
+                  {x:3,y:0.0902023},
+
+                ]
             }]
         };
 
@@ -84,7 +93,7 @@ var myBarChart = new Chart(ctx, {
                 }]
             },
             legend:{
-              position: bottom,
+              position: 'bottom',
               fontFamily: "'Raleway', sans-serif"
             }
         }
