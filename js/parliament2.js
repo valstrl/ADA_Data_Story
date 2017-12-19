@@ -1,4 +1,4 @@
-class Parliament{
+class Parliament2{
 
   constructor(parliament_json_path,div_id){
     this.id=div_id;
@@ -11,8 +11,29 @@ class Parliament{
 
   }
 
-  parliamentSchema(){
-  d3.json(this.json_path, this.setData.bind(this));
+  parliamentSchema(type,party){
+    d3.json(this.json_path, function(error,json){
+      var parliament_json;
+      //find party optimized for index
+      var party_optimized_index;
+      json.optimized_for.filter(function(d,index){
+        if(d == party){
+          party_optimized_index=index;
+        }
+      });
+      console.log(type);
+      if(type=="national"){
+        console.log("hello national");
+        parliament_json= json.national_parliament[party_optimized_index];
+
+      }
+      else{
+        console.log("hello  states");
+        parliament_json= json.states_parliament[party_optimized_index];
+      };
+      console.log(parliament_json);
+      this.setData(parliament_json);
+    }.bind(this));
 };
 
   setData(d) {
@@ -132,31 +153,3 @@ class Parliament{
 
 
 }
-
-var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national");
-parliament_national.parliamentSchema();
-var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states");
-parliament_states.parliamentSchema();
-
-//original
-var parliament_national_orig= new Parliament("data/votes/parliament_simulate_original_national.json","#parliament_national_orig", " National Council Composition (original cantons)");
-parliament_national_orig.parliamentSchema();
-var parliament_states_orig= new Parliament("data/votes/parliament_simulate_original_states.json","#parliament_states_orig", "Simulated Council of States Composition (original cantons)");
-parliament_states_orig.parliamentSchema();
-
-//constrained
-var parliament_national1= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national1");
-parliament_national1.parliamentSchema();
-var parliament_states1= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states1");
-parliament_states1.parliamentSchema();
-
-var parliament_national2= new Parliament("data/votes/parliament_simulate_unconstrained_national.json","#parliament_national2", " National Council Composition (unconstrained cantons)");
-parliament_national2.parliamentSchema();
-var parliament_states2= new Parliament("data/votes/parliament_simulate_unconstrained_states.json","#parliament_states2", " Council of States Composition (unconstrained cantons)");
-parliament_states2.parliamentSchema();
-
-//random
-var parliament_national3= new Parliament("data/votes/parliament_simulate_random_national.json","#parliament_national3", " National Council Composition (random cantons)");
-parliament_national3.parliamentSchema();
-var parliament_states3= new Parliament("data/votes/parliament_simulate_random_states.json","#parliament_states3", " Council of States Composition (random cantons)");
-parliament_states3.parliamentSchema();

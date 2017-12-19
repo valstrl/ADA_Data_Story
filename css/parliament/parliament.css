@@ -27,23 +27,23 @@
   /*margin-top: 60px;*/
 }
 /* Swiss parliament colors */
-svg .seat.BDP\/PBD { fill: #FFFF00 }/*done*/
+svg .seat.BDP\/PBD { fill: #efef92 }/*done*/
 svg .seat.CSP\/PCS{ fill: #E2563B }/*done*/
-svg .seat.CVP\/PDC { fill: #FE9A2E }/*done*/
+svg .seat.CVP\/PDC { fill: #fdb462 }/*done*/
 svg .seat.EVP\/PEV { fill: #FFD735 }/*done*/
-svg .seat.FDP\/PLR { fill: #0174DF } /*done*/
-svg .seat.GLP\/PVL { fill: #9AFE2E }/*done*/
-svg .seat.PdA\/PST { fill: #FF0000}
-svg .seat.SP\/PS { fill: #FA1360 }/*done*/
+svg .seat.FDP\/PLR { fill: #80b1d3} /*done*/
+svg .seat.GLP\/PVL { fill: #b3de8e }/*done*/
+svg .seat.PdA\/PST { fill: #fccde5}
+svg .seat.SP\/PS { fill: #fb8072 }/*done*/
 /* French parliament colors */
-svg .seat.SVP\/UDC{ fill: #088A4B; } /*done*/
-svg .seat.EDU\/UDF { fill: #002395; }
-svg .seat.GPS\/PES { fill: #01DF01; }/*done*/
-svg .seat.Lega { fill: #0B3861; }/*done*/
-svg .seat.MCR{ fill: #4C6099; }
-svg .seat.Sol\.{ fill: #800000; }
-svg .seat.\\u00dcbrige\/Autres{ fill: #CCCCCC; }
-svg .seat.SD\/DS{ fill: #40E0D0 ; }/*done*/
+svg .seat.SVP\/UDC{ fill: #4eb694; } /*done*/
+svg .seat.EDU\/UDF { fill: #184aa3; }
+svg .seat.GPS\/PES { fill: #b3de69; }/*done*/
+svg .seat.Lega { fill: #1685e5; }/*done*/
+svg .seat.MCR{ fill: #6e77c1; }
+svg .seat.Sol\.{ fill: #822e2e; }
+svg .seat.\Übrige\/Autres{ fill: #606060; }
+svg .seat.SD\/DS{ fill: #a1eae3 ; }/*done*/
 
 /* common */
 svg .seat.vacant { fill: #FFFFFF }
