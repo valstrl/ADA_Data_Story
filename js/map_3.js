@@ -249,10 +249,11 @@ map_resize(){
   }.bind(this))
 }
 
-  map_gerrymendering(topojson_path,data_csv_path,names_csv_path, colorscale, div_id, title_, value_){
+  map_gerrymendering(topojson_path,data_csv_path,names_csv_path,parliament_json_path, colorscale, div_id, title_, value_){
 
     this.colorscale=colorscale;
     this.map_id=div_id;
+
 
      d3.csv(data_csv_path, function(data){
        d3.csv(names_csv_path, function(data_names){
@@ -270,11 +271,25 @@ map_resize(){
 
 
       this.selectValue=parties[0];
-       function onchange() {
-        this.selectValue = d3.selectAll(div_id).select('select').property('value');;
-        d3.selectAll(div_id).selectAll(".map").select("svg").remove();
-        this.start_demo();
+      //choose data parliament for BDP
+      //call parliament function
+      //random
+      var parliament_national_party= new Parliament2(parliament_json_path,"#parliament_national_party");
+      parliament_national_party.parliamentSchema('national',this.selectValue);
+      var parliament_states_party= new Parliament2(parliament_json_path,"#parliament_states_party");
+      parliament_states_party.parliamentSchema('states',this.selectValue);
 
+       function onchange() {
+         console.log("hello changes");
+        this.selectValue = d3.selectAll(div_id).select('select').property('value');
+        d3.selectAll(div_id).selectAll(".map").select("svg").remove();
+        d3.selectAll('#parliament_national_party').select("svg").remove();
+        d3.selectAll('#parliament_states_party').select("svg").remove();
+        // parliament for selectValue
+
+        parliament_national_party.parliamentSchema('national',this.selectValue);
+        parliament_states_party.parliamentSchema('states',this.selectValue);
+        this.start_demo();
        };
 
          this.dataset = data;
@@ -300,5 +315,5 @@ map_resize(){
 }
 
 var mapParty= new Map3();
-mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv","data/party_optimized/full_gerry_names.csv", d3v4.interpolateSpectral, "#map_party","Gerrymanderring: Divide and Conquer !", "Mouseover a municipality to see its name");
+mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv","data/party_optimized/full_gerry_names.csv","data/votes/gerry_parliaments.json", d3v4.interpolateSpectral, "#map_party","Gerrymanderring: Divide and Conquer !", "Mouseover a municipality to see its name");
 mapParty.map_resize();

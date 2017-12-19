@@ -25,9 +25,10 @@ var barChartData = {
                 label: 'Real distribution',
                 backgroundColor: d3v4.schemeSet3[3],
                 data: [
-                  {x:1,y:0.0018402},
-                  {x:2,y:0.0214025},
-                  {x:3,y:0.0232427},
+                  {x:1,y:0.0031943},
+                  {x:2,y:0.0870080},
+                  {x:3,y:0.0902023},
+
 
                 ]
             },{
@@ -61,9 +62,9 @@ var barChartData = {
                 label: 'Simulation with actual cantons',
                 backgroundColor: d3v4.schemeSet3[7],
                 data: [
-                  {x:1,y:0.0031943},
-                  {x:2,y:0.0870080},
-                  {x:3,y:0.0902023},
+                  {x:1,y:0.0018402},
+                  {x:2,y:0.0214025},
+                  {x:3,y:0.0232427},
 
                 ]
             }]
@@ -71,7 +72,7 @@ var barChartData = {
 
 ctx.height = 550;
 ctx.height = 400;
-		
+
 var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: barChartData,
@@ -84,7 +85,7 @@ var myBarChart = new Chart(ctx, {
             },
             scales: {
                 xAxes: [{
-					
+
                 }],
                 yAxes: [{
                   type: 'logarithmic',
@@ -105,4 +106,3 @@ var myBarChart = new Chart(ctx, {
             }
         }
 });
-
