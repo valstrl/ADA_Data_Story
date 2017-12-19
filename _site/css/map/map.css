@@ -5,17 +5,23 @@
 
 }
 
+.label{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
 
 .background {
   	fill: none;
   	pointer-events: all;
 }
 
-#kantone, #bezirke {
-  	stroke: #fff;
-  	 stroke-linejoin: round;
-  	stroke-linecap: round;
+.kantone {
+  	stroke: #373737;
+    fill:none
 }
+
+
 
 .gemeinden {
 	  fill: #238b45;

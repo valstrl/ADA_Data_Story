@@ -6,11 +6,13 @@ class Map2 {
        this.width = 938,
        this.height = 500,
        this.gemeinden,
+       this.gemeinden_json,
        this.colorscale,
        this.map_id,
        this.m_width ,
        this.svg,
        this.g,
+       this.g2,
        this.title_text,
        this.value_text,
        this.selectValue,
@@ -117,6 +119,21 @@ class Map2 {
           .style("stroke-width", 0.5 / xyz[2] + "px")
           .selectAll(".gemeinde")
           .attr("d", this.path.pointRadius(20.0 / xyz[2]));
+
+        //for kantons
+        this.g2.selectAll([ ".kantone"])
+             //.style("stroke-width",(d)=>{return '1';});
+             .style("stroke-width", 0.5 / xyz[2] + "px");
+
+         this.g2.transition()
+           .duration(750)
+           .attr("transform", "translate(" + this.projection.translate() + ")" + "scale(" + xyz[2] + ")" + "translate(-" + xyz[0] + ",-" + xyz[1] + ")")
+           .selectAll([ ".kantone"])
+           //.style("stroke-width",(d)=>{return '1';})
+           .style("stroke-width", 0.5 / xyz[2] + "px")
+           .selectAll(".kanton")
+           .attr("d", this.path.pointRadius(20.0 / xyz[2]));
+
    }
 
    get_xyz(d) {
@@ -182,6 +199,14 @@ class Map2 {
     .style("stroke-width", 0.001 + "px")
     .on("mouseover",function(d) { here.update_info(d,this)})
     .on("mouseout",  here.highlight)
+
+    this.g2 = this.svg.append("g")
+    .attr("class", "kantone")
+    .append("path")
+    .datum(topojson.mesh(this.gemeinden_json, this.gemeinden_json.objects.gemeinden, function(a, b) { return a.properties.KTNR !== b.properties.KTNR; }.bind(this)))
+    .attr("class", "kanton")
+    .attr("d", this.path)
+    .style("stroke-width", 0.01 + "px");
 
     this.addLegend();
 
@@ -313,6 +338,7 @@ addLegend(){
                // Lade Gemeinden
                d3.json(topojson_path, function(error, json) {
                      this.gemeinden = topojson.feature(json, json.objects.gemeinden).features;
+                     this.gemeinden_json=json;
                      this.title_text=title_;
                      this.value_text=value_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
