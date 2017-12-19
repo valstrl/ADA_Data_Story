@@ -6,9 +6,8 @@
   text-transform: uppercase;*/
   position: absolute;
   left: 50%;
-  margin-top: 0;
-  margin-bottom: 0;
-  transform: translate(-8%, 0%);
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
 }
 
 .title_parliament_2015 {
@@ -17,14 +16,13 @@
   text-transform: uppercase;*/
   position: absolute;
   left: 50%;
-  margin-top: 30px;
-  margin-bottom: 0;
-  transform: translate(-10%, 0%);
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
 }
 
 
 .d3-parliament{
-  /*margin-top: 60px;*/
+  margin-top: 30px;
 }
 /* Swiss parliament colors */
 svg .seat.BDP\/PBD { fill: #efef92 }/*done*/

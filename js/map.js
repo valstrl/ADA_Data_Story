@@ -310,22 +310,22 @@ map_resize(){
 
  console.log("spectral");
 var mapLabel = new Map();
-mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spec2.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering",8, true,"8 Political Opinion Clusters");
+mapLabel.map_labels("data/topojson/gemeinden_2015.topo.json","data/votes/spec2.csv", d3v4.schemeSet3, "#map_spectral","Spectral Clustering Results",8, true,"8 Political Opinion Clusters");
 mapLabel.map_resize();
 
 console.log("none");
 var mapAlgo1 = new Map();
-mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Representativity Optimized Constrained",26,true,"Most densely populated city of the new cantons:");
+mapAlgo1.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_constrained.csv", d3v4.interpolateSpectral, "#map_algo1","Optimal Cantons with Geographical Constraints",26,true,"New cantons:");
 mapAlgo1.map_resize();
 
 var mapAlgo2 = new Map();
-mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true,"Most densely populated city of the new cantons:");
+mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Optimal Cantons without constraints",26, true,"New cantons:");
 mapAlgo2.map_resize();
 
 var mapAlgo3 = new Map();
-mapAlgo3.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_random.csv", d3v4.interpolateSpectral, "#map_algo3","Representativity Optimized with Random Initialisation",26, true,"Most densely populated city of the new cantons:");
+mapAlgo3.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_random.csv", d3v4.interpolateSpectral, "#map_algo3","Optimal Cantons with Random Initialisation",26, true,"New cantons:");
 mapAlgo3.map_resize();
 
 var mapOrig= new Map();
-mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons",26,true,"Cantons:");
+mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Map of cantons as of 2015",26,true,"Cantons:");
 mapOrig.map_resize();
