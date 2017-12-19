@@ -1,5 +1,5 @@
 var ctx = document.getElementById("canvas16");
-console.log(ctx);
+//console.log(ctx);
 
 var barChartData = {
             labels: ['National Council', 'Council of States', 'National and Council of States '],
@@ -69,17 +69,22 @@ var barChartData = {
             }]
         };
 
+ctx.height = 550;
+ctx.height = 400;
+		
 var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: barChartData,
       options: {
+		  maintainAspectRatio: false,
+
             title:{
                 display:true,
                 text:"The deviation in Parlement representativeness"
             },
             scales: {
                 xAxes: [{
-
+					
                 }],
                 yAxes: [{
                   type: 'logarithmic',
@@ -95,6 +100,9 @@ var myBarChart = new Chart(ctx, {
             legend:{
               position: 'bottom',
               fontFamily: "'Raleway', sans-serif"
+			  //width:400,
+			  //height:200,
             }
         }
 });
+
