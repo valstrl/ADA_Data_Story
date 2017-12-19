@@ -322,6 +322,10 @@ var mapAlgo2 = new Map();
 mapAlgo2.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_unconstrained.csv", d3v4.interpolateSpectral, "#map_algo2","Representativity Optimized UnConstrained",26, true,"Most densely populated city of the new cantons:");
 mapAlgo2.map_resize();
 
+var mapAlgo3 = new Map();
+mapAlgo3.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/representativity_optimized_random.csv", d3v4.interpolateSpectral, "#map_algo3","Representativity Optimized with Random Initialisation",26, true,"Most densely populated city of the new cantons:");
+mapAlgo3.map_resize();
+
 var mapOrig= new Map();
 mapOrig.map_labels("data/topojson/gemeinden_2015.topo.json","data/new_cantons/original_cantons.csv", d3v4.interpolateSpectral, "#map_orig","Original cantons",26,true,"Cantons:");
 mapOrig.map_resize();
