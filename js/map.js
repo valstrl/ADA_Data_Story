@@ -273,9 +273,7 @@ map_resize(){
                  d3.json(gemeinden_topojson_path, function(error, gemeinden_json) {
                      this.gemeinden = topojson.feature(gemeinden_json, gemeinden_json.objects.gemeinden).features;
                      this.gemeinden_json=gemeinden_json;
-                     console.log(this.gemeinden);
-                     console.log(gemeinden_json);
-                     console.log(gemeinden_json.objects.gemeinden);
+                     
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
