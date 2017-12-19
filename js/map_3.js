@@ -305,5 +305,5 @@ map_resize(){
 }
 
 var mapParty= new Map3();
-mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv","data/party_optimized/full_gerry_names.csv","data/votes/gerry_parliaments.json", d3v4.interpolateSpectral, "#map_party","Gerrymanderring: Divide and Conquer !", "Mouseover a municipality to see its name");
+mapParty.map_gerrymendering("data/topojson/gemeinden_2015.topo.json","data/party_optimized/full_gerry_map.csv","data/party_optimized/full_gerry_names.csv","data/votes/gerry_parliaments.json", d3v4.interpolateSpectral, "#map_party","Gerrymanderring Results", "Mouseover a municipality to see its name");
 mapParty.map_resize();
