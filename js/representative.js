@@ -32,7 +32,7 @@ var barChartData = {
 
                 ]
             },{
-                label: 'Optimized distribution (without constrain)',
+                label: 'Optimized distribution (without constraints)',
                 backgroundColor: d3v4.schemeSet3[4],
                 data: [
                   {x:1,y:0.0000929},
