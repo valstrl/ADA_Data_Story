@@ -206,17 +206,64 @@ class Map2 {
 
 map_resize(){
   $(window).resize(function() {
-   var w = d3.selectAll(this.map_id).select(".map").style("width");
+   var w = parseInt(d3.selectAll(this.map_id).select(".map").style("width"));
    d3.selectAll(this.map_id).select(".map").select("svg").attr("width", w);
-   d3.selectAll(this.map_id).select(".map").select("svg").attr("height", w * this.height / this.width);
-   d3.selectAll(this.map_id).select(".legend").select("svg").attr("width", w);
-   d3.selectAll(this.map_id).select(".legend").select("svg").attr("height", w * this.height / this.width);
+   d3.selectAll(this.map_id).select(".map").select("svg").attr("height", Math.round(w * this.height / this.width));
+   var w_legend = parseInt(d3.selectAll(this.map_id).select(".legend").style("width"));
+   d3.selectAll(this.map_id).select(".legend").select("svg").attr("width", w_legend);
+   d3.selectAll(this.map_id).select(".legend").select("svg").attr("height",Math.round( w_legend * this.height / this.width));
+
+   console.log('widht and height legend svg ')
+   console.log(parseInt(d3.selectAll(this.map_id).select(".legend").style("width")));
+   console.log( parseInt(d3.selectAll(this.map_id).select(".legend").style("height")));
+   console.log('the size it should be')
+   console.log(parseInt(d3.selectAll(this.map_id).select(".legend").style("width")))
+   console.log(Math.round( w_legend * this.height / this.width));;
+
+   var w_legend_rect = parseInt(d3.selectAll(this.map_id).select(".legend").select(".legend_svg").style("width"));
+   var h_legend_rect = parseInt(d3.selectAll(this.map_id).select(".legend").select(".legend_svg").style("height"));
+   console.log("w_legend_rect");
+   console.log(w_legend_rect);
+
+   d3.selectAll(this.map_id).select(".legend").select("svg").selectAll(".axis").remove()
+
+
+   //Set scale for x-axis
+   var xScale = d3.scale.linear()
+     .range([0, w_legend_rect])
+     .domain([0,100] );
+
+   //Define x-axis
+   var xAxis = d3.svg.axis()
+      .orient("bottom")
+      .ticks(10)
+      .tickFormat(function(d) { return d + "%"; })
+      .scale(xScale);
+
+
+   //Set up X axis
+   d3.selectAll(this.map_id).select(".legend_svg").append("g")
+    .attr("class", "axis")
+    .attr("transform", "translate(0," + (h_legend_rect/4) + ")")//(20) + ")")
+    .call(xAxis);
+
+   d3.selectAll(this.map_id).select(".legend_svg").select(".axis").select("path").remove();
+
+   d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll("text")
+   .style("fill","#373737")
+   .style("text-anchor","start");
+
+   d3.selectAll(this.map_id).select(".legend_svg").select(".axis").selectAll(".tick").select("line")
+   .attr("stroke-width", "1px")
+   .attr("stroke","#373737");
 
   }.bind(this))
 }
 
 addLegend(){
 
+   var w_legend_rect = parseInt(d3.selectAll(this.map_id).select(".legend").style("width"));
+   var h_legend_rect = parseInt(d3.selectAll(this.map_id).select(".legend").style("height"));
   //Draw the rectangle and fill with gradient
   d3.selectAll(this.map_id).select(".legend_svg").append("g")
     .attr("class", "legend_rect")
@@ -226,28 +273,30 @@ addLegend(){
     .enter()
     .append("rect")
     .attr("class", "bins")
-    .attr("x",function(d){return d*900 + "px";})
+    .attr("x",function(d){return d*100+ "%";})//function(d){return d*w_legend_rect + "px";})
     .style("height", "50%")
     .style("width", function(d,i){
       var w = this.bins[i + 1]-this.bins[i];
-      return w*900 + "px";}.bind(this))
+      //return w*w_legend_rect + "px";}.bind(this))
+      return w*100 + "%";}.bind(this))
     .style("fill",function(d,i) {
       return this.color_bins[i+1];}.bind(this))
 
   d3.selectAll(this.map_id).select(".legend_svg").select("g")
     .append("rect")
     .attr("class", "bins")
-    .attr("x", this.bins[this.bins.length-1]*900 + "px")
+    .attr("x", this.bins[this.bins.length-1]*100 + "%")//this.bins[this.bins.length-1]*w_legend_rect + "px")
     .style("height", "50%")
     .style("width", function(d){
       var w = 1-this.bins[this.bins.length-1];
-      return w*900 + "px";}.bind(this))
+      //return w*w_legend_rect + "px";}.bind(this))
+      return w*100 + "%";}.bind(this))
     .style("fill",function(d) {
       return  this.colorscale(1);}.bind(this))
 
     //Set scale for x-axis
     var xScale = d3.scale.linear()
-    	 .range([0, 900])
+    	 .range([0, w_legend_rect])
     	 .domain([0,100] );
 
     //Define x-axis
@@ -257,10 +306,11 @@ addLegend(){
     	  .tickFormat(function(d) { return d + "%"; })
     	  .scale(xScale);
 
+
     //Set up X axis
     d3.selectAll(this.map_id).select(".legend_svg").append("g")
     	.attr("class", "axis")
-    	.attr("transform", "translate(0," + (20) + ")")
+    	.attr("transform", "translate(0," + (h_legend_rect/4) + ")")//(20) + ")")
     	.call(xAxis);
 
     d3.selectAll(this.map_id).select(".legend_svg").select(".axis").select("path").remove();

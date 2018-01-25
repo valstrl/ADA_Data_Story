@@ -263,7 +263,7 @@ this.svg.select(".legendOrdinal")
 
 map_resize(){
   $(window).resize(function() {
-   var w = d3.selectAll(this.map_id).select(".map").style("width");
+   var w = parseInt(d3.selectAll(this.map_id).select(".map").style("width"));
    d3.selectAll(this.map_id).select(".map").select("svg").attr("width", w);
    d3.selectAll(this.map_id).select(".map").select("svg").attr("height", w * this.height / this.width);
    d3.selectAll(this.map_id).select(".legend").select("svg").attr("width", w);
@@ -289,7 +289,7 @@ map_resize(){
                      this.title_text=title_;
                      d3.select(div_id).select(".title_map").text(this.title_text);
                      d3.select(div_id).select(".value_map").text("Mouseover a municipality to see its name");
-                     
+
                      this.colorscale=colorscale_array;
                      this.max_labels=max;
                      this.map_id=div_id;
