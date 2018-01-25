@@ -170,9 +170,10 @@ parliament_states.parliament_resize();
 //original
 var parliament_national_orig= new Parliament("data/votes/parliament_simulate_original_national.json","#parliament_national_orig", " National Council Composition (original cantons)");
 parliament_national_orig.parliamentSchema();
+parliament_national_orig.parliament_resize();
 var parliament_states_orig= new Parliament("data/votes/parliament_simulate_original_states.json","#parliament_states_orig", "Simulated Council of States Composition (original cantons)");
 parliament_states_orig.parliamentSchema();
-parliament_national_orig.parliament_resize();
+parliament_states_orig.parliament_resize();
 
 //constrained
 var parliament_national1= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national1");
