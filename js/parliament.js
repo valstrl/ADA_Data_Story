@@ -4,8 +4,12 @@ class Parliament{
     this.id=div_id;
     this.json_path=parliament_json_path;
 
+    var w_parliament = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+    console.log("w");
+    console.log(w_parliament);
 
-    this.parliament = d3.parliament().width(600).height(450).innerRadiusCoef(0.4);
+
+    this.parliament = d3.parliament().width(w_parliament).height(450).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
     this.parliament.exit.toCenter(true).bigToSmall(true);
 
@@ -23,19 +27,41 @@ class Parliament{
       .style("left","50%")
       .style("margin_right","-50%")
       .style("transform","translate(-50%, 10%)");
-
       this.draw_legend(d);
 
   };
+
+  parliament_resize(){
+    $(window).resize(function() {
+     var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+
+     var old_w= Math.round(parseInt(d3.selectAll(this.id).select("svg").style("width")));
+     var old_h = Math.round(parseInt(d3.selectAll(this.id).select("svg").style("height")));
+
+     var new_h= Math.round(new_w * old_h/old_w);
+
+
+     //d3.selectAll(this.id).select("svg").attr("width",  new_w);
+     //d3.selectAll(this.id).select("svg").attr("height", Math.round(new_h));
+     d3.selectAll(this.id).select("svg").remove()
+     this.parliament = d3.parliament().width(new_w).height(new_h).innerRadiusCoef(0.4);
+     this.parliament.enter.fromCenter(true).smallToBig(true);
+     this.parliament.exit.toCenter(true).bigToSmall(true);
+
+     this.parliamentSchema();
+
+   }.bind(this))
+ };
 
  draw_legend(data) {
 
     console.log("draw_legend");
 
-    var start = 20;
-    var radius =10;
-    var dx_text = 2*radius;
+
     var width=d3.selectAll(this.id).select(".d3-parliament").style("width");
+    var start = 20;
+    var radius =Math.round(parseInt(width)/50);
+    var dx_text = 2*radius;
     width=width.replace("px","");
     var height_legend = d3.selectAll(this.id).select(".d3-parliament").style("height");
     height_legend=height_legend.replace("px","");
@@ -135,28 +161,39 @@ class Parliament{
 
 var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national");
 parliament_national.parliamentSchema();
+parliament_national.parliament_resize();
+
 var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states");
 parliament_states.parliamentSchema();
+parliament_states.parliament_resize();
 
 //original
 var parliament_national_orig= new Parliament("data/votes/parliament_simulate_original_national.json","#parliament_national_orig", " National Council Composition (original cantons)");
 parliament_national_orig.parliamentSchema();
 var parliament_states_orig= new Parliament("data/votes/parliament_simulate_original_states.json","#parliament_states_orig", "Simulated Council of States Composition (original cantons)");
 parliament_states_orig.parliamentSchema();
+parliament_national_orig.parliament_resize();
 
 //constrained
 var parliament_national1= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national1");
 parliament_national1.parliamentSchema();
+parliament_national1.parliament_resize();
 var parliament_states1= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states1");
 parliament_states1.parliamentSchema();
+parliament_states1.parliament_resize();
 
 var parliament_national2= new Parliament("data/votes/parliament_simulate_unconstrained_national.json","#parliament_national2", " National Council Composition (unconstrained cantons)");
 parliament_national2.parliamentSchema();
+parliament_national2.parliament_resize()
 var parliament_states2= new Parliament("data/votes/parliament_simulate_unconstrained_states.json","#parliament_states2", " Council of States Composition (unconstrained cantons)");
 parliament_states2.parliamentSchema();
+parliament_states2.parliament_resize();
+
 
 //random
 var parliament_national3= new Parliament("data/votes/parliament_simulate_random_national.json","#parliament_national3", " National Council Composition (random cantons)");
 parliament_national3.parliamentSchema();
+parliament_national3.parliament_resize();
 var parliament_states3= new Parliament("data/votes/parliament_simulate_random_states.json","#parliament_states3", " Council of States Composition (random cantons)");
 parliament_states3.parliamentSchema();
+parliament_states3.parliament_resize();

@@ -56,24 +56,26 @@ pre.prettyprint {
     position: absolute;
     top: 90%;
     left:15%;
-    width: 940px;
-    height: 45px;
+    /*width: 940px;
+    height: 45px;*/
+    width: 70%;
+    height:10%;
     margin-top: 30px;
 }
 
 .legend_svg{
 
     width: 100%;
-    height: 100%;
+    height: 50%;
     position: absolute;
 
 }
 
 .legend_rect{
-    width: 900px;
-    height: 50%;
-
-
+    /*width: 900px;
+    height: 50%;*/
+    width:100%;
+    height:100%;
 }
 
 .tooltip_map p {

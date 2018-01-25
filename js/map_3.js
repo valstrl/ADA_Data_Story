@@ -232,7 +232,7 @@ this.svg.select(".legendOrdinal")
 
 map_resize(){
   $(window).resize(function() {
-   var w = d3.selectAll(this.map_id).select(".map").style("width");
+   var w = parseInt(d3.selectAll(this.map_id).select(".map").style("width"));
    d3.selectAll(this.map_id).select(".map").select("svg").attr("width", w);
    d3.selectAll(this.map_id).select(".map").select("svg").attr("height", w * this.height / this.width);
    d3.selectAll(this.map_id).select(".legend").select("svg").attr("width", w);
@@ -268,8 +268,10 @@ map_resize(){
       //random
       var parliament_national_party= new Parliament2(parliament_json_path,"#parliament_national_party");
       parliament_national_party.parliamentSchema('national',this.selectValue);
+      parliament_national_party.parliament_resize('national',this.selectValue);
       var parliament_states_party= new Parliament2(parliament_json_path,"#parliament_states_party");
       parliament_states_party.parliamentSchema('states',this.selectValue);
+      parliament_states_party.parliament_resize('states',this.selectValue)
 
        function onchange() {
          console.log("hello changes");

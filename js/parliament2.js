@@ -36,6 +36,28 @@ class Parliament2{
     }.bind(this));
 };
 
+parliament_resize(type,party){
+  $(window).resize(function() {
+   var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+
+   var old_w= Math.round(parseInt(d3.selectAll(this.id).select("svg").style("width")));
+   var old_h = Math.round(parseInt(d3.selectAll(this.id).select("svg").style("height")));
+
+   var new_h= Math.round(new_w * old_h/old_w);
+
+
+   //d3.selectAll(this.id).select("svg").attr("width",  new_w);
+   //d3.selectAll(this.id).select("svg").attr("height", Math.round(new_h));
+   d3.selectAll(this.id).select("svg").remove()
+   this.parliament = d3.parliament().width(new_w).height(new_h).innerRadiusCoef(0.4);
+   this.parliament.enter.fromCenter(true).smallToBig(true);
+   this.parliament.exit.toCenter(true).bigToSmall(true);
+
+   this.parliamentSchema(type,party);
+
+ }.bind(this))
+};
+
   setData(d) {
       console.log("setData");
       d3.selectAll(this.id).append("svg")
