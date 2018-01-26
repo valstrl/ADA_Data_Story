@@ -9,7 +9,7 @@ class Parliament{
     console.log(w_parliament);
 
 
-    this.parliament = d3.parliament().width(w_parliament-50).height(Math.round(w_parliament/1.2)).innerRadiusCoef(0.4);
+    this.parliament = d3.parliament().width(Math.round(w_parliament*7/8)).height(Math.round(w_parliament/1.2)).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
     this.parliament.exit.toCenter(true).bigToSmall(true);
 
