@@ -9,7 +9,7 @@ class Parliament{
     console.log(w_parliament);
 
 
-    this.parliament = d3.parliament().width(w_parliament).height(Math.round(w_parliament/1.2)).innerRadiusCoef(0.4);
+    this.parliament = d3.parliament().width(w_parliament-50).height(Math.round(w_parliament/1.2)).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
     this.parliament.exit.toCenter(true).bigToSmall(true);
 
@@ -161,8 +161,52 @@ class Parliament{
 
 
 }
+var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national");
+parliament_national.parliamentSchema();
+parliament_national.parliament_resize();
 
-var $window = $(window);
+var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states");
+parliament_states.parliamentSchema();
+parliament_states.parliament_resize();
+
+//original
+var parliament_national_orig= new Parliament("data/votes/parliament_simulate_original_national.json","#parliament_national_orig", " National Council Composition (original cantons)");
+parliament_national_orig.parliamentSchema();
+parliament_national_orig.parliament_resize();
+
+var parliament_states_orig= new Parliament("data/votes/parliament_simulate_original_states.json","#parliament_states_orig", "Simulated Council of States Composition (original cantons)");
+parliament_states_orig.parliamentSchema();
+parliament_states_orig.parliament_resize();
+
+//constrained
+var parliament_national1= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national1");
+parliament_national1.parliamentSchema();
+parliament_national1.parliament_resize();
+
+var parliament_states1= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states1");
+parliament_states1.parliamentSchema();
+parliament_states1.parliament_resize();
+
+//constrained
+var parliament_national2= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national2");
+parliament_national2.parliamentSchema();
+parliament_national2.parliament_resize();
+
+
+var parliament_states2= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states2");
+parliament_states2.parliamentSchema();
+parliament_states2.parliament_resize();
+
+//random
+var parliament_national3= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national3");
+parliament_national3.parliamentSchema();
+parliament_national3.parliament_resize();
+
+
+var parliament_states3= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states3");
+parliament_states3.parliamentSchema();
+parliament_states3.parliament_resize();
+/*var $window = $(window);
 
 function isScrolledIntoView($elem, $window) {
     var docViewTop = $window.scrollTop();
@@ -266,4 +310,4 @@ $(document).on("scroll", function () {
     }
 
 
-});
+});*/
