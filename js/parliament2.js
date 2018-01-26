@@ -3,7 +3,7 @@ class Parliament2{
   constructor(parliament_json_path,div_id){
     this.id=div_id;
     this.json_path=parliament_json_path;
-
+    var w_parliament = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
 
     this.parliament = d3.parliament().width(w_parliament-50).height(Math.round(w_parliament/1.2)).innerRadiusCoef(0.4);
     this.parliament.enter.fromCenter(true).smallToBig(true);
