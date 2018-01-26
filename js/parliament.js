@@ -159,42 +159,83 @@ class Parliament{
 
 }
 
-var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national");
-parliament_national.parliamentSchema();
-parliament_national.parliament_resize();
+var $window = $(window);
 
-var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states");
-parliament_states.parliamentSchema();
-parliament_states.parliament_resize();
+function isScrolledIntoView($elem, $window) {
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
 
-//original
-var parliament_national_orig= new Parliament("data/votes/parliament_simulate_original_national.json","#parliament_national_orig", " National Council Composition (original cantons)");
-parliament_national_orig.parliamentSchema();
-parliament_national_orig.parliament_resize();
-var parliament_states_orig= new Parliament("data/votes/parliament_simulate_original_states.json","#parliament_states_orig", "Simulated Council of States Composition (original cantons)");
-parliament_states_orig.parliamentSchema();
-parliament_states_orig.parliament_resize();
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
 
-//constrained
-var parliament_national1= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national1");
-parliament_national1.parliamentSchema();
-parliament_national1.parliament_resize();
-var parliament_states1= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states1");
-parliament_states1.parliamentSchema();
-parliament_states1.parliament_resize();
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
 
-var parliament_national2= new Parliament("data/votes/parliament_simulate_unconstrained_national.json","#parliament_national2", " National Council Composition (unconstrained cantons)");
-parliament_national2.parliamentSchema();
-parliament_national2.parliament_resize()
-var parliament_states2= new Parliament("data/votes/parliament_simulate_unconstrained_states.json","#parliament_states2", " Council of States Composition (unconstrained cantons)");
-parliament_states2.parliamentSchema();
-parliament_states2.parliament_resize();
+$(document).on("scroll", function () {
+
+    if (isScrolledIntoView( $("#parliament_national"), $window)) {
+      d3.selectAll("#parliament_national").selectAll("svg").remove()
+      var parliament_national= new Parliament("data/votes/parliament_2015_national.json","#parliament_national");
+      parliament_national.parliamentSchema();
+      parliament_national.parliament_resize();
+
+      d3.selectAll("#parliament_states").selectAll("svg").remove()
+      var parliament_states= new Parliament("data/votes/parliament_2015_states.json","#parliament_states");
+      parliament_states.parliamentSchema();
+      parliament_states.parliament_resize();
+    }
+
+    if (isScrolledIntoView( $("#parliament_national_orig"), $window)) {
+      d3.selectAll("#parliament_national_orig").selectAll("svg").remove()
+      //original
+      var parliament_national_orig= new Parliament("data/votes/parliament_simulate_original_national.json","#parliament_national_orig", " National Council Composition (original cantons)");
+      parliament_national_orig.parliamentSchema();
+      parliament_national_orig.parliament_resize();
+
+      d3.selectAll("#parliament_states_orig").selectAll("svg").remove()
+      var parliament_states_orig= new Parliament("data/votes/parliament_simulate_original_states.json","#parliament_states_orig", "Simulated Council of States Composition (original cantons)");
+      parliament_states_orig.parliamentSchema();
+      parliament_states_orig.parliament_resize();
+    }
+
+    if (isScrolledIntoView( $("#parliament_national1"), $window)) {
+      d3.selectAll("#parliament_national1").selectAll("svg").remove()
+      //constrained
+      var parliament_national1= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national1");
+      parliament_national1.parliamentSchema();
+      parliament_national1.parliament_resize();
+
+      d3.selectAll("#parliament_states1").selectAll("svg").remove()
+      var parliament_states1= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states1");
+      parliament_states1.parliamentSchema();
+      parliament_states1.parliament_resize();
+    }
+
+    if (isScrolledIntoView( $("#parliament_national2"), $window)) {
+      d3.selectAll("#parliament_national2").selectAll("svg").remove()
+      //constrained
+      var parliament_national2= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national2");
+      parliament_national2.parliamentSchema();
+      parliament_national2.parliament_resize();
+
+      d3.selectAll("#parliament_states2").selectAll("svg").remove()
+      var parliament_states2= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states2");
+      parliament_states2.parliamentSchema();
+      parliament_states2.parliament_resize();
+    }
+
+    if (isScrolledIntoView( $("#parliament_national3"), $window)) {
+      d3.selectAll("#parliament_national3").selectAll("svg").remove()
+      //random
+      var parliament_national3= new Parliament("data/votes/parliament_simulate_constrained_national.json","#parliament_national3");
+      parliament_national3.parliamentSchema();
+      parliament_national3.parliament_resize();
+
+      d3.selectAll("#parliament_states3").selectAll("svg").remove()
+      var parliament_states3= new Parliament("data/votes/parliament_simulate_constrained_states.json","#parliament_states3");
+      parliament_states3.parliamentSchema();
+      parliament_states3.parliament_resize();
+    }
 
 
-//random
-var parliament_national3= new Parliament("data/votes/parliament_simulate_random_national.json","#parliament_national3", " National Council Composition (random cantons)");
-parliament_national3.parliamentSchema();
-parliament_national3.parliament_resize();
-var parliament_states3= new Parliament("data/votes/parliament_simulate_random_states.json","#parliament_states3", " Council of States Composition (random cantons)");
-parliament_states3.parliamentSchema();
-parliament_states3.parliament_resize();
+});
