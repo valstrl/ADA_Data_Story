@@ -124,6 +124,7 @@ class Parliament{
             return o.id + " (" + nn + ")";
         })
         .attr("fill", "#373737")
+        .style("font-size", parseInt(width_parliament)/50 + "px")
         .attr("x", function(o,i) {
                 var j;
                   if(i==4 || i==8 || i==12){
