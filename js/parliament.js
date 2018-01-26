@@ -113,8 +113,10 @@ class Parliament{
         .attr("r", radius);
 
     var width_parliament =d3.selectAll(this.id).selectAll(".parliament").style("width");
+    var w_parliament =d3.selectAll(this.id).select("svg").style("width");
 
-
+    console.log("font -size");
+    console.log(parseInt(w_parliament));
     d3.selectAll(this.id).selectAll(".parliament_legend").selectAll("text")
         .data(data)
         .enter().append("text")
@@ -124,7 +126,7 @@ class Parliament{
             return o.id + " (" + nn + ")";
         })
         .attr("fill", "#373737")
-        .style("font-size", parseInt(width_parliament)/50 + "px")
+        .style("font-size", parseInt(w_parliament)/50 + "px")
         .attr("x", function(o,i) {
                 var j;
                   if(i==4 || i==8 || i==12){
