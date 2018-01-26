@@ -55,7 +55,7 @@ pre.prettyprint {
 .legend{
     position: absolute;
     top: 90%;
-    left:15%;
+    right:50%;
     /*width: 940px;
     height: 45px;*/
     width: 70%;
