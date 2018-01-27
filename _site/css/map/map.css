@@ -45,10 +45,10 @@ pre.prettyprint {
     position: absolute;
     width: 450px;
     height: auto;
-    padding: 10px;
+    /*padding: 10px;*/
     pointer-events: none;
     top:5%;
-    transform: translate(20px, 5%);
+    /*transform: translate(20px, 5%);*/
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -85,6 +85,7 @@ pre.prettyprint {
     font-size: 12px;
     line-height: 20px;
     color: #373737;
+    text-align: left;
 
 }
 .highlighted {
@@ -103,6 +104,7 @@ pre.prettyprint {
 	border-bottom: 1px solid #ccc;
 }
 .value_map  {
+  margin-right: 35px;
 	font-size: 12pt;
 }
 .value2_map  {
