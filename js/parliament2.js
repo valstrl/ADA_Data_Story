@@ -38,12 +38,22 @@ class Parliament2{
 
 parliament_resize(type,party){
   $(window).resize(function() {
-   var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+
+    var w_parliament = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+    var new_w=Math.round(w_parliament*7/8);
+    var new_h = Math.round(w_parliament/1.2)
+
+     //var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+
+     var old_w= Math.round(parseInt(d3.selectAll(this.id).select("svg").style("width")));
+     var old_h = Math.round(parseInt(d3.selectAll(this.id).select("svg").style("height")));
+
+   /*var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
 
    var old_w= Math.round(parseInt(d3.selectAll(this.id).select("svg").style("width")));
    var old_h = Math.round(parseInt(d3.selectAll(this.id).select("svg").style("height")));
 
-   var new_h= Math.round(new_w * old_h/old_w);
+   var new_h= Math.round(new_w * old_h/old_w);*/
 
 
    //d3.selectAll(this.id).select("svg").attr("width",  new_w);
@@ -74,9 +84,9 @@ parliament_resize(type,party){
  draw_legend(data) {
 
     console.log("draw_legend");
-
+    var width=d3.selectAll(this.id).select(".d3-parliament").style("width");
     var start = 20;
-    var radius =10;
+    var radius =Math.round(parseInt(width)/50);
     var dx_text = 2*radius;
     var width=d3.selectAll(this.id).select(".d3-parliament").style("width");
     width=width.replace("px","");
@@ -130,6 +140,7 @@ parliament_resize(type,party){
         .attr("r", radius);
 
     var width_parliament =d3.selectAll(this.id).selectAll(".parliament").style("width");
+    var w_parliament =d3.selectAll(this.id).select("svg").style("width");
 
 
     d3.selectAll(this.id).selectAll(".parliament_legend").selectAll("text")
@@ -141,6 +152,7 @@ parliament_resize(type,party){
             return o.id + " (" + nn + ")";
         })
         .attr("fill", "#373737")
+        .style("font-size", parseInt(w_parliament)/50 + "px")
         .attr("x", function(o,i) {
                 var j;
                   if(i==4 || i==8 || i==12){
