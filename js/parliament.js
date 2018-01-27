@@ -33,12 +33,18 @@ class Parliament{
 
   parliament_resize(){
     $(window).resize(function() {
-     var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+
+    var w_parliament = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
+    var new_w=Math.round(w_parliament*7/8);
+    var new_h = Math.round(w_parliament/1.2)
+
+     //var new_w = Math.round(parseInt(d3.selectAll("section").style("width"))/2);
 
      var old_w= Math.round(parseInt(d3.selectAll(this.id).select("svg").style("width")));
      var old_h = Math.round(parseInt(d3.selectAll(this.id).select("svg").style("height")));
 
-     var new_h= Math.round(new_w * old_h/old_w);
+
+    //var new_h= Math.round(new_w * old_h/old_w);
 
 
      //d3.selectAll(this.id).select("svg").attr("width",  new_w);
